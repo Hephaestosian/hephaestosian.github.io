@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hephaestosian | 현대의 대장장이가 만드는 소프트웨어 도구</title>
+    <meta name="description" content="사람들의 일상에 필요한 디지털 도구를 만드는 소프트웨어 스튜디오">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --highlight: #e94560;
+            --gold: #f39c12;
+            --text: #e8e8e8;
+            --text-dim: #a0a0a0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            opacity: 0.1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold), var(--highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--highlight), var(--gold));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.9s both;
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(233, 69, 96, 0.5);
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 100px 0;
+            background: var(--secondary);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--text), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-dim);
+        }
+
+        .philosophy-highlight {
+            color: var(--highlight);
+            font-weight: 600;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+            background: var(--primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background: var(--secondary);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(243, 156, 18, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-name {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .product-description {
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .product-status {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--accent);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        .status-ending {
+            background: var(--highlight);
+        }
+
+        /* Concept Section */
+        .concept {
+            padding: 100px 0;
+            background: var(--secondary);
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .concept-item {
+            text-align: center;
+            padding: 30px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .concept-number {
+            font-size: 3rem;
+            color: var(--highlight);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .concept-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .concept-desc {
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* Trust Section */
+        .trust {
+            padding: 80px 0;
+            background: var(--primary);
+        }
+
+        .trust-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .trust-item {
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--secondary);
+            border-radius: 10px;
+        }
+
+        .trust-label {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .trust-value {
+            color: var(--text);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .trust-value a {
+            color: var(--highlight);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .trust-value a:hover {
+            color: var(--gold);
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px 0;
+            background: var(--secondary);
+            border-top: 1px solid var(--accent);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-title {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin: 10px 0;
+        }
+
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--highlight);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--accent);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* Scroll Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+
+        /* Particles background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: float 15s infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-100px) translateX(50px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="logo">Hephaestosian</h1>
+            <p class="tagline">현대의 대장장이가 만드는 소프트웨어 도구</p>
+            <p class="subtitle">사람들의 일상에 필요한 디지털 도구를 정성스럽게 만듭니다</p>
+            <a href="#products" class="cta-button">서비스 살펴보기</a>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy scroll-reveal">
+        <div class="container">
+            <h2 class="section-title">Philosophy</h2>
+            <div class="philosophy-content">
+                <p>
+                    헤파이스토스가 신들을 위한 도구를 만들었듯이,<br>
+                    우리는 <span class="philosophy-highlight">현대인을 위한 디지털 도구</span>를 만듭니다.<br><br>
+                    복잡한 세상 속에서 사람들이 필요로 하는 것은<br>
+                    화려한 기술이 아니라 <span class="philosophy-highlight">매일 쓰는 좋은 도구</span>입니다.<br><br>
+                    우리는 문제를 발견하고, 해결책을 만들며,<br>
+                    사용자의 삶을 조금 더 나아지게 만듭니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products scroll-reveal" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Tools</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">🔔</div>
+                    <h3 class="product-name">ZenBell</h3>
+                    <p class="product-description">
+                        범종 소리로 마음의 평화를 찾는<br>
+                        명상과 수면 도우미
+                    </p>
+                    <span class="product-status">운영 중</span>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">💪</div>
+                    <h3 class="product-name">BodySignal</h3>
+                    <p class="product-description">
+                        몸이 보내는 신호를 기록하고<br>
+                        건강 패턴을 발견하는 도구
+                    </p>
+                    <span class="product-status">운영 중</span>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">🎴</div>
+                    <h3 class="product-name">Emotion Cards</h3>
+                    <p class="product-description">
+                        감정을 탐색하고 표현하는<br>
+                        심리 케어 카드
+                    </p>
+                    <span class="product-status">운영 중</span>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">🎨</div>
+                    <h3 class="product-name">Today's Masterpiece</h3>
+                    <p class="product-description">
+                        매일 명화를 만나는<br>
+                        예술 감상 앱
+                    </p>
+                    <span class="product-status status-ending">종료 예정</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section class="concept scroll-reveal">
+        <div class="container">
+            <h2 class="section-title">How We Work</h2>
+            <div class="concept-grid">
+                <div class="concept-item">
+                    <div class="concept-number">01</div>
+                    <h3 class="concept-title">문제 발견</h3>
+                    <p class="concept-desc">
+                        사람들이 일상에서 겪는<br>
+                        진짜 문제를 발견합니다
+                    </p>
+                </div>
+
+                <div class="concept-item">
+                    <div class="concept-number">02</div>
+                    <h3 class="concept-title">도구 제작</h3>
+                    <p class="concept-desc">
+                        문제를 해결하는<br>
+                        실용적인 도구를 만듭니다
+                    </p>
+                </div>
+
+                <div class="concept-item">
+                    <div class="concept-number">03</div>
+                    <h3 class="concept-title">삶의 개선</h3>
+                    <p class="concept-desc">
+                        사용자의 일상이<br>
+                        조금 더 나아지게 만듭니다
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust scroll-reveal">
+        <div class="container">
+            <h2 class="section-title">Trust & Contact</h2>
+            <div class="trust-content">
+                <div class="trust-item">
+                    <div class="trust-label">사업자명</div>
+                    <div class="trust-value">Hephaestosian</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-label">문의</div>
+                    <div class="trust-value">
+                        <a href="mailto:contact@hephaestosian.com">contact@hephaestosian.com</a>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-label">개인정보처리방침</div>
+                    <div class="trust-value">
+                        <a href="/legal/privacy.html">보기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="/products/zenbell.html">ZenBell</a></li>
+                        <li><a href="/products/bodysignal.html">BodySignal</a></li>
+                        <li><a href="/products/emotioncards.html">Emotion Cards</a></li>
+                        <li><a href="/products/masterpiece.html">Today's Masterpiece</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="/company/about.html">About</a></li>
+                        <li><a href="/company/philosophy.html">Philosophy</a></li>
+                        <li><a href="/company/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="/legal/privacy.html">개인정보처리방침</a></li>
+                        <li><a href="/legal/terms.html">이용약관</a></li>
+                        <li><a href="/app-ads.txt">app-ads.txt</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2026 Hephaestosian. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animation
+        const reveals = document.querySelectorAll('.scroll-reveal');
+        
+        function checkScroll() {
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        checkScroll();
+
+        // Create Particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
