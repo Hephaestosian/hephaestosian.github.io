@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hephaestosian | Modern Tools for Daily Life</title>
+    <meta name="description" content="Crafting sophisticated digital tools for a better daily experience.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; scroll-behavior: smooth; }
+        .glass-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.3s ease; }
+        .glass-card:hover { border-color: rgba(212, 175, 55, 0.5); transform: translateY(-5px); }
+        .gold-text { background: linear-gradient(90deg, #D4AF37, #F2D472); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="sticky top-0 z-50 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-tighter">HEPHAESTOSIAN</div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+                <a href="#philosophy" class="hover:text-white transition">Philosophy</a>
+                <a href="#products" class="hover:text-white transition">Products</a>
+                <a href="mailto:your-email@gmail.com" class="hover:text-white transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-32 pb-20 px-6 text-center max-w-5xl mx-auto">
+        <div class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest uppercase border border-yellow-900/50 rounded-full text-yellow-500 bg-yellow-900/10">
+            The Digital Blacksmith Studio
+        </div>
+        <h1 class="text-5xl md:text-8xl font-bold mb-8 tracking-tight">
+            Forging <span class="gold-text">Sophisticated</span> Tools for You
+        </h1>
+        <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed text-balance">
+            We simplify complex problems by crafting essential digital tools. Like a modern blacksmith, we hammer out the noise to build what truly matters.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+            <a href="#products" class="bg-white text-black px-10 py-4 rounded-full font-bold hover:bg-gray-200 transition">
+                Explore Our Tools
+            </a>
+            <a href="#philosophy" class="px-10 py-4 rounded-full font-bold border border-white/10 hover:bg-white/5 transition">
+                Our Philosophy
+            </a>
+        </div>
+    </header>
+
+    <section id="philosophy" class="py-24 px-6 bg-white/[0.01]">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Our Heritage</h2>
+            <p class="text-xl text-gray-400 leading-relaxed font-light">
+                Inspired by Hephaestus, the god of craftsmanship, we believe that software should be more than just code. It should be a <span class="text-white font-medium italic">sturdy tool</span> that improves the quality of human life, one interaction at a time.
+            </p>
+        </div>
+    </section>
+
+    <section id="products" class="py-32 px-6 max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+            <div>
+                <h2 class="text-4xl font-bold mb-4 italic">Product Hub</h2>
+                <p class="text-gray-500">Selected tools forged in our studio.</p>
+            </div>
+            <div class="text-sm font-mono text-gray-600">Total 4 Forged Tools</div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div class="glass-card p-10 rounded-3xl group">
+                <div class="w-12 h-12 bg-yellow-500/10 rounded-xl mb-6 flex items-center justify-center text-yellow-500 font-bold">ZB</div>
+                <h3 class="text-2xl font-bold mb-2">ZenBell</h3>
+                <p class="text-gray-400 mb-8 h-12">A sophisticated Buddhist bell sound metronome for meditation and focus.</p>
+                <div class="flex items-center justify-between">
+                    <a href="/products/zenbell.html" class="text-sm font-bold border-b border-white/20 pb-1 hover:border-white transition">View Details</a>
+                    <span class="text-[10px] font-mono text-gray-600 uppercase tracking-widest">Available on Play Store</span>
+                </div>
+            </div>
+
+            <div class="glass-card p-10 rounded-3xl group">
+                <div class="w-12 h-12 bg-blue-500/10 rounded-xl mb-6 flex items-center justify-center text-blue-500 font-bold">BS</div>
+                <h3 class="text-2xl font-bold mb-2">BodySignal</h3>
+                <p class="text-gray-400 mb-8 h-12">An intuitive tool to record and analyze vital signals from your body.</p>
+                <div class="flex items-center justify-between">
+                    <a href="/products/bodysignal.html" class="text-sm font-bold border-b border-white/20 pb-1 hover:border-white transition">View Details</a>
+                    <span class="text-[10px] font-mono text-gray-600 uppercase tracking-widest">Coming Soon</span>
+                </div>
+            </div>
+
+            <div class="glass-card p-10 rounded-3xl group">
+                <div class="w-12 h-12 bg-purple-500/10 rounded-xl mb-6 flex items-center justify-center text-purple-500 font-bold">EC</div>
+                <h3 class="text-2xl font-bold mb-2">Emotion Cards</h3>
+                <p class="text-gray-400 mb-8 h-12">Digital card set to help you identify and embrace your daily emotions.</p>
+                <div class="flex items-center justify-between">
+                    <a href="/products/emotioncards.html" class="text-sm font-bold border-b border-white/20 pb-1 hover:border-white transition">View Details</a>
+                    <span class="text-[10px] font-mono text-gray-600 uppercase tracking-widest">In Development</span>
+                </div>
+            </div>
+
+            <div class="glass-card p-10 rounded-3xl opacity-50 bg-black">
+                <div class="w-12 h-12 bg-gray-500/10 rounded-xl mb-6 flex items-center justify-center text-gray-500 font-bold italic">M</div>
+                <h3 class="text-2xl font-bold mb-2 italic text-gray-300">Today's Masterpiece</h3>
+                <p class="text-gray-500 mb-8 h-12">Service archived. Thank you for the journey.</p>
+                <span class="text-[10px] font-mono text-gray-700 uppercase tracking-widest">Sunset Project</span>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="mt-20 py-24 border-t border-white/5 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2">
+                <h4 class="text-xl font-bold mb-6 tracking-tighter">HEPHAESTOSIAN</h4>
+                <p class="text-gray-500 text-sm max-w-sm leading-relaxed mb-6">
+                    Forging digital value through minimalist design and robust engineering. Based in Seoul, serving the world.
+                </p>
+                <p class="text-xs text-gray-600 font-mono italic">"Modern tools for the digital age."</p>
+            </div>
+            <div>
+                <h5 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Legal</h5>
+                <ul class="text-sm text-gray-500 space-y-4">
+                    <li><a href="/legal/privacy-zenbell.html" class="hover:text-white transition">Privacy Policy</a></li>
+                    <li><a href="/legal/terms-zenbell.html" class="hover:text-white transition">Terms of Service</a></li>
+                    <li><a href="/app-ads.txt" class="hover:text-white transition font-mono">app-ads.txt</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Connect</h5>
+                <ul class="text-sm text-gray-500 space-y-4">
+                    <li><a href="mailto:your-email@gmail.com" class="hover:text-white transition">Email Inquiry</a></li>
+                    <li><a href="#" class="hover:text-white transition">Play Store</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-[10px] text-gray-600 uppercase tracking-widest">© 2024 Hephaestosian. All rights reserved.</p>
+            <div class="text-[10px] text-gray-700 font-mono">Build: 24.1.0-alpha</div>
+        </div>
+    </footer>
+
+</body>
+</html>
