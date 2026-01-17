@@ -5,22 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emotion Cards | Forged by Hephaestosian</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/png" href="/assets/icons/emotioncards.png"> 
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/emotioncards.png">
+    <link rel="apple-touch-icon" href="/assets/icons/emotioncards.png">
+    <link rel="shortcut icon" href="/assets/icons/emotioncards.png">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; }
+        /* 일관된 유리 질감 및 퍼플 그림자 */
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .purple-shadow { box-shadow: 0 0 50px rgba(168, 85, 247, 0.1); }
+        /* 감정 카드 느낌의 부드러운 애니메이션 */
         .floating { animation: floating 3s ease-in-out infinite; }
         @keyframes floating {
-            0% { transform: translateY(0px); }
+            0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
         }
     </style>
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/emotioncards.png">
-<link rel="apple-touch-icon" href="/assets/icons/emotioncards.png">
-<link rel="shortcut icon" href="/assets/icons/emotioncards.png">
 </head>
 <body class="antialiased">
 
@@ -40,7 +42,7 @@
                 </div>
 
                 <div class="inline-block px-4 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border border-purple-500/30 text-purple-500 rounded-full">
-                    Mindfulness & Emotion
+                    Mindfulness Tool
                 </div>
                 
                 <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
@@ -54,20 +56,21 @@
 
                 <div class="space-y-4 pt-4">
                     <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500">The Soul's Toolkit</h3>
-                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-gray-400 text-sm">
-                        <li class="flex items-start gap-2">● <strong>Visual Vocabulary:</strong> Beautifully illustrated emotion cards.</li>
-                        <li class="flex items-start gap-2">● <strong>Daily Reflection:</strong> Track how your heart changes over time.</li>
-                        <li class="flex items-start gap-2">● <strong>Mindful Insights:</strong> Deepen your self-awareness daily.</li>
-                        <li class="flex items-start gap-2">● <strong>Mental Sanctuary:</strong> A private space for your true self.</li>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-gray-400 text-sm text-left">
+                        <li class="flex items-start gap-2">● <strong>Visual Vocabulary:</strong> Expressive emotion cards.</li>
+                        <li class="flex items-start gap-2">● <strong>Daily Reflection:</strong> Track your mental evolution.</li>
+                        <li class="flex items-start gap-2">● <strong>Mindful Insights:</strong> Deepen your self-awareness.</li>
+                        <li class="flex items-start gap-2">● <strong>Privacy First:</strong> Your heart remains your own.</li>
                     </ul>
                 </div>
 
                 <div class="pt-8 flex flex-col items-center lg:items-start gap-8">
                     <div class="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start">
-                        <div class="px-8 py-4 bg-purple-900/10 border border-purple-500/20 rounded-xl text-sm font-bold text-purple-400 tracking-widest">
+                        <div class="px-8 py-4 bg-white/5 border border-white/10 rounded-xl text-sm font-bold text-purple-400 tracking-widest">
                             PROJECT IN THE FORGE
                         </div>
                     </div>
+                    
                     <p class="text-xs text-gray-600 italic">We are currently hammering out the final details for a soulful experience.</p>
                 </div>
             </div>
@@ -75,11 +78,12 @@
             <div class="flex-shrink-0 mx-auto lg:mx-0">
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-purple-600/20 rounded-[2.5rem] blur-xl opacity-50"></div>
-                    <div class="relative w-[280px] h-[500px] md:w-[320px] md:h-[570px] glass rounded-[2.5rem] p-3 purple-shadow overflow-hidden">
-                        <div class="w-full h-full rounded-[2rem] bg-black flex flex-col items-center justify-center border border-white/5 space-y-6">
+                    <div class="relative w-[280px] h-[500px] md:w-[320px] md:h-[570px] glass rounded-[2.5rem] p-3 purple-shadow">
+                        <div class="w-full h-full rounded-[2rem] overflow-hidden bg-black flex flex-col items-center justify-center border border-white/5 space-y-6">
                             <div class="w-32 h-44 bg-gradient-to-br from-purple-500/20 to-transparent border border-purple-500/30 rounded-xl floating"></div>
-                            <div class="w-32 h-44 bg-gradient-to-br from-blue-500/20 to-transparent border border-blue-500/30 rounded-xl floating" style="animation-delay: 1s;"></div>
-                            <p class="text-[10px] font-mono text-purple-500 uppercase tracking-widest animate-pulse">Crafting Cards...</p>
+                            <div class="text-center">
+                                <p class="text-[10px] font-mono text-purple-500 uppercase tracking-widest animate-pulse">Designing Soul...</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -89,8 +93,8 @@
     </main>
 
     <footer class="py-20 border-t border-white/5 px-6 mt-20">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
-            <div>
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
                 <div class="font-bold tracking-tighter mb-2 italic text-gray-400">HEPHAESTOSIAN</div>
                 <p class="text-[10px] text-gray-600 uppercase tracking-[0.3em]">Precision Digital Craftsmanship</p>
             </div>
