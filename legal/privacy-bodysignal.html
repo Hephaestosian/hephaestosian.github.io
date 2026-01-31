@@ -11,7 +11,7 @@
         .container { max-width: 800px; margin: 0 auto; padding: 60px 24px; }
         h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 2rem; border-bottom: 4px solid #3b82f6; display: inline-block; }
         h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; }
-        .highlight-box { background-color: #eff6ff; border-left: 4px solid #3b82f6; padding: 20px; margin: 1.5rem 0; }
+        .highlight-box { background-color: #f0f9ff; border-left: 4px solid #3b82f6; padding: 20px; margin: 1.5rem 0; }
         table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
         th, td { border: 1px solid #e5e7eb; padding: 12px; text-align: left; }
         th { background-color: #f9fafb; }
@@ -22,121 +22,122 @@
 <header>
     <p class="text-blue-600 font-bold uppercase text-xs mb-2 tracking-widest">Hephaestosian Legal</p>
     <h1>Privacy Policy for BodySignal</h1>
-    <p class="text-gray-500 italic">Effective Date: January 17, 2026</p>
+    <p class="text-gray-500 italic">Effective Date: January 31, 2026 (Updated)</p>
 </header>
 
 <section>
     <p class="mt-8">
-        <strong>BodySignal</strong> ("the App"), provided by <strong>Hephaestosian</strong>,
-        is a personal health tracking application designed to help users record pain signals
-        and view health-related metrics. This policy explains how we process personal and
-        health-related data in compliance with Google Play and Health Connect policies.
+        <strong>BodySignal</strong> ("the App"), provided by <strong>Hephaestosian</strong>, 
+        is a personal health tracking application. This policy explains how we collect, use, and protect your information when you use our services, including Google Sign-In, Firebase services, and Google AdMob.
     </p>
 </section>
 
 <section>
 <h2>1. Information We Collect and Process</h2>
-<p>BodySignal processes the following categories of data:</p>
+<p>BodySignal processes the following categories of data to provide and improve our services:</p>
 
 <table>
 <thead>
 <tr>
 <th>Category</th>
 <th>Data Description</th>
-<th>Purpose & Storage</th>
+<th>Purpose & Legal Basis</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>User Profile (Optional)</strong></td>
-<td>Birth year, gender</td>
-<td>Stored in Firebase using an anonymous user ID</td>
+<td><strong>Authentication (Google Sign-In)</strong></td>
+<td>Email address, Name, Profile picture URL, Google UID</td>
+<td>To create and manage your account, and synchronize data across devices.</td>
 </tr>
 <tr>
-<td><strong>Pain Records</strong></td>
-<td>Pain location, severity, notes, timestamps</td>
-<td>Stored locally and securely backed up to Firebase</td>
+<td><strong>User Profile</strong></td>
+<td>Birth year, gender</td>
+<td>To provide personalized health insights.</td>
+</tr>
+<tr>
+<td><strong>Pain & Health Records</strong></td>
+<td>Pain location, severity, quality, timing, notes, and timestamps</td>
+<td>Core service functionality; stored securely in Firebase.</td>
 </tr>
 <tr>
 <td><strong>Health Connect Data</strong></td>
-<td>
-Steps, distance, calories burned, sleep data, exercise data, heart rate,
-blood pressure, blood glucose, oxygen saturation, respiratory rate,
-body measurements (weight, height, body fat, body temperature),
-nutrition and hydration data
-</td>
-<td>Read-only access, processed locally and optionally synced</td>
+<td>Steps, sleep, heart rate, body measurements, etc.</td>
+<td>Read-only access to provide integrated health metrics within the App.</td>
 </tr>
 <tr>
-<td><strong>Identifiers</strong></td>
-<td>Anonymous application-generated user ID</td>
-<td>Used solely to associate data with the correct user</td>
+<td><strong>Device & Usage Data</strong></td>
+<td>Advertising ID, IP address, crash logs, performance metrics</td>
+<td>Provided via Google AdMob and Firebase Analytics for app improvement and advertising.</td>
 </tr>
 </tbody>
 </table>
+</section>
+
+<section>
+<h2>2. Third-Party Services</h2>
+<p>We use trusted third-party SDKs to enhance your experience. These providers may collect information as governed by their own privacy policies:</p>
 
 <div class="highlight-box">
-<strong>Important:</strong> BodySignal does <strong>NOT</strong> collect names, email addresses,
-phone numbers, or any directly identifiable personal information.
+    <ul class="list-disc ml-6">
+        <li><strong>Google Firebase:</strong> Used for secure data storage (Firestore), user authentication, and crash reporting (Crashlytics).</li>
+        <li><strong>Google Analytics for Firebase:</strong> Used to analyze user behavior and app performance.</li>
+        <li><strong>Google AdMob:</strong> Used to display advertisements. AdMob may use the device's advertising ID to show personalized ads.</li>
+        <li><strong>Google Health Connect:</strong> Used to integrate activity and health data from other apps.</li>
+    </ul>
 </div>
 </section>
 
 <section>
-<h2>2. Google Health Connect</h2>
+<h2>3. Google Health Connect & Data Minimization</h2>
 <p>
-BodySignal integrates with Google Health Connect to read health and activity data
-with the user's explicit consent. All accessed data is used only to provide
-personal insights alongside user-recorded pain history.
+    Our use of information received from Health Connect will adhere to the <strong>Health Connect Permissions policy</strong>, including the Limited Use requirements.
 </p>
 <ul class="list-disc ml-6 mt-2">
-<li>Health Connect data is never sold or shared with third parties.</li>
-<li>All permissions are read-only and can be revoked at any time.</li>
-<li>The App does not provide medical diagnosis or treatment recommendations.</li>
+    <li>We do not sell your health data to third parties.</li>
+    <li>Health data is used solely to provide user-facing features within the App.</li>
+    <li>You can revoke access to Health Connect at any time through your device settings.</li>
 </ul>
 </section>
 
 <section>
-<h2>3. Data Storage & Security</h2>
+<h2>4. Data Storage, Security & Retention</h2>
 <p>
-User data is stored locally on the device and securely backed up using
-<strong>Google Firebase</strong>. All data is encrypted during transmission and at rest.
+    Your data is encrypted during transmission and while at rest using <strong>Google Firebase</strong> infrastructure. We retain your data as long as your account is active. 
 </p>
 </section>
 
 <section>
-<h2>4. Data Deletion & User Control</h2>
-<p>
-Users have full control over their data:
-</p>
-<ul class="list-disc ml-6">
-<li><strong>Pain records</strong> can be individually deleted from the History screen.</li>
-<li><strong>Account and all associated data</strong> can be permanently deleted via
-<strong>Settings → My Information → Delete Account</strong>.</li>
+<h2>5. User Rights & Data Deletion</h2>
+<p>You have full control over your personal information:</p>
+<ul class="list-disc ml-6 mt-2">
+    <li><strong>Access & Export:</strong> You can view your data within the App.</li>
+    <li><strong>Deletion:</strong> You may delete specific records in the History tab.</li>
+    <li><strong>Account Termination:</strong> You can permanently delete your account and all associated data via 
+        <strong>Settings → My Information → Delete Account</strong>.
+    </li>
 </ul>
+<p class="mt-2 italic text-red-600 underline">Note: Upon account deletion, all data stored in Firebase is immediately and irreversibly destroyed.</p>
+</section>
+
+<section>
+<h2>6. Medical Disclaimer</h2>
 <p>
-Once deleted, data is permanently removed from Firebase and cannot be recovered.
+    BodySignal is a tracking tool and <strong>not a medical device</strong>. It does not provide medical diagnoses, treatment plans, or professional advice. Always seek the advice of a physician for any medical concerns.
 </p>
 </section>
 
 <section>
-<h2>5. Medical Disclaimer</h2>
+<h2>7. Contact Us</h2>
 <p>
-BodySignal is not a medical device and does not provide medical diagnoses,
-treatment instructions, or medication recommendations.
-All insights are informational only.
-</p>
-</section>
-
-<section>
-<h2>6. Contact</h2>
-<p>
-For privacy-related questions or data deletion requests, contact:
-<a href="mailto:retyper@naver.com" class="text-blue-600">retyper@naver.com</a>
+    If you have any questions regarding this Privacy Policy or your data, please contact us at:
+    <br>
+    <a href="mailto:retyper@naver.com" class="text-blue-600 font-semibold">retyper@naver.com</a>
 </p>
 </section>
 
 <footer class="mt-20 pt-8 border-t text-sm text-gray-500">
-© 2026 Hephaestosian. All rights reserved.
+    © 2026 Hephaestosian. All rights reserved.
 </footer>
 </div>
 </body>
