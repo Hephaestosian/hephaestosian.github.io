@@ -3,105 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>BodySignal | Forged by Hephaestosian</title>
+    <meta name="description" content="Record pain, understand patterns, and connect it with your daily health data.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="BodySignal | Pain & Health Record">
+    <meta property="og:description" content="Record pain clearly, track recurring patterns, and understand your body’s signals over time.">
+    <meta property="og:image" content="/assets/icons/bodysignal.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/png" href="/assets/icons/bodysignal.png"> 
+
+    <link rel="icon" type="image/png" href="/assets/icons/bodysignal.png">
+    <link rel="apple-touch-icon" href="/assets/icons/bodysignal.png">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .blue-shadow { box-shadow: 0 0 50px rgba(59, 130, 246, 0.1); }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .blue-shadow {
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.12);
+        }
     </style>
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/bodysignal.png">
-<link rel="apple-touch-icon" href="/assets/icons/bodysignal.png">
-<link rel="shortcut icon" href="/assets/icons/bodysignal.png">
 </head>
+
 <body class="antialiased">
 
-    <nav class="p-6">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="/" class="text-sm font-bold tracking-tighter hover:text-gray-400 transition">← BACK TO STUDIO</a>
-            <div class="text-xs tracking-widest text-gray-500 uppercase font-mono">Product ID: BS-01</div>
+<!-- NAV -->
+<nav class="p-6">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <a href="/" class="text-sm font-bold tracking-tighter hover:text-gray-400 transition">
+            ← BACK TO STUDIO
+        </a>
+        <div class="text-xs tracking-widest text-gray-500 uppercase font-mono">
+            Product ID: BS-01
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <main class="max-w-6xl mx-auto px-6 py-12 md:py-24">
-        <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
-            
-            <div class="flex-1 space-y-8 text-center lg:text-left">
-                <div class="flex justify-center lg:justify-start">
-                    <img src="/assets/icons/bodysignal.png" alt="BodySignal Icon" class="w-24 h-24 rounded-[1.5rem] shadow-2xl border border-white/10 mb-2">
-                </div>
+<!-- MAIN -->
+<main class="max-w-6xl mx-auto px-6 py-12 md:py-24">
+    <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
 
-                <div class="inline-block px-4 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border border-blue-500/30 text-blue-500 rounded-full">
-                    Vital Logging Tool
-                </div>
-                
-                <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
-                    BodySignal <span class="block text-2xl md:text-3xl text-gray-500 mt-2 font-light italic">Decode your vitality</span>
-                </h1>
+        <!-- LEFT CONTENT -->
+        <div class="flex-1 space-y-8 text-center lg:text-left">
 
-                <p class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                    Your body speaks in signals. <span class="text-white font-medium">BodySignal</span> is a precision-forged logbook designed to capture and decode your vital data. 
-                    From subtle patterns to major trends, monitor your path to optimal health with blacksmith-like meticulousness.
+            <div class="flex justify-center lg:justify-start">
+                <img src="/assets/icons/bodysignal.png"
+                     alt="BodySignal Icon"
+                     class="w-24 h-24 rounded-[1.5rem] shadow-2xl border border-white/10">
+            </div>
+
+            <div class="inline-block px-4 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border border-blue-500/30 text-blue-500 rounded-full">
+                Pain & Health Logging Tool
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
+                BodySignal
+                <span class="block text-2xl md:text-3xl text-gray-500 mt-2 font-light italic">
+                    Understand pain patterns over time
+                </span>
+            </h1>
+
+            <p class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                Pain is not just a moment — it’s a pattern.
+                <span class="text-white font-medium">BodySignal</span> helps you record pain clearly,
+                connect it with daily health context, and understand recurring signals from your body over time.
+            </p>
+
+            <!-- FEATURES -->
+            <div class="space-y-4 pt-4">
+                <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500">
+                    What BodySignal Helps You Track
+                </h3>
+
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-gray-400 text-sm">
+                    <li class="flex items-start gap-2">
+                        ● <strong>Pain Location & Intensity:</strong> Record where it hurts and how strong it feels.
+                    </li>
+                    <li class="flex items-start gap-2">
+                        ● <strong>Body Map Input:</strong> Front and back body maps for intuitive logging.
+                    </li>
+                    <li class="flex items-start gap-2">
+                        ● <strong>Pattern & Recurrence:</strong> Visual summaries of repeated pain over time.
+                    </li>
+                    <li class="flex items-start gap-2">
+                        ● <strong>Health Context:</strong> View pain alongside sleep, activity, and daily habits.
+                    </li>
+                    <li class="flex items-start gap-2">
+                        ● <strong>30-Day Pain Heatmap:</strong> See concentration and frequency at a glance.
+                    </li>
+                    <li class="flex items-start gap-2">
+                        ● <strong>PDF Export:</strong> Generate summaries for personal reference or clinic visits.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- DISCLAIMER -->
+            <div class="p-4 bg-blue-900/10 border border-blue-900/30 rounded-2xl max-w-xl text-left">
+                <h4 class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">
+                    Important Notice
+                </h4>
+                <p class="text-xs text-gray-500 leading-relaxed">
+                    BodySignal does not provide medical diagnosis or treatment.
+                    It is designed for personal record-keeping and self-understanding,
+                    and does not replace professional medical care.
                 </p>
-
-                <div class="space-y-4 pt-4">
-                    <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500">Core Architecture</h3>
-                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-gray-400 text-sm">
-                        <li class="flex items-start gap-2">● <strong>Intuitive Logging:</strong> Record signals in seconds.</li>
-                        <li class="flex items-start gap-2">● <strong>Trend Analysis:</strong> Visualize your long-term patterns.</li>
-                        <li class="flex items-start gap-2">● <strong>Privacy First:</strong> Your data stays on your forge.</li>
-                        <li class="flex items-start gap-2">● <strong>Custom Tags:</strong> Tailor the log to your lifestyle.</li>
-                    </ul>
-                </div>
-
-                <div class="pt-8 flex flex-col items-center lg:items-start gap-8">
-                    <div class="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start">
-                        <div class="px-8 py-4 bg-white/5 border border-white/10 rounded-xl text-sm font-bold text-blue-400 tracking-widest">
-                            PROJECT UNDER DEVELOPMENT
-                        </div>
-                    </div>
-                    
-                    <p class="text-xs text-gray-600 italic">Documentation for the Beta release will be available soon.</p>
-                </div>
             </div>
 
-            <div class="flex-shrink-0 mx-auto lg:mx-0">
-                <div class="relative group">
-                    <div class="absolute -inset-1 bg-blue-600/20 rounded-[2.5rem] blur-xl opacity-50"></div>
-                    <div class="relative w-[280px] h-[500px] md:w-[320px] md:h-[570px] glass rounded-[2.5rem] p-3 blue-shadow">
-                        <div class="w-full h-full rounded-[2rem] overflow-hidden bg-black border border-white/5">
-    <iframe 
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/1GMyxt15K7s?autoplay=1&mute=1&loop=1&playlist=1GMyxt15K7s&controls=0&playsinline=1"
-        title="BodySignal Preview"
-        frameborder="0"
-        allow="autoplay; encrypted-media; picture-in-picture"
-        allowfullscreen>
-    </iframe>
-</div>
+            <!-- STATUS -->
+            <div class="pt-8 flex flex-col items-center lg:items-start gap-6">
+                <div class="px-8 py-4 bg-white/5 border border-white/10 rounded-xl text-sm font-bold text-blue-400 tracking-widest">
+                    PROJECT UNDER DEVELOPMENT
+                </div>
+                <p class="text-xs text-gray-600 italic">
+                    Beta release documentation will be available soon.
+                </p>
+            </div>
+        </div>
 
+        <!-- RIGHT DEVICE -->
+        <div class="flex-shrink-0 mx-auto lg:mx-0">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-blue-600/20 rounded-[2.5rem] blur-xl opacity-50"></div>
+
+                <div class="relative w-[280px] h-[500px] md:w-[320px] md:h-[570px] glass rounded-[2.5rem] p-3 blue-shadow">
+                    <div class="w-full h-full rounded-[2rem] overflow-hidden bg-black border border-white/5">
+                        <iframe
+                            class="w-full h-full"
+                            src="https://www.youtube.com/embed/1GMyxt15K7s?autoplay=1&mute=1&loop=1&playlist=1GMyxt15K7s&controls=0&playsinline=1"
+                            title="BodySignal Preview"
+                            frameborder="0"
+                            allow="autoplay; encrypted-media; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
             </div>
-
         </div>
-    </main>
 
-    <footer class="py-20 border-t border-white/5 px-6 mt-20">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-center md:text-left">
-                <div class="font-bold tracking-tighter mb-2 italic">HEPHAESTOSIAN</div>
-                <p class="text-[10px] text-gray-600 uppercase tracking-[0.3em]">Precision Digital Craftsmanship</p>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="py-20 border-t border-white/5 px-6 mt-20">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+            <div class="font-bold tracking-tighter mb-2 italic">
+                HEPHAESTOSIAN
             </div>
-            <div class="flex gap-8 text-xs font-medium text-gray-500">
-                <a href="/legal/privacy-bodysignal.html" class="hover:text-white transition italic">Privacy Policy</a>
-                <a href="/legal/terms-bodysignal.html" class="hover:text-white transition italic">Terms of Service</a>
-            </div>
-            <div class="text-[10px] text-gray-700 font-mono">© 2026 Hephaestosian.</div>
+            <p class="text-[10px] text-gray-600 uppercase tracking-[0.3em]">
+                Precision Digital Craftsmanship
+            </p>
         </div>
-    </footer>
+
+        <div class="flex gap-8 text-xs font-medium text-gray-500">
+            <a href="/legal/privacy-bodysignal.html" class="hover:text-white transition italic">
+                Privacy Policy
+            </a>
+            <a href="/legal/terms-bodysignal.html" class="hover:text-white transition italic">
+                Terms of Service
+            </a>
+        </div>
+
+        <div class="text-[10px] text-gray-700 font-mono">
+            © 2026 Hephaestosian.
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
