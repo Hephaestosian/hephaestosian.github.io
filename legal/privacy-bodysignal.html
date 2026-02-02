@@ -28,7 +28,7 @@
 <section>
     <p class="mt-8">
         <strong>BodySignal</strong> ("the App"), provided by <strong>Hephaestosian</strong>, 
-        is a personal health tracking application. This policy explains how we collect, use, and protect your information when you use our services, including Google Sign-In, Firebase services, and Google AdMob.
+        is a personal health tracking application. This policy explains how we collect, use, and protect your information when you use our services, including Anonymous/Google Sign-In, Firebase services, and Google AdMob.
     </p>
 </section>
 
@@ -46,9 +46,14 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Authentication (Google Sign-In)</strong></td>
+<td><strong>Authentication (Social)</strong></td>
 <td>Email address, Name, Profile picture URL, Google UID</td>
 <td>To create and manage your account, and synchronize data across devices.</td>
+</tr>
+<tr>
+<td><strong>Authentication (Anonymous)</strong></td>
+<td>Firebase Anonymous UID</td>
+<td>To provide service functionality without requiring personal identification.</td>
 </tr>
 <tr>
 <td><strong>User Profile</strong></td>
@@ -67,7 +72,7 @@
 </tr>
 <tr>
 <td><strong>Device & Usage Data</strong></td>
-<td>Advertising ID, IP address, crash logs, performance metrics</td>
+<td>Advertising ID (IDFA/AAID), IP address, crash logs, performance metrics</td>
 <td>Provided via Google AdMob and Firebase Analytics for app improvement and advertising.</td>
 </tr>
 </tbody>
@@ -75,14 +80,14 @@
 </section>
 
 <section>
-<h2>2. Third-Party Services</h2>
+<h2>2. Third-Party Services & User Choice</h2>
 <p>We use trusted third-party SDKs to enhance your experience. These providers may collect information as governed by their own privacy policies:</p>
 
 <div class="highlight-box">
     <ul class="list-disc ml-6">
         <li><strong>Google Firebase:</strong> Used for secure data storage (Firestore), user authentication, and crash reporting (Crashlytics).</li>
         <li><strong>Google Analytics for Firebase:</strong> Used to analyze user behavior and app performance.</li>
-        <li><strong>Google AdMob:</strong> Used to display advertisements. AdMob may use the device's advertising ID to show personalized ads.</li>
+        <li><strong>Google AdMob:</strong> Used to display advertisements. AdMob may use the device's advertising ID. <strong>iOS users</strong> can manage tracking permissions via the App Tracking Transparency (ATT) prompt.</li>
         <li><strong>Google Health Connect:</strong> Used to integrate activity and health data from other apps.</li>
     </ul>
 </div>
@@ -109,15 +114,15 @@
 
 <section>
 <h2>5. User Rights & Data Deletion</h2>
-<p>You have full control over your personal information:</p>
+<p>You have full control over your personal information, whether you use <strong>Social Login</strong> or <strong>Anonymous Login</strong>:</p>
 <ul class="list-disc ml-6 mt-2">
     <li><strong>Access & Export:</strong> You can view your data within the App.</li>
     <li><strong>Deletion:</strong> You may delete specific records in the History tab.</li>
-    <li><strong>Account Termination:</strong> You can permanently delete your account and all associated data via 
+    <li><strong>Account Termination:</strong> All users can permanently delete their account and all associated data via 
         <strong>Settings → My Information → Delete Account</strong>.
     </li>
 </ul>
-<p class="mt-2 italic text-red-600 underline">Note: Upon account deletion, all data stored in Firebase is immediately and irreversibly destroyed.</p>
+<p class="mt-2 italic text-red-600 underline">Note: Upon account deletion, all data (including records tied to anonymous IDs) is immediately and irreversibly destroyed from our Firebase database.</p>
 </section>
 
 <section>
