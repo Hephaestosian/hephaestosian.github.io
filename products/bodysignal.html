@@ -222,7 +222,6 @@
             footerTag: "Precision Digital Craftsmanship",
             privacy: "Privacy Policy", terms: "Terms of Service",
             lang: "KO",
-            // 영어 영상 (Shorts ID: 1GMyxt15K7s)
             video: "https://www.youtube.com/embed/1GMyxt15K7s?autoplay=1&mute=1&loop=1&playlist=1GMyxt15K7s&controls=0&playsinline=1"
         },
         ko: {
@@ -233,7 +232,8 @@
             featuresTitle: "바디시그널 주요 기록 기능",
             f1_t: "통증 부위 및 강도:", f1_d: "통증이 느껴지는 부위와 강도를 세밀하게 기록합니다.",
             f2_t: "바디 맵 입력:", f2_d: "전신 앞/뒷면 지도를 통해 직관적인 위치 선택이 가능합니다.",
-            f3_t: "패턴 및 반복 추적:", f3_d: "반복되는 통증을 시각적 요약으로 파악합니다.",<br>            f4_t: "건강 맥락 분석:", f4_d: "수면, 활동량, 습관과 통증의 상관관계를 확인합니다.",
+            f3_t: "패턴 및 반복 추적:", f3_d: "반복되는 통증을 시각적 요약으로 파악합니다.",
+            f4_t: "건강 맥락 분석:", f4_d: "수면, 활동량, 습관과 통증의 상관관계를 확인합니다.",
             f5_t: "30일 통증 히트맵:", f5_d: "통증의 빈도와 집중도를 한눈에 파악합니다.",
             f6_t: "PDF 내보내기:", f6_d: "개인 소장이나 병원 진료 참고용 요약본을 생성합니다.",
             noticeTitle: "중요 고지 사항",
@@ -243,11 +243,11 @@
             footerTag: "정교한 디지털 장인정신",
             privacy: "개인정보 처리방침", terms: "이용약관",
             lang: "EN",
-            // 한국어 영상 (Shorts ID: iBVnsX3o71Y)
             video: "https://www.youtube.com/embed/iBVnsX3o71Y?autoplay=1&mute=1&loop=1&playlist=iBVnsX3o71Y&controls=0&playsinline=1"
         }
     };
 
+    // 현재 언어 상태 관리
     let currentLang = localStorage.getItem('preferredLang') || 'en';
 
     function applyLanguage(lang) {
@@ -258,7 +258,7 @@
         const langBtn = document.getElementById('langBtn');
         if (langBtn) langBtn.innerText = t.lang;
 
-        // 1. 일반 텍스트 변경
+        // 1. data-i18n 속성 요소 변경
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (t[key]) el.innerText = t[key];
@@ -268,7 +268,7 @@
         const mainDesc = document.getElementById('main-desc');
         if (mainDesc && t.mainDesc) mainDesc.innerHTML = t.mainDesc;
 
-        // 3. [핵심] 비디오 소스 변경 로직 추가
+        // 3. 비디오 소스 변경
         const videoIframe = document.getElementById('product-video');
         if (videoIframe && t.video) {
             videoIframe.src = t.video;
@@ -276,15 +276,22 @@
     }
 
     function toggleLang() {
-        currentLang = currentLang === 'en' ? 'ko' : 'en';
+        currentLang = (currentLang === 'en' ? 'ko' : 'en');
         localStorage.setItem('preferredLang', currentLang);
         applyLanguage(currentLang);
     }
 
-    // 페이지 로드 시 즉시 실행
-    document.addEventListener('DOMContentLoaded', () => {
-        applyLanguage(currentLang);
-    });
+    // [중요] 젠벨에서 성공했던 실행 보장 로직
+    function init() {
+        const savedLang = localStorage.getItem('preferredLang') || 'en';
+        applyLanguage(savedLang);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 </script>
 
 </body>
