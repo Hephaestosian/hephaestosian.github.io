@@ -218,6 +218,19 @@
     document.addEventListener('DOMContentLoaded', () => {
         applyLanguage(currentLang);
     });
+        // 5. 페이지 로드 시 즉시 실행 (가장 확실한 방법)
+    function init() {
+        // 한 번 더 저장소에서 값을 확인
+        const savedLang = localStorage.getItem('preferredLang') || 'en';
+        applyLanguage(savedLang);
+    }
+
+    // 문서가 로드될 때 실행
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init(); // 이미 로드가 끝났다면 즉시 실행
+    }
 </script>
 </body>
 </html>
