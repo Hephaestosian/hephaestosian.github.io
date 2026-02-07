@@ -19,7 +19,6 @@
             overflow-x: hidden;
         }
 
-        /* 1. 살아 움직이는 배경 (대장간 불꽃 느낌) */
         .bg-glow {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -36,7 +35,6 @@
             100% { transform: scale(1.1); opacity: 0.8; }
         }
 
-        /* 2. 카드 디자인 업그레이드 (은은한 테두리 광택) */
         .glass-card { 
             background: rgba(255, 255, 255, 0.01); 
             backdrop-filter: blur(12px);
@@ -66,7 +64,6 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.05);
         }
 
-        /* 3. 금색 텍스트 애니메이션 (흐르는 금물 느낌) */
         .gold-text { 
             background: linear-gradient(90deg, #D4AF37, #F2D472, #D4AF37); 
             background-size: 200% auto;
@@ -79,10 +76,19 @@
             to { background-position: 200% center; }
         }
 
-        /* 4. 부드러운 스크롤 섹션 구분선 */
         .section-divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+        }
+
+        /* 언어 버튼 스타일 */
+        #langBtn {
+            transition: all 0.3s ease;
+        }
+        #langBtn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(212, 175, 55, 0.5);
+            color: #D4AF37;
         }
     </style>
 </head>
@@ -93,29 +99,34 @@
     <nav class="sticky top-0 z-50 backdrop-blur-md border-b border-white/5">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-xl font-bold tracking-tighter hover:scale-105 transition-transform cursor-default">HEPHAESTOSIAN</div>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
-                <a href="#philosophy" class="hover:text-white transition">Philosophy</a>
-                <a href="#products" class="hover:text-white transition">Products</a>
-                <a href="mailto:retyper92@gmail.com" class="hover:text-white transition">Contact</a>
+            <div class="flex items-center space-x-4 md:space-x-8">
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+                    <a href="#philosophy" class="hover:text-white transition" data-i18n="navPhilosophy">Philosophy</a>
+                    <a href="#products" class="hover:text-white transition" data-i18n="navProducts">Products</a>
+                    <a href="mailto:retyper92@gmail.com" class="hover:text-white transition" data-i18n="navContact">Contact</a>
+                </div>
+                <button onclick="toggleLang()" id="langBtn" class="text-[10px] font-bold border border-white/20 px-3 py-1 rounded-full uppercase font-mono tracking-widest">
+                    KO
+                </button>
             </div>
         </div>
     </nav>
 
     <header class="relative pt-32 pb-20 px-6 text-center max-w-5xl mx-auto">
-        <div class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest uppercase border border-yellow-900/40 rounded-full text-yellow-500 bg-yellow-900/10 animate-pulse">
+        <div class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest uppercase border border-yellow-900/40 rounded-full text-yellow-500 bg-yellow-900/10 animate-pulse" data-i18n="headerBadge">
             The Digital Blacksmith Studio
         </div>
-        <h1 class="text-5xl md:text-8xl font-bold mb-8 tracking-tight">
+        <h1 class="text-5xl md:text-8xl font-bold mb-8 tracking-tight" id="main-title">
             Forging <span class="gold-text">Sophisticated</span> Tools
         </h1>
-        <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed text-balance font-light">
+        <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed text-balance font-light" data-i18n="headerDesc">
             We simplify complex problems by crafting essential digital tools. Like a modern blacksmith, we hammer out the noise to build what truly matters.
         </p>
         <div class="flex flex-col md:flex-row justify-center gap-4">
-            <a href="#products" class="bg-white text-black px-10 py-4 rounded-full font-bold hover:bg-yellow-500 transition-all duration-300">
+            <a href="#products" class="bg-white text-black px-10 py-4 rounded-full font-bold hover:bg-yellow-500 transition-all duration-300" data-i18n="btnExplore">
                 Explore Our Tools
             </a>
-            <a href="#philosophy" class="px-10 py-4 rounded-full font-bold border border-white/10 hover:bg-white/5 transition">
+            <a href="#philosophy" class="px-10 py-4 rounded-full font-bold border border-white/10 hover:bg-white/5 transition" data-i18n="btnPhilosophy">
                 Our Philosophy
             </a>
         </div>
@@ -125,8 +136,8 @@
 
     <section id="philosophy" class="py-32 px-6">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-xs uppercase tracking-[0.3em] text-yellow-600 mb-8 font-bold">Our Heritage</h2>
-            <p class="text-2xl md:text-3xl text-gray-300 leading-relaxed font-light">
+            <h2 class="text-xs uppercase tracking-[0.3em] text-yellow-600 mb-8 font-bold" data-i18n="sectionHeritage">Our Heritage</h2>
+            <p class="text-2xl md:text-3xl text-gray-300 leading-relaxed font-light" id="philosophy-text">
                 Inspired by Hephaestus, we believe software should be more than code. It should be a <span class="text-white font-medium italic underline decoration-yellow-600/30 underline-offset-8">sturdy tool</span> that improves human life.
             </p>
         </div>
@@ -137,11 +148,11 @@
     <section id="products" class="py-32 px-6 max-w-6xl mx-auto">
         <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-4">
             <div>
-                <h2 class="text-4xl font-bold mb-4 italic tracking-tight">Product Hub</h2>
-                <p class="text-gray-500">Selected tools forged in our studio.</p>
+                <h2 class="text-4xl font-bold mb-4 italic tracking-tight" data-i18n="productTitle">Product Hub</h2>
+                <p class="text-gray-500" data-i18n="productDesc">Selected tools forged in our studio.</p>
             </div>
             <div class="text-[10px] font-mono text-gray-600 tracking-widest border border-white/5 px-3 py-1 rounded-full uppercase">
-                Inventory: 04 Items
+                <span data-i18n="inventory">Inventory</span>: 04 Items
             </div>
         </div>
 
@@ -151,52 +162,52 @@
                     <img src="/assets/icons/zenbell.png" alt="ZenBell Icon" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 </div>
                 <h3 class="text-2xl font-bold mb-1">Zen Bell</h3>
-                <p class="text-[10px] font-bold text-yellow-600 mb-4 tracking-[0.2em] uppercase">Drift into sleep</p>
-                <p class="text-gray-400 mb-10 h-12 text-sm leading-relaxed">Authentic Korean temple bell resonance for deep restorative sleep and mindfulness.</p>
+                <p class="text-[10px] font-bold text-yellow-600 mb-4 tracking-[0.2em] uppercase" data-i18n="zbSub">Drift into sleep</p>
+                <p class="text-gray-400 mb-10 h-12 text-sm leading-relaxed" data-i18n="zbDesc">Authentic Korean temple bell resonance for deep restorative sleep and mindfulness.</p>
                 <div class="flex items-center justify-between">
-                    <a href="/products/zenbell.html" class="text-sm font-bold border-b border-yellow-600/30 pb-1 hover:border-yellow-500 transition-all">View Project</a>
-                    <div class="flex gap-2">
-                        <span class="text-[9px] font-bold border border-white/10 px-2 py-1 rounded bg-white/5">iOS</span>
-                        <span class="text-[9px] font-bold border border-white/10 px-2 py-1 rounded bg-white/5">Android</span>
+                    <a href="/products/zenbell.html" class="text-sm font-bold border-b border-yellow-600/30 pb-1 hover:border-yellow-500 transition-all" data-i18n="viewProject">View Project</a>
+                    <div class="flex gap-2 text-[9px] font-bold">
+                        <span class="border border-white/10 px-2 py-1 rounded bg-white/5">iOS</span>
+                        <span class="border border-white/10 px-2 py-1 rounded bg-white/5">Android</span>
                     </div>
                 </div>
             </div>
 
             <div class="glass-card p-10 rounded-[2.5rem] group">
-    <div class="w-16 h-16 mb-8 overflow-hidden rounded-2xl shadow-2xl border border-white/10">
-        <img src="/assets/icons/bodysignal.png" alt="BodySignal Icon" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-    </div>
-    <h3 class="text-2xl font-bold mb-1">BodySignal</h3>
-    <p class="text-[10px] font-bold text-blue-500 mb-4 tracking-[0.2em] uppercase">Decode your vitality</p>
-    <p class="text-gray-400 mb-10 h-12 text-sm leading-relaxed">Precision logging tool to monitor and understand your body's essential vital signals.</p>
-    <div class="flex items-center justify-between">
-        <a href="/products/bodysignal.html" class="text-sm font-bold border-b border-blue-500/30 pb-1 hover:border-blue-400 transition-all">Explore Project</a>
-        <div class="flex gap-2">
-            <span class="text-[9px] font-bold border border-blue-500/20 px-2 py-1 rounded bg-blue-500/5 text-blue-500">BETA</span>
-        </div>
-    </div>
-</div>
+                <div class="w-16 h-16 mb-8 overflow-hidden rounded-2xl shadow-2xl border border-white/10">
+                    <img src="/assets/icons/bodysignal.png" alt="BodySignal Icon" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <h3 class="text-2xl font-bold mb-1">BodySignal</h3>
+                <p class="text-[10px] font-bold text-blue-500 mb-4 tracking-[0.2em] uppercase" data-i18n="bsSub">Decode your vitality</p>
+                <p class="text-gray-400 mb-10 h-12 text-sm leading-relaxed" data-i18n="bsDesc">Precision logging tool to monitor and understand your body's essential vital signals.</p>
+                <div class="flex items-center justify-between">
+                    <a href="/products/bodysignal.html" class="text-sm font-bold border-b border-blue-500/30 pb-1 hover:border-blue-400 transition-all" data-i18n="exploreProject">Explore Project</a>
+                    <div class="flex gap-2">
+                        <span class="text-[9px] font-bold border border-blue-500/20 px-2 py-1 rounded bg-blue-500/5 text-blue-500 uppercase">BETA</span>
+                    </div>
+                </div>
+            </div>
 
-<div class="glass-card p-10 rounded-[2.5rem] group">
-    <div class="w-16 h-16 mb-8 overflow-hidden rounded-2xl shadow-2xl border border-white/10">
-        <img src="/assets/icons/emotioncards.png" alt="Emotion Cards Icon" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-    </div>
-    <h3 class="text-2xl font-bold mb-1">Emotion Cards</h3>
-    <p class="text-[10px] font-bold text-purple-500 mb-4 tracking-[0.2em] uppercase">Map your mind</p>
-    <p class="text-gray-400 mb-10 h-12 text-sm leading-relaxed">Identify and embrace your daily emotional landscape through beautifully forged visual cards.</p>
-    <div class="flex items-center justify-between">
-        <a href="/products/emotioncards.html" class="text-sm font-bold border-b border-purple-500/30 pb-1 hover:border-purple-400 transition-all">View Concept</a>
-        <div class="flex gap-2">
-            <span class="text-[9px] font-bold border border-purple-500/20 px-2 py-1 rounded bg-purple-500/5 text-purple-500 text-center uppercase">In Forge</span>
-        </div>
-    </div>
-</div>
+            <div class="glass-card p-10 rounded-[2.5rem] group">
+                <div class="w-16 h-16 mb-8 overflow-hidden rounded-2xl shadow-2xl border border-white/10">
+                    <img src="/assets/icons/emotioncards.png" alt="Emotion Cards Icon" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <h3 class="text-2xl font-bold mb-1">Emotion Cards</h3>
+                <p class="text-[10px] font-bold text-purple-500 mb-4 tracking-[0.2em] uppercase" data-i18n="ecSub">Map your mind</p>
+                <p class="text-gray-400 mb-10 h-12 text-sm leading-relaxed" data-i18n="ecDesc">Identify and embrace your daily emotional landscape through beautifully forged visual cards.</p>
+                <div class="flex items-center justify-between">
+                    <a href="/products/emotioncards.html" class="text-sm font-bold border-b border-purple-500/30 pb-1 hover:border-purple-400 transition-all" data-i18n="viewConcept">View Concept</a>
+                    <div class="flex gap-2">
+                        <span class="text-[9px] font-bold border border-purple-500/20 px-2 py-1 rounded bg-purple-500/5 text-purple-500 text-center uppercase" data-i18n="inForge">In Forge</span>
+                    </div>
+                </div>
+            </div>
 
             <div class="glass-card p-10 rounded-[2.5rem] opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
                 <div class="w-14 h-14 bg-gray-500/10 rounded-2xl mb-8 flex items-center justify-center text-gray-500 font-bold italic">M</div>
-                <h3 class="text-2xl font-bold mb-1">Today's Masterpiece</h3>
-                <p class="text-[10px] font-bold text-gray-600 mb-4 tracking-[0.2em] uppercase">Archived</p>
-                <p class="text-gray-500 mb-10 h-12 text-sm leading-relaxed">Service completed. Thank you for the journey we shared.</p>
+                <h3 class="text-2xl font-bold mb-1" data-i18n="tmTitle">Today's Masterpiece</h3>
+                <p class="text-[10px] font-bold text-gray-600 mb-4 tracking-[0.2em] uppercase" data-i18n="archived">Archived</p>
+                <p class="text-gray-500 mb-10 h-12 text-sm leading-relaxed" data-i18n="tmDesc">Service completed. Thank you for the journey we shared.</p>
                 <span class="text-[9px] font-mono text-gray-700 border border-white/5 px-2 py-1 rounded">SUNSET</span>
             </div>
         </div>
@@ -206,34 +217,101 @@
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
             <div class="col-span-1 md:col-span-2">
                 <h4 class="text-xl font-bold mb-6 tracking-tighter">HEPHAESTOSIAN</h4>
-                <p class="text-gray-500 text-sm max-w-sm leading-relaxed mb-8">
+                <p class="text-gray-500 text-sm max-w-sm leading-relaxed mb-8" data-i18n="footerAbout">
                     Forging digital value through minimalist design and robust engineering. Based in Seoul, serving the world.
                 </p>
                 <div class="flex gap-4">
                     <div class="w-1 h-1 bg-yellow-700 rounded-full animate-ping"></div>
-                    <p class="text-[10px] text-yellow-800 font-mono uppercase tracking-[0.3em]">Status: Hammering</p>
+                    <p class="text-[10px] text-yellow-800 font-mono uppercase tracking-[0.3em]"><span data-i18n="status">Status</span>: <span data-i18n="hammering">Hammering</span></p>
                 </div>
             </div>
             <div>
                 <h5 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Legal</h5>
                 <ul class="text-sm text-gray-500 space-y-4">
-                    <li><a href="/legal/privacy-zenbell.html" class="hover:text-white transition">Privacy Policy</a></li>
-                    <li><a href="/legal/terms-zenbell.html" class="hover:text-white transition">Terms of Service</a></li>
-                    <li><a href="/app-ads.txt" class="hover:text-white transition font-mono">app-ads.txt</a></li>
+                    <li><a href="/legal/privacy-zenbell.html" class="hover:text-white transition" data-i18n="privacy">Privacy Policy</a></li>
+                    <li><a href="/legal/terms-zenbell.html" class="hover:text-white transition" data-i18n="terms">Terms of Service</a></li>
                 </ul>
             </div>
             <div>
-                <h5 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Connect</h5>
+                <h5 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6" data-i18n="connect">Connect</h5>
                 <ul class="text-sm text-gray-500 space-y-4">
-                    <li><a href="mailto:retyper92@gmail.com" class="hover:text-white transition">Email Inquiry</a></li>
+                    <li><a href="mailto:retyper92@gmail.com" class="hover:text-white transition" data-i18n="email">Email Inquiry</a></li>
                     <li><a href="#" class="hover:text-white transition">Play Store</a></li>
                 </ul>
             </div>
         </div>
         <div class="max-w-6xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-600 uppercase tracking-widest">
-            <p>© 2026 Hephaestosian. All rights reserved.</p>
+            <p>© 2026 Hephaestosian. <span data-i18n="allRights">All rights reserved.</span></p>
             <div class="font-mono">Engine: Forge-v2.1</div>
         </div>
     </footer>
+
+    <script>
+        const translations = {
+            en: {
+                navPhilosophy: "Philosophy", navProducts: "Products", navContact: "Contact",
+                headerBadge: "The Digital Blacksmith Studio",
+                mainTitle: 'Forging <span class="gold-text">Sophisticated</span> Tools',
+                headerDesc: "We simplify complex problems by crafting essential digital tools. Like a modern blacksmith, we hammer out the noise to build what truly matters.",
+                btnExplore: "Explore Our Tools", btnPhilosophy: "Our Philosophy",
+                sectionHeritage: "Our Heritage",
+                philosophyText: 'Inspired by Hephaestus, we believe software should be more than code. It should be a <span class="text-white font-medium italic underline decoration-yellow-600/30 underline-offset-8">sturdy tool</span> that improves human life.',
+                productTitle: "Product Hub", productDesc: "Selected tools forged in our studio.",
+                inventory: "Inventory", viewProject: "View Project", exploreProject: "Explore Project", viewConcept: "View Concept",
+                zbSub: "Drift into sleep", zbDesc: "Authentic Korean temple bell resonance for deep restorative sleep and mindfulness.",
+                bsSub: "Decode your vitality", bsDesc: "Precision logging tool to monitor and understand your body's essential vital signals.",
+                ecSub: "Map your mind", ecDesc: "Identify and embrace your daily emotional landscape through beautifully forged visual cards.",
+                inForge: "In Forge", archived: "Archived", tmTitle: "Today's Masterpiece",
+                tmDesc: "Service completed. Thank you for the journey we shared.",
+                footerAbout: "Forging digital value through minimalist design and robust engineering. Based in Seoul, serving the world.",
+                status: "Status", hammering: "Hammering", privacy: "Privacy Policy", terms: "Terms of Service", connect: "Connect", email: "Email Inquiry", allRights: "All rights reserved.",
+                lang: "KO"
+            },
+            ko: {
+                navPhilosophy: "철학", navProducts: "제품", navContact: "문의",
+                headerBadge: "디지털 대장간 스튜디오",
+                mainTitle: '정교한 <span class="gold-text">디지털 도구</span>를 벼립니다',
+                headerDesc: "우리는 필수적인 디지털 도구를 제작하여 복잡한 문제를 단순화합니다. 현대의 대장장이처럼, 우리는 소음을 두드려 없애고 진정으로 중요한 가치를 만들어냅니다.",
+                btnExplore: "도구 둘러보기", btnPhilosophy: "브랜드 철학",
+                sectionHeritage: "우리의 유산",
+                philosophyText: '헤파이스토스에서 영감을 받아, 우리는 소프트웨어가 단순한 코드를 넘어 인간의 삶을 개선하는 <span class="text-white font-medium italic underline decoration-yellow-600/30 underline-offset-8">견고한 도구</span>가 되어야 한다고 믿습니다.',
+                productTitle: "제품 허브", productDesc: "스튜디오에서 제작된 엄선된 도구들입니다.",
+                inventory: "재고 현황", viewProject: "프로젝트 보기", exploreProject: "자세히 보기", viewConcept: "컨셉 보기",
+                zbSub: "깊은 잠으로의 여정", zbDesc: "심신의 안정과 숙면을 위한 한국 전통 사찰 종소리의 울림을 전합니다.",
+                bsSub: "활력의 해독", bsDesc: "신체의 핵심적인 생체 신호를 정밀하게 기록하고 모니터링하는 도구입니다.",
+                ecSub: "마음의 지도", ecDesc: "아름답게 제작된 시각 카드를 통해 매일의 감정 변화를 기록하고 마주하세요.",
+                inForge: "제작 중", archived: "보관됨", tmTitle: "오늘의 걸작",
+                tmDesc: "서비스가 종료되었습니다. 함께해 주신 여정에 감사드립니다.",
+                footerAbout: "미니멀한 디자인과 견고한 엔지니어링을 통해 디지털 가치를 만듭니다. 서울에서 시작해 전 세계를 향합니다.",
+                status: "상태", hammering: "망치질 중", privacy: "개인정보 처리방침", terms: "이용약관", connect: "연결", email: "이메일 문의", allRights: "모든 권리 보유.",
+                lang: "EN"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'ko' : 'en';
+            const t = translations[currentLang];
+
+            // 언어 변경 버튼 텍스트 변경
+            document.getElementById('langBtn').innerText = t.lang;
+
+            // HTML lang 속성 변경
+            document.documentElement.lang = currentLang;
+
+            // 1. 단순 텍스트 교체 (data-i18n 속성 기준)
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) el.innerText = t[key];
+            });
+
+            // 2. HTML 구조가 포함된 특수 영역 교체
+            document.getElementById('main-title').innerHTML = t.mainTitle;
+            document.getElementById('philosophy-text').innerHTML = t.philosophyText;
+            
+            // 페이지 상단으로 스크롤하지 않고 자연스럽게 텍스트만 바뀝니다.
+        }
+    </script>
 </body>
 </html>
