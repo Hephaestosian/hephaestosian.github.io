@@ -7,35 +7,29 @@
     <title>ZenBell | Forged by Hephaestosian</title>
     <meta name="description" content="Authentic Korean temple bell sounds for deep sleep and restorative meditation.">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://hephaestosian.github.io/products/zenbell.html">
-    <meta property="og:title" content="ZenBell | Forged by Hephaestosian">
-    <meta property="og:description" content="Authentic Korean temple bell sounds for deep sleep and restorative meditation.">
-    <meta property="og:image" content="https://hephaestosian.github.io/assets/icons/zenbell.png">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ZenBell | Forged by Hephaestosian">
-    <meta name="twitter:description" content="Authentic Korean temple bell sounds for deep sleep and restorative meditation.">
-    <meta name="twitter:image" content="https://hephaestosian.github.io/assets/icons/zenbell.png">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="/assets/icons/zenbell.png"> 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; }
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; scroll-behavior: smooth; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .video-shadow { box-shadow: 0 0 50px rgba(212, 175, 55, 0.15); }
+        
+        #langBtn { transition: all 0.3s ease; }
+        #langBtn:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(212, 175, 55, 0.5); color: #D4AF37; }
     </style>
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/zenbell.png">
-    <link rel="apple-touch-icon" href="/assets/icons/zenbell.png">
-    <link rel="shortcut icon" href="/assets/icons/zenbell.png">
 </head>
 <body class="antialiased">
 
     <nav class="p-6">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="/" class="text-sm font-bold tracking-tighter hover:text-gray-400 transition">← BACK TO STUDIO</a>
-            <div class="text-xs tracking-widest text-gray-500 uppercase font-mono">Product ID: ZB-01</div>
+            <a href="/" class="text-sm font-bold tracking-tighter hover:text-gray-400 transition" data-i18n="backToStudio">← BACK TO STUDIO</a>
+            <div class="flex items-center gap-6">
+                <div class="hidden sm:block text-xs tracking-widest text-gray-500 uppercase font-mono">Product ID: ZB-01</div>
+                <button onclick="toggleLang()" id="langBtn" class="text-[10px] font-bold border border-white/20 px-3 py-1 rounded-full uppercase font-mono tracking-widest">
+                    KO
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -47,47 +41,47 @@
                     <img src="/assets/icons/zenbell.png" alt="ZenBell Icon" class="w-24 h-24 rounded-[1.5rem] shadow-2xl border border-white/10 mb-2">
                 </div>
 
-                <div class="inline-block px-4 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border border-yellow-500/30 text-yellow-500 rounded-full">
+                <div class="inline-block px-4 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border border-yellow-500/30 text-yellow-500 rounded-full" data-i18n="mindfulnessTag">
                     Mindfulness Tool
                 </div>
                 
-<h1 class="text-5xl md:text-7xl font-bold tracking-tight">
-    Zen Bell <span class="block text-2xl md:text-3xl text-gray-500 mt-2 font-light italic">Drift into sleep</span>
-</h1>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
+                    Zen Bell <span class="block text-2xl md:text-3xl text-gray-500 mt-2 font-light italic" data-i18n="heroSub">Drift into sleep</span>
+                </h1>
 
-<p class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 text-balance">
-    In an age of invisible fears, <span class="text-white font-medium">Zen Bell</span> is a digital sanctuary designed to silence the chaos. Experience the majestic, profound vibrations of an authentic Korean temple bell—crafted for deep psychological stability and restorative sleep.
-</p>
+                <p class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 text-balance" data-i18n="mainDesc">
+                    In an age of invisible fears, <span class="text-white font-medium">Zen Bell</span> is a digital sanctuary designed to silence the chaos. Experience the majestic, profound vibrations of an authentic Korean temple bell—crafted for deep psychological stability and restorative sleep.
+                </p>
 
-<div class="space-y-4 pt-4 text-left">
-    <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500">The Forge of Serenity</h3>
-    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-gray-400 text-sm">
-        <li class="flex items-start gap-2">
-            <span class="text-yellow-600">●</span> 
-            <span><strong>Authentic Resonance:</strong> High-fidelity traditional bell recordings.</span>
-        </li>
-        <li class="flex items-start gap-2">
-            <span class="text-yellow-600">●</span> 
-            <span><strong>108 Sequences:</strong> Meditation paths to empty your mind.</span>
-        </li>
-        <li class="flex items-start gap-2">
-            <span class="text-yellow-600">●</span> 
-            <span><strong>Visual Serenity:</strong> Tranquil night skies and mountain animations.</span>
-        </li>
-        <li class="flex items-start gap-2">
-            <span class="text-yellow-600">●</span> 
-            <span><strong>Wisdom Quotes:</strong> Daily focus through Buddhist teachings.</span>
-        </li>
-    </ul>
-</div>
+                <div class="space-y-4 pt-4 text-left">
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500" data-i18n="featuresTitle">The Forge of Serenity</h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-gray-400 text-sm" id="features-list">
+                        <li class="flex items-start gap-2">
+                            <span class="text-yellow-600">●</span> 
+                            <span><strong data-i18n="f1_t">Authentic Resonance:</strong> <span data-i18n="f1_d">High-fidelity traditional bell recordings.</span></span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-yellow-600">●</span> 
+                            <span><strong data-i18n="f2_t">108 Sequences:</strong> <span data-i18n="f2_d">Meditation paths to empty your mind.</span></span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-yellow-600">●</span> 
+                            <span><strong data-i18n="f3_t">Visual Serenity:</strong> <span data-i18n="f3_d">Tranquil night skies and mountain animations.</span></span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-yellow-600">●</span> 
+                            <span><strong data-i18n="f4_t">Wisdom Quotes:</strong> <span data-i18n="f4_d">Daily focus through Buddhist teachings.</span></span>
+                        </li>
+                    </ul>
+                </div>
 
-<div class="p-4 bg-yellow-900/10 border border-yellow-900/30 rounded-2xl max-w-xl">
-    <h4 class="text-xs font-bold text-yellow-500 uppercase tracking-widest mb-2">Zen Bell Premium</h4>
-    <p class="text-xs text-gray-500 leading-relaxed">
-        Ad-free meditation, perfect customization of intervals, and Deep Meditation Mode with original raw sounds. 
-        <strong>7-day free trial available.</strong>
-    </p>
-</div>
+                <div class="p-4 bg-yellow-900/10 border border-yellow-900/30 rounded-2xl max-w-xl text-left">
+                    <h4 class="text-xs font-bold text-yellow-500 uppercase tracking-widest mb-2">Zen Bell Premium</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed" data-i18n="premiumDesc">
+                        Ad-free meditation, perfect customization of intervals, and Deep Meditation Mode with original raw sounds. 
+                        <strong>7-day free trial available.</strong>
+                    </p>
+                </div>
 
                 <div class="pt-8 flex flex-col items-center lg:items-start gap-8">
                     <div class="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start">
@@ -105,7 +99,7 @@
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
-                        <span class="text-xs uppercase tracking-widest font-bold">Download Product Brief (PDF)</span>
+                        <span class="text-xs uppercase tracking-widest font-bold" data-i18n="pdfLink">Download Product Brief (PDF)</span>
                     </a>
                 </div>
             </div>
@@ -113,7 +107,6 @@
             <div class="flex-shrink-0 mx-auto lg:mx-0">
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-yellow-600/20 rounded-[2.5rem] blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
-                    
                     <div class="relative w-[280px] h-[500px] md:w-[300px] md:h-[533px] glass rounded-[2.5rem] p-3 video-shadow">
                         <div class="w-full h-full rounded-[1.8rem] overflow-hidden bg-black border border-white/10">
                             <iframe 
@@ -137,15 +130,65 @@
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="text-center md:text-left">
                 <div class="font-bold tracking-tighter mb-2 italic">HEPHAESTOSIAN</div>
-                <p class="text-[10px] text-gray-600 uppercase tracking-[0.3em]">Precision Digital Craftsmanship</p>
+                <p class="text-[10px] text-gray-600 uppercase tracking-[0.3em]" data-i18n="footerTag">Precision Digital Craftsmanship</p>
             </div>
             <div class="flex gap-8 text-xs font-medium text-gray-500">
-                <a href="/legal/privacy-zenbell.html" class="hover:text-white transition italic">Privacy Policy</a>
-                <a href="/legal/terms-zenbell.html" class="hover:text-white transition italic">Terms of Service</a>
+                <a href="/legal/privacy-zenbell.html" class="hover:text-white transition italic" data-i18n="privacy">Privacy Policy</a>
+                <a href="/legal/terms-zenbell.html" class="hover:text-white transition italic" data-i18n="terms">Terms of Service</a>
             </div>
             <div class="text-[10px] text-gray-700 font-mono">© 2026 Hephaestosian.</div>
         </div>
     </footer>
 
+    <script>
+        const translations = {
+            en: {
+                backToStudio: "← BACK TO STUDIO",
+                mindfulnessTag: "Mindfulness Tool",
+                heroSub: "Drift into sleep",
+                mainDesc: "In an age of invisible fears, Zen Bell is a digital sanctuary designed to silence the chaos. Experience the majestic, profound vibrations of an authentic Korean temple bell—crafted for deep psychological stability and restorative sleep.",
+                featuresTitle: "The Forge of Serenity",
+                f1_t: "Authentic Resonance:", f1_d: "High-fidelity traditional bell recordings.",
+                f2_t: "108 Sequences:", f2_d: "Meditation paths to empty your mind.",
+                f3_t: "Visual Serenity:", f3_d: "Tranquil night skies and mountain animations.",
+                f4_t: "Wisdom Quotes:", f4_d: "Daily focus through Buddhist teachings.",
+                premiumDesc: "Ad-free meditation, perfect customization of intervals, and Deep Meditation Mode with original raw sounds. 7-day free trial available.",
+                pdfLink: "Download Product Brief (PDF)",
+                footerTag: "Precision Digital Craftsmanship",
+                privacy: "Privacy Policy", terms: "Terms of Service",
+                lang: "KO"
+            },
+            ko: {
+                backToStudio: "← 스튜디오로 돌아가기",
+                mindfulnessTag: "마음챙김 도구",
+                heroSub: "깊은 잠으로의 여정",
+                mainDesc: "보이지 않는 불안의 시대, 젠벨(Zen Bell)은 일상의 소음을 잠재우기 위해 설계된 디지털 안식처입니다. 깊은 심리적 안정과 회복 탄력적인 수면을 위해 정교하게 벼려진 한국 전통 사찰 종소리의 웅장하고 깊은 울림을 경험해 보세요.",
+                featuresTitle: "평온을 만드는 대장간",
+                f1_t: "정통의 울림:", f1_d: "고해상도로 녹음된 전통 사찰 종소리.",
+                f2_t: "108 번뇌 시퀀스:", f2_d: "마음을 비워내는 108번의 명상 코스.",
+                f3_t: "시각적 평온함:", f3_d: "고요한 밤하늘과 산사를 담은 애니메이션.",
+                f4_t: "지혜의 문구:", f4_d: "불교의 가르침을 통한 매일의 마음 다스림.",
+                premiumDesc: "광고 없는 명상, 완벽한 간격 조절 기능, 그리고 원음 그대로의 깊은 명상 모드를 제공합니다. 7일 무료 체험이 가능합니다.",
+                pdfLink: "제품 소개서 다운로드 (PDF)",
+                footerTag: "정교한 디지털 장인정신",
+                privacy: "개인정보 처리방침", terms: "이용약관",
+                lang: "EN"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'ko' : 'en';
+            const t = translations[currentLang];
+            document.getElementById('langBtn').innerText = t.lang;
+            document.documentElement.lang = currentLang;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) el.innerText = t[key];
+            });
+        }
+    </script>
 </body>
 </html>
