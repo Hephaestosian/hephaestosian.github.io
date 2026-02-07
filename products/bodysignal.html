@@ -7,11 +7,6 @@
     <title>BodySignal | Forged by Hephaestosian</title>
     <meta name="description" content="Record pain, understand patterns, and connect it with your daily health data.">
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="BodySignal | Pain & Health Record">
-    <meta property="og:description" content="Record pain clearly, track recurring patterns, and understand your body’s signals over time.">
-    <meta property="og:image" content="/assets/icons/bodysignal.png">
-
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="icon" type="image/png" href="/assets/icons/bodysignal.png">
@@ -23,6 +18,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #050505;
             color: #ffffff;
+            scroll-behavior: smooth;
         }
         .glass {
             background: rgba(255, 255, 255, 0.03);
@@ -32,28 +28,32 @@
         .blue-shadow {
             box-shadow: 0 0 50px rgba(59, 130, 246, 0.12);
         }
+        #langBtn { transition: all 0.3s ease; }
+        #langBtn:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(59, 130, 246, 0.5); color: #3b82f6; }
     </style>
 </head>
 
 <body class="antialiased">
 
-<!-- NAV -->
 <nav class="p-6">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
-        <a href="/" class="text-sm font-bold tracking-tighter hover:text-gray-400 transition">
+        <a href="/" class="text-sm font-bold tracking-tighter hover:text-gray-400 transition" data-i18n="backToStudio">
             ← BACK TO STUDIO
         </a>
-        <div class="text-xs tracking-widest text-gray-500 uppercase font-mono">
-            Product ID: BS-01
+        <div class="flex items-center gap-6">
+            <div class="hidden sm:block text-xs tracking-widest text-gray-500 uppercase font-mono">
+                Product ID: BS-01
+            </div>
+            <button onclick="toggleLang()" id="langBtn" class="text-[10px] font-bold border border-white/20 px-3 py-1 rounded-full uppercase font-mono tracking-widest">
+                KO
+            </button>
         </div>
     </div>
 </nav>
 
-<!-- MAIN -->
 <main class="max-w-6xl mx-auto px-6 py-12 md:py-24">
     <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
 
-        <!-- LEFT CONTENT -->
         <div class="flex-1 space-y-8 text-center lg:text-left">
 
             <div class="flex justify-center lg:justify-start">
@@ -62,100 +62,96 @@
                      class="w-24 h-24 rounded-[1.5rem] shadow-2xl border border-white/10">
             </div>
 
-            <div class="inline-block px-4 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border border-blue-500/30 text-blue-500 rounded-full">
+            <div class="inline-block px-4 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border border-blue-500/30 text-blue-500 rounded-full" data-i18n="badge">
                 Pain & Health Logging Tool
             </div>
 
             <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
                 BodySignal
-                <span class="block text-2xl md:text-3xl text-gray-500 mt-2 font-light italic">
+                <span class="block text-2xl md:text-3xl text-gray-500 mt-2 font-light italic" data-i18n="heroSub">
                     Understand pain patterns over time
                 </span>
             </h1>
 
-            <p class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <p class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 text-balance" id="main-desc">
                 Pain is not just a moment — it’s a pattern.
                 <span class="text-white font-medium">BodySignal</span> helps you record pain clearly,
                 connect it with daily health context, and understand recurring signals from your body over time.
             </p>
 
-            <!-- FEATURES -->
-            <div class="space-y-4 pt-4">
-                <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500">
+            <div class="space-y-4 pt-4 text-left">
+                <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500" data-i18n="featuresTitle">
                     What BodySignal Helps You Track
                 </h3>
 
                 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-gray-400 text-sm">
                     <li class="flex items-start gap-2">
-                        ● <strong>Pain Location & Intensity:</strong> Record where it hurts and how strong it feels.
+                        <span class="text-blue-500">●</span> <span><strong data-i18n="f1_t">Pain Location & Intensity:</strong> <span data-i18n="f1_d">Record where it hurts and how strong it feels.</span></span>
                     </li>
                     <li class="flex items-start gap-2">
-                        ● <strong>Body Map Input:</strong> Front and back body maps for intuitive logging.
+                        <span class="text-blue-500">●</span> <span><strong data-i18n="f2_t">Body Map Input:</strong> <span data-i18n="f2_d">Front and back body maps for intuitive logging.</span></span>
                     </li>
                     <li class="flex items-start gap-2">
-                        ● <strong>Pattern & Recurrence:</strong> Visual summaries of repeated pain over time.
+                        <span class="text-blue-500">●</span> <span><strong data-i18n="f3_t">Pattern & Recurrence:</strong> <span data-i18n="f3_d">Visual summaries of repeated pain over time.</span></span>
                     </li>
                     <li class="flex items-start gap-2">
-                        ● <strong>Health Context:</strong> View pain alongside sleep, activity, and daily habits.
+                        <span class="text-blue-500">●</span> <span><strong data-i18n="f4_t">Health Context:</strong> <span data-i18n="f4_d">View pain alongside sleep, activity, and daily habits.</span></span>
                     </li>
                     <li class="flex items-start gap-2">
-                        ● <strong>30-Day Pain Heatmap:</strong> See concentration and frequency at a glance.
+                        <span class="text-blue-500">●</span> <span><strong data-i18n="f5_t">30-Day Pain Heatmap:</strong> <span data-i18n="f5_d">See concentration and frequency at a glance.</span></span>
                     </li>
                     <li class="flex items-start gap-2">
-                        ● <strong>PDF Export:</strong> Generate summaries for personal reference or clinic visits.
+                        <span class="text-blue-500">●</span> <span><strong data-i18n="f6_t">PDF Export:</strong> <span data-i18n="f6_d">Generate summaries for personal reference or clinic visits.</span></span>
                     </li>
                 </ul>
             </div>
 
-            <!-- DISCLAIMER -->
             <div class="p-4 bg-blue-900/10 border border-blue-900/30 rounded-2xl max-w-xl text-left">
-                <h4 class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">
+                <h4 class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-2" data-i18n="noticeTitle">
                     Important Notice
                 </h4>
-                <p class="text-xs text-gray-500 leading-relaxed">
+                <p class="text-xs text-gray-500 leading-relaxed" data-i18n="noticeDesc">
                     BodySignal does not provide medical diagnosis or treatment.
                     It is designed for personal record-keeping and self-understanding,
                     and does not replace professional medical care.
                 </p>
             </div>
 
-            <!-- STATUS -->
             <div class="pt-8 flex flex-col items-center lg:items-start gap-8">
-    <div class="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start">
-        <a href="https://play.google.com/store/apps/details?id=com.hephaestosian.BodySignal" 
-           class="bg-white text-black px-6 py-3 rounded-xl font-bold hover:bg-gray-200 transition flex items-center gap-3">
-            <svg class="w-6 h-6" viewBox="0 0 512 512" fill="currentColor">
-                <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
-            </svg>
-            <span class="text-left">
-                <span class="text-[10px] block leading-none">Get it on</span>
-                <span class="text-lg font-bold">Google Play</span>
-            </span>
-        </a>
+                <div class="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start">
+                    <a href="https://play.google.com/store/apps/details?id=com.hephaestosian.BodySignal" 
+                       class="bg-white text-black px-6 py-3 rounded-xl font-bold hover:bg-gray-200 transition flex items-center gap-3">
+                        <svg class="w-6 h-6" viewBox="0 0 512 512" fill="currentColor">
+                            <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+                        </svg>
+                        <span class="text-left">
+                            <span class="text-[10px] block leading-none" data-i18n="gpSub">Get it on</span>
+                            <span class="text-lg font-bold">Google Play</span>
+                        </span>
+                    </a>
 
-        <div class="relative group cursor-not-allowed">
-            <div class="bg-transparent border border-white/10 text-gray-500 px-6 py-3 rounded-xl font-bold flex items-center gap-3 opacity-60">
-                <svg class="w-6 h-6" viewBox="0 0 384 512" fill="currentColor">
-                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 21.8-88.5 21.8-11.4 0-51.1-20.8-83.6-21.3-43.1-.7-82.8 24.1-104.7 62.1-43.9 75.7-11.3 187.8 30.6 248.4 20.5 29.7 45 62.3 76.5 61.2 30.2-1.1 41.5-19.1 77.7-19.1 36.3 0 46.7 19.1 78.2 18.5 32.3-.7 53.3-29.7 73.1-58.6 22.9-33 32.3-65 32.6-66.6-.8-.3-63.7-24.3-63.9-96.9zM285.1 75.6c16.2-19.6 27.2-46.9 24.2-74.1-23.3 1-51.5 15.5-68.2 35.2-15 17.5-28.1 45.3-24.5 71.7 25.8 2 52.3-13.2 68.5-32.8z"/>
-                </svg>
-                <span class="text-left">
-                    <span class="text-[10px] block leading-none">Available soon on</span>
-                    <span class="text-lg font-bold">App Store</span>
-                </span>
-            </div>
-            <div class="absolute -top-2 -right-2 bg-blue-600 text-[8px] px-2 py-0.5 rounded-full font-black text-white tracking-tighter shadow-lg">
-                SOON
+                    <div class="relative group cursor-not-allowed">
+                        <div class="bg-transparent border border-white/10 text-gray-500 px-6 py-3 rounded-xl font-bold flex items-center gap-3 opacity-60">
+                            <svg class="w-6 h-6" viewBox="0 0 384 512" fill="currentColor">
+                                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 21.8-88.5 21.8-11.4 0-51.1-20.8-83.6-21.3-43.1-.7-82.8 24.1-104.7 62.1-43.9 75.7-11.3 187.8 30.6 248.4 20.5 29.7 45 62.3 76.5 61.2 30.2-1.1 41.5-19.1 77.7-19.1 36.3 0 46.7 19.1 78.2 18.5 32.3-.7 53.3-29.7 73.1-58.6 22.9-33 32.3-65 32.6-66.6-.8-.3-63.7-24.3-63.9-96.9zM285.1 75.6c16.2-19.6 27.2-46.9 24.2-74.1-23.3 1-51.5 15.5-68.2 35.2-15 17.5-28.1 45.3-24.5 71.7 25.8 2 52.3-13.2 68.5-32.8z"/>
+                            </svg>
+                            <span class="text-left">
+                                <span class="text-[10px] block leading-none" data-i18n="asSub">Available soon on</span>
+                                <span class="text-lg font-bold">App Store</span>
+                            </span>
+                        </div>
+                        <div class="absolute -top-2 -right-2 bg-blue-600 text-[8px] px-2 py-0.5 rounded-full font-black text-white tracking-tighter shadow-lg">
+                            SOON
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-[10px] text-gray-600 font-mono tracking-widest uppercase italic" data-i18n="statusNote">
+                    The iOS version is currently undergoing final verification.
+                </p>
             </div>
         </div>
-    </div>
 
-    <p class="text-[10px] text-gray-600 font-mono tracking-widest uppercase italic">
-        The iOS version is currently undergoing final verification.
-    </p>
-</div>
-        </div>
-
-        <!-- RIGHT DEVICE -->
         <div class="flex-shrink-0 mx-auto lg:mx-0">
             <div class="relative group">
                 <div class="absolute -inset-1 bg-blue-600/20 rounded-[2.5rem] blur-xl opacity-50"></div>
@@ -178,23 +174,22 @@
     </div>
 </main>
 
-<!-- FOOTER -->
 <footer class="py-20 border-t border-white/5 px-6 mt-20">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <div class="text-center md:text-left">
             <div class="font-bold tracking-tighter mb-2 italic">
                 HEPHAESTOSIAN
             </div>
-            <p class="text-[10px] text-gray-600 uppercase tracking-[0.3em]">
+            <p class="text-[10px] text-gray-600 uppercase tracking-[0.3em]" data-i18n="footerTag">
                 Precision Digital Craftsmanship
             </p>
         </div>
 
         <div class="flex gap-8 text-xs font-medium text-gray-500">
-            <a href="/legal/privacy-bodysignal.html" class="hover:text-white transition italic">
+            <a href="/legal/privacy-bodysignal.html" class="hover:text-white transition italic" data-i18n="privacy">
                 Privacy Policy
             </a>
-            <a href="/legal/terms-bodysignal.html" class="hover:text-white transition italic">
+            <a href="/legal/terms-bodysignal.html" class="hover:text-white transition italic" data-i18n="terms">
                 Terms of Service
             </a>
         </div>
@@ -204,6 +199,68 @@
         </div>
     </div>
 </footer>
+
+<script>
+    const translations = {
+        en: {
+            backToStudio: "← BACK TO STUDIO",
+            badge: "Pain & Health Logging Tool",
+            heroSub: "Understand pain patterns over time",
+            mainDesc: 'Pain is not just a moment — it’s a pattern. <span class="text-white font-medium">BodySignal</span> helps you record pain clearly, connect it with daily health context, and understand recurring signals from your body over time.',
+            featuresTitle: "What BodySignal Helps You Track",
+            f1_t: "Pain Location & Intensity:", f1_d: "Record where it hurts and how strong it feels.",
+            f2_t: "Body Map Input:", f2_d: "Front and back body maps for intuitive logging.",
+            f3_t: "Pattern & Recurrence:", f3_d: "Visual summaries of repeated pain over time.",
+            f4_t: "Health Context:", f4_d: "View pain alongside sleep, activity, and daily habits.",
+            f5_t: "30-Day Pain Heatmap:", f5_d: "See concentration and frequency at a glance.",
+            f6_t: "PDF Export:", f6_d: "Generate summaries for personal reference or clinic visits.",
+            noticeTitle: "Important Notice",
+            noticeDesc: "BodySignal does not provide medical diagnosis or treatment. It is designed for personal record-keeping and self-understanding, and does not replace professional medical care.",
+            gpSub: "Get it on", asSub: "Available soon on",
+            statusNote: "The iOS version is currently undergoing final verification.",
+            footerTag: "Precision Digital Craftsmanship",
+            privacy: "Privacy Policy", terms: "Terms of Service",
+            lang: "KO"
+        },
+        ko: {
+            backToStudio: "← 스튜디오로 돌아가기",
+            badge: "통증 및 건강 기록 도구",
+            heroSub: "시간에 따른 통증 패턴의 이해",
+            mainDesc: '통증은 단지 한 순간의 사건이 아니라 하나의 패턴입니다. <span class="text-white font-medium">바디시그널(BodySignal)</span>은 통증을 명확하게 기록하고, 일상 건강 데이터와 연결하여 내 몸이 보내는 반복적인 신호를 이해하도록 돕습니다.',
+            featuresTitle: "바디시그널 주요 기록 기능",
+            f1_t: "통증 부위 및 강도:", f1_d: "통증이 느껴지는 부위와 강도를 세밀하게 기록합니다.",
+            f2_t: "바디 맵 입력:", f2_d: "전신 앞/뒷면 지도를 통해 직관적인 위치 선택이 가능합니다.",
+            f3_t: "패턴 및 반복 추적:", f3_d: "반복되는 통증을 시각적 요약으로 파악합니다.",
+            f4_t: "건강 맥락 분석:", f4_d: "수면, 활동량, 습관과 통증의 상관관계를 확인합니다.",
+            f5_t: "30일 통증 히트맵:", f5_d: "통증의 빈도와 집중도를 한눈에 파악합니다.",
+            f6_t: "PDF 내보내기:", f6_d: "개인 소장이나 병원 진료 참고용 요약본을 생성합니다.",
+            noticeTitle: "중요 고지 사항",
+            noticeDesc: "바디시그널은 의료적 진단이나 치료를 제공하지 않습니다. 본 앱은 개인적인 기록과 자기 이해를 위해 설계되었으며, 전문적인 의료 서비스를 대체할 수 없습니다.",
+            gpSub: "다운로드", asSub: "출시 예정",
+            statusNote: "iOS 버전은 현재 최종 심사 절차를 진행 중입니다.",
+            footerTag: "정교한 디지털 장인정신",
+            privacy: "개인정보 처리방침", terms: "이용약관",
+            lang: "EN"
+        }
+    };
+
+    let currentLang = 'en';
+
+    function toggleLang() {
+        currentLang = currentLang === 'en' ? 'ko' : 'en';
+        const t = translations[currentLang];
+        document.getElementById('langBtn').innerText = t.lang;
+        document.documentElement.lang = currentLang;
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (t[key]) el.innerText = t[key];
+        });
+
+        // HTML이 포함된 설명 부분 별도 처리
+        document.getElementById('main-desc').innerHTML = t.mainDesc;
+    }
+</script>
 
 </body>
 </html>
