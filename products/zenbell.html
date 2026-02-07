@@ -142,90 +142,82 @@
     </footer>
 
     <script>
-        const translations = {
-            en: {
-                backToStudio: "← BACK TO STUDIO",
-                mindfulnessTag: "Mindfulness Tool",
-                heroSub: "Drift into sleep",
-                mainDesc: "In an age of invisible fears, Zen Bell is a digital sanctuary designed to silence the chaos. Experience the majestic, profound vibrations of an authentic Korean temple bell—crafted for deep psychological stability and restorative sleep.",
-                featuresTitle: "The Forge of Serenity",
-                f1_t: "Authentic Resonance:", f1_d: "High-fidelity traditional bell recordings.",
-                f2_t: "108 Sequences:", f2_d: "Meditation paths to empty your mind.",
-                f3_t: "Visual Serenity:", f3_d: "Tranquil night skies and mountain animations.",
-                f4_t: "Wisdom Quotes:", f4_d: "Daily focus through Buddhist teachings.",
-                premiumDesc: "Ad-free meditation, perfect customization of intervals, and Deep Meditation Mode with original raw sounds. 7-day free trial available.",
-                pdfLink: "Download Product Brief (PDF)",
-                footerTag: "Precision Digital Craftsmanship",
-                privacy: "Privacy Policy", terms: "Terms of Service",
-                lang: "KO",
-                video: "https://www.youtube.com/embed/dzlTAiJam7Q?autoplay=1&mute=1&loop=1&playlist=dzlTAiJam7Q&controls=0&playsinline=1"
-            },
-            ko: {
-                backToStudio: "← 스튜디오로 돌아가기",
-                mindfulnessTag: "마음챙김 도구",
-                heroSub: "깊은 잠으로의 여정",
-                mainDesc: "보이지 않는 불안의 시대, 젠벨(Zen Bell)은 일상의 소음을 잠재우기 위해 설계된 디지털 안식처입니다. 깊은 심리적 안정과 회복 탄력적인 수면을 위해 정교하게 벼려진 한국 전통 사찰 종소리의 웅장하고 깊은 울림을 경험해 보세요.",
-                featuresTitle: "평온을 만드는 대장간",
-                f1_t: "정통의 울림:", f1_d: "고해상도로 녹음된 전통 사찰 종소리.",
-                f2_t: "108 번뇌 시퀀스:", f2_d: "마음을 비워내는 108번의 명상 코스.",
-                f3_t: "시각적 평온함:", f3_d: "고요한 밤하늘과 산사를 담은 애니메이션.",
-                f4_t: "지혜의 문구:", f4_d: "불교의 가르침을 통한 매일의 마음 다스림.",
-                premiumDesc: "광고 없는 명상, 완벽한 간격 조절 기능, 그리고 원음 그대로의 깊은 명상 모드를 제공합니다. 7일 무료 체험이 가능합니다.",
-                pdfLink: "제품 소개서 다운로드 (PDF)",
-                footerTag: "정교한 디지털 장인정신",
-                privacy: "개인정보 처리방침", terms: "이용약관",
-                lang: "EN",
-                video: "https://www.youtube.com/embed/q1BHWucKxag?autoplay=1&mute=1&loop=1&playlist=q1BHWucKxag&controls=0&playsinline=1"
+    const translations = {
+        en: {
+            backToStudio: "← BACK TO STUDIO",
+            mindfulnessTag: "Mindfulness Tool",
+            heroSub: "Drift into sleep",
+            mainDesc: 'In an age of invisible fears, <span class="text-white font-medium">Zen Bell</span> is a digital sanctuary designed to silence the chaos. Experience the majestic, profound vibrations of an authentic Korean temple bell—crafted for deep psychological stability and restorative sleep.',
+            featuresTitle: "The Forge of Serenity",
+            f1_t: "Authentic Resonance:", f1_d: "High-fidelity traditional bell recordings.",
+            f2_t: "108 Sequences:", f2_d: "Meditation paths to empty your mind.",
+            f3_t: "Visual Serenity:", f3_d: "Tranquil night skies and mountain animations.",
+            f4_t: "Wisdom Quotes:", f4_d: "Daily focus through Buddhist teachings.",
+            premiumDesc: 'Ad-free meditation, perfect customization of intervals, and Deep Meditation Mode with original raw sounds. <strong>7-day free trial available.</strong>',
+            pdfLink: "Download Product Brief (PDF)",
+            footerTag: "Precision Digital Craftsmanship",
+            privacy: "Privacy Policy", terms: "Terms of Service",
+            lang: "KO",
+            video: "https://www.youtube.com/embed/dzlTAiJam7Q?autoplay=1&mute=1&loop=1&playlist=dzlTAiJam7Q&controls=0&playsinline=1"
+        },
+        ko: {
+            backToStudio: "← 스튜디오로 돌아가기",
+            mindfulnessTag: "마음챙김 도구",
+            heroSub: "깊은 잠으로의 여정",
+            mainDesc: '보이지 않는 불안의 시대, <span class="text-white font-medium">젠벨(Zen Bell)</span>은 일상의 소음을 잠재우기 위해 설계된 디지털 안식처입니다. 깊은 심리적 안정과 회복 탄력적인 수면을 위해 정교하게 벼려진 한국 전통 사찰 종소리의 웅장하고 깊은 울림을 경험해 보세요.',
+            featuresTitle: "평온을 만드는 대장간",
+            f1_t: "정통의 울림:", f1_d: "고해상도로 녹음된 전통 사찰 종소리.",
+            f2_t: "108 번뇌 시퀀스:", f2_d: "마음을 비워내는 108번의 명상 코스.",
+            f3_t: "시각적 평온함:", f3_d: "고요한 밤하늘과 산사를 담은 애니메이션.",
+            f4_t: "지혜의 문구:", f4_d: "불교의 가르침을 통한 매일의 마음 다스림.",
+            premiumDesc: '광고 없는 명상, 완벽한 간격 조절 기능, 그리고 원음 그대로의 깊은 명상 모드를 제공합니다. <strong>7일 무료 체험이 가능합니다.</strong>',
+            pdfLink: "제품 소개서 다운로드 (PDF)",
+            footerTag: "정교한 디지털 장인정신",
+            privacy: "개인정보 처리방침", terms: "이용약관",
+            lang: "EN",
+            video: "https://www.youtube.com/embed/q1BHWucKxag?autoplay=1&mute=1&loop=1&playlist=q1BHWucKxag&controls=0&playsinline=1"
+        }
+    };
+
+    let currentLang = localStorage.getItem('preferredLang') || 'en';
+
+    function applyLanguage(lang) {
+        const t = translations[lang];
+        if (!t) return;
+
+        document.documentElement.lang = lang;
+        const langBtn = document.getElementById('langBtn');
+        if (langBtn) langBtn.innerText = t.lang;
+
+        // [핵심 1] 텍스트 및 HTML 적용 방식 최적화
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (t[key]) {
+                // 특정 요소(설명문, 프리미엄 안내 등)는 HTML을 허용
+                if (key === 'mainDesc' || key === 'premiumDesc') {
+                    el.innerHTML = t[key];
+                } else {
+                    el.innerText = t[key];
+                }
             }
-        };
+        });
 
-        // 2. [핵심] 페이지 로드 시 저장된 언어 불러오기
-// localStorage에 저장된 값이 없으면 'en'을 기본값으로 사용합니다.
-let currentLang = localStorage.getItem('preferredLang') || 'en';
+        // [핵심 2] 비디오 주소 변경
+        const videoIframe = document.getElementById('zenbell-video');
+        if (videoIframe && t.video) {
+            videoIframe.src = t.video;
+        }
+    }
 
-// 3. 언어를 화면에 적용하는 함수
-function applyLanguage(lang) {
-    const t = translations[lang];
-    if (!t) return;
+    function toggleLang() {
+        currentLang = currentLang === 'en' ? 'ko' : 'en';
+        localStorage.setItem('preferredLang', currentLang);
+        applyLanguage(currentLang);
+    }
 
-    // HTML 속성 및 버튼 텍스트 변경
-    document.documentElement.lang = lang;
-    const langBtn = document.getElementById('langBtn');
-    if (langBtn) langBtn.innerText = t.lang;
-
-    // data-i18n 속성을 가진 모든 요소 변경
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (t[key]) el.innerText = t[key];
+    document.addEventListener('DOMContentLoaded', () => {
+        applyLanguage(currentLang);
     });
-
-    // HTML 구조가 포함된 요소들 (ID 기반)
-    // 각 페이지에 해당 ID가 있을 때만 작동하도록 조건문 처리
-    const mainTitle = document.getElementById('main-title');
-    if (mainTitle && t.mainTitle) mainTitle.innerHTML = t.mainTitle;
-
-    const philText = document.getElementById('philosophy-text');
-    if (philText && t.philosophyText) philText.innerHTML = t.philosophyText;
-
-    const mainDesc = document.getElementById('main-desc');
-    if (mainDesc && t.mainDesc) mainDesc.innerHTML = t.mainDesc;
-}
-
-// 4. 버튼 클릭 시 언어 전환 및 저장
-function toggleLang() {
-    currentLang = currentLang === 'en' ? 'ko' : 'en';
-    
-    // 로컬 저장소에 언어 선택값 저장
-    localStorage.setItem('preferredLang', currentLang);
-    
-    // 화면에 즉시 적용
-    applyLanguage(currentLang);
-}
-
-// 5. 페이지가 켜질 때 실행
-document.addEventListener('DOMContentLoaded', () => {
-    applyLanguage(currentLang);
-});
-    </script>
+</script>
 </body>
 </html>
