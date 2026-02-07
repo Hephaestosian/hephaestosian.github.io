@@ -110,8 +110,9 @@
                     <div class="relative w-[280px] h-[500px] md:w-[300px] md:h-[533px] glass rounded-[2.5rem] p-3 video-shadow">
                         <div class="w-full h-full rounded-[1.8rem] overflow-hidden bg-black border border-white/10">
                             <iframe 
+                                id="zenbell-video"
                                 class="w-full h-full"
-                                src="https://www.youtube.com/embed/dzlTAiJam7Q?autoplay=1&mute=1&loop=1&playlist=dzlTAiJam7Q" 
+                                src="https://www.youtube.com/embed/dzlTAiJam7Q?autoplay=1&mute=1&loop=1&playlist=dzlTAiJam7Q&controls=0&playsinline=1" 
                                 title="ZenBell Demo" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -156,7 +157,8 @@
                 pdfLink: "Download Product Brief (PDF)",
                 footerTag: "Precision Digital Craftsmanship",
                 privacy: "Privacy Policy", terms: "Terms of Service",
-                lang: "KO"
+                lang: "KO",
+                video: "https://www.youtube.com/embed/dzlTAiJam7Q?autoplay=1&mute=1&loop=1&playlist=dzlTAiJam7Q&controls=0&playsinline=1"
             },
             ko: {
                 backToStudio: "← 스튜디오로 돌아가기",
@@ -172,7 +174,8 @@
                 pdfLink: "제품 소개서 다운로드 (PDF)",
                 footerTag: "정교한 디지털 장인정신",
                 privacy: "개인정보 처리방침", terms: "이용약관",
-                lang: "EN"
+                lang: "EN",
+                video: "https://www.youtube.com/embed/q1BHWucKxag?autoplay=1&mute=1&loop=1&playlist=q1BHWucKxag&controls=0&playsinline=1"
             }
         };
 
@@ -188,6 +191,9 @@
                 const key = el.getAttribute('data-i18n');
                 if (t[key]) el.innerText = t[key];
             });
+
+            // 영상 주소 변경 (한글일 때 q1BHWucKxag 재생)
+            document.getElementById('zenbell-video').src = t.video;
         }
     </script>
 </body>
