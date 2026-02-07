@@ -159,6 +159,7 @@
                 <div class="relative w-[280px] h-[500px] md:w-[320px] md:h-[570px] glass rounded-[2.5rem] p-3 blue-shadow">
                     <div class="w-full h-full rounded-[2rem] overflow-hidden bg-black border border-white/5">
                         <iframe
+                            id="product-video"
                             class="w-full h-full"
                             src="https://www.youtube.com/embed/1GMyxt15K7s?autoplay=1&mute=1&loop=1&playlist=1GMyxt15K7s&controls=0&playsinline=1"
                             title="BodySignal Preview"
@@ -220,7 +221,8 @@
             statusNote: "The iOS version is currently undergoing final verification.",
             footerTag: "Precision Digital Craftsmanship",
             privacy: "Privacy Policy", terms: "Terms of Service",
-            lang: "KO"
+            lang: "KO",
+            video: "https://www.youtube.com/embed/1GMyxt15K7s?autoplay=1&mute=1&loop=1&playlist=1GMyxt15K7s&controls=0&playsinline=1"
         },
         ko: {
             backToStudio: "← 스튜디오로 돌아가기",
@@ -240,7 +242,8 @@
             statusNote: "iOS 버전은 현재 최종 심사 절차를 진행 중입니다.",
             footerTag: "정교한 디지털 장인정신",
             privacy: "개인정보 처리방침", terms: "이용약관",
-            lang: "EN"
+            lang: "EN",
+            video: "https://www.youtube.com/embed/iBVnsX3o71Y?autoplay=1&mute=1&loop=1&playlist=iBVnsX3o71Y&controls=0&playsinline=1"
         }
     };
 
@@ -257,8 +260,11 @@
             if (t[key]) el.innerText = t[key];
         });
 
-        // HTML이 포함된 설명 부분 별도 처리
+        // HTML이 포함된 설명 부분 처리
         document.getElementById('main-desc').innerHTML = t.mainDesc;
+        
+        // 영상 소스 업데이트
+        document.getElementById('product-video').src = t.video;
     }
 </script>
 
