@@ -12,7 +12,7 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; }
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; scroll-behavior: smooth; }
         /* 일관된 유리 질감 및 퍼플 그림자 */
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .purple-shadow { box-shadow: 0 0 50px rgba(168, 85, 247, 0.1); }
@@ -22,14 +22,21 @@
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
+        #langBtn { transition: all 0.3s ease; }
+        #langBtn:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(168, 85, 247, 0.5); color: #a855f7; }
     </style>
 </head>
 <body class="antialiased">
 
     <nav class="p-6">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="/" class="text-sm font-bold tracking-tighter hover:text-gray-400 transition">← BACK TO STUDIO</a>
-            <div class="text-xs tracking-widest text-gray-500 uppercase font-mono">Product ID: EC-01</div>
+            <a href="/" class="text-sm font-bold tracking-tighter hover:text-gray-400 transition" data-i18n="backToStudio">← BACK TO STUDIO</a>
+            <div class="flex items-center gap-6">
+                <div class="hidden sm:block text-xs tracking-widest text-gray-500 uppercase font-mono">Product ID: EC-01</div>
+                <button onclick="toggleLang()" id="langBtn" class="text-[10px] font-bold border border-white/20 px-3 py-1 rounded-full uppercase font-mono tracking-widest">
+                    KO
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -41,37 +48,37 @@
                     <img src="/assets/icons/emotioncards.png" alt="Emotion Cards Icon" class="w-24 h-24 rounded-[1.5rem] shadow-2xl border border-white/10 mb-2">
                 </div>
 
-                <div class="inline-block px-4 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border border-purple-500/30 text-purple-500 rounded-full">
+                <div class="inline-block px-4 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border border-purple-500/30 text-purple-500 rounded-full" data-i18n="mindfulnessTag">
                     Mindfulness Tool
                 </div>
                 
                 <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
-                    Emotion Cards <span class="block text-2xl md:text-3xl text-gray-500 mt-2 font-light italic">Map your mind</span>
+                    Emotion Cards <span class="block text-2xl md:text-3xl text-gray-500 mt-2 font-light italic" data-i18n="heroSub">Map your mind</span>
                 </h1>
 
-                <p class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                <p class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 text-balance" id="main-desc">
                     Understanding your feelings is the first step to inner peace. <span class="text-white font-medium">Emotion Cards</span> provides a visual language for your internal world. 
                     Like a master artisan selecting the right tool, choose the cards that represent your heart and build a clearer map of your mental landscape.
                 </p>
 
                 <div class="space-y-4 pt-4">
-                    <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500">The Soul's Toolkit</h3>
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500" data-i18n="featuresTitle">The Soul's Toolkit</h3>
                     <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-gray-400 text-sm text-left">
-                        <li class="flex items-start gap-2">● <strong>Visual Vocabulary:</strong> Expressive emotion cards.</li>
-                        <li class="flex items-start gap-2">● <strong>Daily Reflection:</strong> Track your mental evolution.</li>
-                        <li class="flex items-start gap-2">● <strong>Mindful Insights:</strong> Deepen your self-awareness.</li>
-                        <li class="flex items-start gap-2">● <strong>Privacy First:</strong> Your heart remains your own.</li>
+                        <li class="flex items-start gap-2">● <span><strong data-i18n="f1_t">Visual Vocabulary:</strong> <span data-i18n="f1_d">Expressive emotion cards.</span></span></li>
+                        <li class="flex items-start gap-2">● <span><strong data-i18n="f2_t">Daily Reflection:</strong> <span data-i18n="f2_d">Track your mental evolution.</span></span></li>
+                        <li class="flex items-start gap-2">● <span><strong data-i18n="f3_t">Mindful Insights:</strong> <span data-i18n="f3_d">Deepen your self-awareness.</span></span></li>
+                        <li class="flex items-start gap-2">● <span><strong data-i18n="f4_t">Privacy First:</strong> <span data-i18n="f4_d">Your heart remains your own.</span></span></li>
                     </ul>
                 </div>
 
                 <div class="pt-8 flex flex-col items-center lg:items-start gap-8">
                     <div class="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start">
-                        <div class="px-8 py-4 bg-white/5 border border-white/10 rounded-xl text-sm font-bold text-purple-400 tracking-widest">
+                        <div class="px-8 py-4 bg-white/5 border border-white/10 rounded-xl text-sm font-bold text-purple-400 tracking-widest" data-i18n="statusBadge">
                             PROJECT IN THE FORGE
                         </div>
                     </div>
                     
-                    <p class="text-xs text-gray-600 italic">We are currently hammering out the final details for a soulful experience.</p>
+                    <p class="text-xs text-gray-600 italic" data-i18n="statusNote">We are currently hammering out the final details for a soulful experience.</p>
                 </div>
             </div>
 
@@ -82,7 +89,7 @@
                         <div class="w-full h-full rounded-[2rem] overflow-hidden bg-black flex flex-col items-center justify-center border border-white/5 space-y-6">
                             <div class="w-32 h-44 bg-gradient-to-br from-purple-500/20 to-transparent border border-purple-500/30 rounded-xl floating"></div>
                             <div class="text-center">
-                                <p class="text-[10px] font-mono text-purple-500 uppercase tracking-widest animate-pulse">Designing Soul...</p>
+                                <p class="text-[10px] font-mono text-purple-500 uppercase tracking-widest animate-pulse" id="loading-text">Designing Soul...</p>
                             </div>
                         </div>
                     </div>
@@ -96,11 +103,65 @@
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="text-center md:text-left">
                 <div class="font-bold tracking-tighter mb-2 italic text-gray-400">HEPHAESTOSIAN</div>
-                <p class="text-[10px] text-gray-600 uppercase tracking-[0.3em]">Precision Digital Craftsmanship</p>
+                <p class="text-[10px] text-gray-600 uppercase tracking-[0.3em]" data-i18n="footerTag">Precision Digital Craftsmanship</p>
             </div>
             <div class="text-[10px] text-gray-700 font-mono">© 2026 Hephaestosian.</div>
         </div>
     </footer>
 
+    <script>
+        const translations = {
+            en: {
+                backToStudio: "← BACK TO STUDIO",
+                mindfulnessTag: "Mindfulness Tool",
+                heroSub: "Map your mind",
+                mainDesc: 'Understanding your feelings is the first step to inner peace. <span class="text-white font-medium">Emotion Cards</span> provides a visual language for your internal world. Like a master artisan selecting the right tool, choose the cards that represent your heart and build a clearer map of your mental landscape.',
+                featuresTitle: "The Soul's Toolkit",
+                f1_t: "Visual Vocabulary:", f1_d: "Expressive emotion cards.",
+                f2_t: "Daily Reflection:", f2_d: "Track your mental evolution.",
+                f3_t: "Mindful Insights:", f3_d: "Deepen your self-awareness.",
+                f4_t: "Privacy First:", f4_d: "Your heart remains your own.",
+                statusBadge: "PROJECT IN THE FORGE",
+                statusNote: "We are currently hammering out the final details for a soulful experience.",
+                loadingText: "Designing Soul...",
+                footerTag: "Precision Digital Craftsmanship",
+                lang: "KO"
+            },
+            ko: {
+                backToStudio: "← 스튜디오로 돌아가기",
+                mindfulnessTag: "마음챙김 도구",
+                heroSub: "마음의 지도를 그리다",
+                mainDesc: '자신의 감정을 이해하는 것은 내면의 평화로 가는 첫 번째 단계입니다. <span class="text-white font-medium">감정카드(Emotion Cards)</span>는 당신의 내면 세계를 위한 시각적 언어를 제공합니다. 장인이 정교한 도구를 선택하듯, 당신의 마음을 대변하는 카드를 통해 정신적 풍경의 명확한 지도를 그려보세요.',
+                featuresTitle: "영혼을 위한 도구함",
+                f1_t: "시각적 어휘:", f1_d: "감정을 표현하는 감각적인 카드들.",
+                f2_t: "매일의 기록:", f2_d: "마음의 변화와 성장을 추적합니다.",
+                f3_t: "마음챙김 통찰:", f3_d: "자기 인식을 깊게 하는 명상적 경험.",
+                f4_t: "철저한 프라이버시:", f4_d: "당신의 마음은 오직 당신만의 것입니다.",
+                statusBadge: "대장간에서 제작 중",
+                statusNote: "더 영혼 있는 경험을 위해 마지막 세부 사항을 다듬는 중입니다.",
+                loadingText: "영혼을 설계하는 중...",
+                footerTag: "정교한 디지털 장인정신",
+                lang: "EN"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'ko' : 'en';
+            const t = translations[currentLang];
+            document.getElementById('langBtn').innerText = t.lang;
+            document.documentElement.lang = currentLang;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) el.innerText = t[key];
+            });
+
+            // 특수 처리 (HTML 포함 및 ID 기반)
+            document.getElementById('main-desc').innerHTML = t.mainDesc;
+            document.getElementById('loading-text').innerText = t.loadingText;
+        }
+    </script>
 </body>
 </html>
