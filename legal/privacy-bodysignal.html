@@ -22,13 +22,13 @@
 <header>
     <p class="text-blue-600 font-bold uppercase text-xs mb-2 tracking-widest">Hephaestosian Legal</p>
     <h1>Privacy Policy for BodySignal</h1>
-    <p class="text-gray-500 italic">Effective Date: January 31, 2026 (Updated)</p>
+    <p class="text-gray-500 italic">Effective Date: February 13, 2026 (Updated for App Store Compliance)</p>
 </header>
 
 <section>
     <p class="mt-8">
         <strong>BodySignal</strong> ("the App"), provided by <strong>Hephaestosian</strong>, 
-        is a personal health tracking application. This policy explains how we collect, use, and protect your information when you use our services, including Anonymous/Google Sign-In, Firebase services, and Google AdMob.
+        is a personal health tracking application. This policy explains how we collect, use, and protect your information, ensuring compliance with Apple's privacy guidelines, including Support for Sign in with Apple and HealthKit transparency.
     </p>
 </section>
 
@@ -46,9 +46,9 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Authentication (Social)</strong></td>
-<td>Email address, Name, Profile picture URL, Google UID</td>
-<td>To create and manage your account, and synchronize data across devices.</td>
+<td><strong>Authentication (Apple/Social)</strong></td>
+<td>Email address, Name, Apple ID (Sign in with Apple), Google UID</td>
+<td>To create and manage your account securely. <strong>Sign in with Apple</strong> is supported for enhanced privacy.</td>
 </tr>
 <tr>
 <td><strong>Authentication (Anonymous)</strong></td>
@@ -66,14 +66,14 @@
 <td>Core service functionality; stored securely in Firebase.</td>
 </tr>
 <tr>
-<td><strong>Health Connect Data</strong></td>
+<td><strong>Apple HealthKit Data</strong></td>
 <td>Steps, sleep, heart rate, body measurements, etc.</td>
-<td>Read-only access to provide integrated health metrics within the App.</td>
+<td>Read-only access to provide integrated health metrics within the App UI. <strong>We do not sell this data.</strong></td>
 </tr>
 <tr>
 <td><strong>Device & Usage Data</strong></td>
-<td>Advertising ID (IDFA/AAID), IP address, crash logs, performance metrics</td>
-<td>Provided via Google AdMob and Firebase Analytics for app improvement and advertising.</td>
+<td>Advertising ID (IDFA), IP address, crash logs</td>
+<td>Provided via Google AdMob and Firebase Analytics. IDFA is only collected with user consent (ATT).</td>
 </tr>
 </tbody>
 </table>
@@ -81,61 +81,62 @@
 
 <section>
 <h2>2. Third-Party Services & User Choice</h2>
-<p>We use trusted third-party SDKs to enhance your experience. These providers may collect information as governed by their own privacy policies:</p>
+<p>We use trusted third-party SDKs to enhance your experience. These providers collect information as governed by their own policies:</p>
 
 <div class="highlight-box">
     <ul class="list-disc ml-6">
+        <li><strong>Sign in with Apple:</strong> A privacy-focused login option that limits data collection and allows users to hide their email addresses.</li>
         <li><strong>Google Firebase:</strong> Used for secure data storage (Firestore), user authentication, and crash reporting (Crashlytics).</li>
-        <li><strong>Google Analytics for Firebase:</strong> Used to analyze user behavior and app performance.</li>
-        <li><strong>Google AdMob:</strong> Used to display advertisements. AdMob may use the device's advertising ID. <strong>iOS users</strong> can manage tracking permissions via the App Tracking Transparency (ATT) prompt.</li>
-        <li><strong>Google Health Connect:</strong> Used to integrate activity and health data from other apps.</li>
+        <li><strong>Google AdMob:</strong> Used to display advertisements. AdMob uses the device's advertising ID only if permitted by the user via the ATT prompt.</li>
+        <li><strong>Apple HealthKit:</strong> Used to display health-related trends alongside pain records.</li>
     </ul>
 </div>
 </section>
 
 <section>
-<h2>3. Google Health Connect & Data Minimization</h2>
+<h2>3. Apple HealthKit Data Privacy (Guideline 2.5.1)</h2>
 <p>
-    Our use of information received from Health Connect will adhere to the <strong>Health Connect Permissions policy</strong>, including the Limited Use requirements.
+    Our integration with <strong>Apple HealthKit</strong> is designed with your privacy as a priority:
 </p>
 <ul class="list-disc ml-6 mt-2">
-    <li>We do not sell your health data to third parties.</li>
-    <li>Health data is used solely to provide user-facing features within the App.</li>
-    <li>You can revoke access to Health Connect at any time through your device settings.</li>
+    <li><strong>No Marketing:</strong> Your HealthKit data will never be used for marketing, advertising, or similar use-based data mining.</li>
+    <li><strong>Transparency:</strong> Any feature using HealthKit data is clearly identified within the App's user interface.</li>
+    <li><strong>Data Minimization:</strong> We only request access to health categories essential for correlating your physical activity with pain patterns.</li>
+    <li><strong>User Control:</strong> You can revoke HealthKit access at any time through iOS Settings > Privacy > Health.</li>
 </ul>
 </section>
 
 <section>
 <h2>4. Data Storage, Security & Retention</h2>
 <p>
-    Your data is encrypted during transmission and while at rest using <strong>Google Firebase</strong> infrastructure. We retain your data as long as your account is active. 
+    Your data is encrypted during transmission and while at rest using <strong>Google Firebase</strong> infrastructure. We retain your data as long as your account is active to provide historical tracking.
 </p>
 </section>
 
 <section>
 <h2>5. User Rights & Data Deletion</h2>
-<p>You have full control over your personal information, whether you use <strong>Social Login</strong> or <strong>Anonymous Login</strong>:</p>
+<p>You have full control over your personal information:</p>
 <ul class="list-disc ml-6 mt-2">
-    <li><strong>Access & Export:</strong> You can view your data within the App.</li>
+    <li><strong>Access & Export:</strong> You can view your history within the App.</li>
     <li><strong>Deletion:</strong> You may delete specific records in the History tab.</li>
     <li><strong>Account Termination:</strong> All users can permanently delete their account and all associated data via 
         <strong>Settings → My Information → Delete Account</strong>.
     </li>
 </ul>
-<p class="mt-2 italic text-red-600 underline">Note: Upon account deletion, all data (including records tied to anonymous IDs) is immediately and irreversibly destroyed from our Firebase database.</p>
+<p class="mt-2 italic text-red-600 underline">Note: Upon account deletion, all data (including records tied to anonymous IDs and Apple/Google IDs) is immediately and irreversibly destroyed from our Firebase database.</p>
 </section>
 
 <section>
 <h2>6. Medical Disclaimer</h2>
 <p>
-    BodySignal is a tracking tool and <strong>not a medical device</strong>. It does not provide medical diagnoses, treatment plans, or professional advice. Always seek the advice of a physician for any medical concerns.
+    BodySignal is a tracking tool and <strong>not a medical device</strong>. It does not provide medical diagnoses or professional advice. Always seek the advice of a physician for any medical concerns.
 </p>
 </section>
 
 <section>
 <h2>7. Contact Us</h2>
 <p>
-    If you have any questions regarding this Privacy Policy or your data, please contact us at:
+    If you have any questions regarding this Privacy Policy or your data, please contact:
     <br>
     <a href="mailto:retyper@naver.com" class="text-blue-600 font-semibold">retyper@naver.com</a>
 </p>
