@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>감정카드 개인정보처리방침</title>
+<title>감정카드 개인정보처리방침 · Emotion Cards Privacy Policy</title>
 <style>
   body { max-width: 760px; margin: 0 auto; padding: 24px 18px 64px; line-height: 1.75;
          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
@@ -17,10 +17,25 @@
   th { background: #f6f8fa; }
   code { background: #f0f2f4; padding: 1px 5px; border-radius: 4px; font-size: .9em; }
   footer { margin-top: 3em; color: #666; font-size: .9rem; }
+
+  .langbar { position: sticky; top: 0; background: #fff; padding: 10px 0 8px;
+             border-bottom: 1px solid #eee; margin-bottom: 8px; display: flex; gap: 8px; }
+  .langbar button { font: inherit; font-size: .9rem; cursor: pointer; padding: 6px 14px;
+                    border: 1px solid #d5d9de; border-radius: 999px; background: #fff; color: #444; }
+  .langbar button.on { background: #222; color: #fff; border-color: #222; }
+  html[data-lang="ko"] .en { display: none; }
+  html[data-lang="en"] .ko { display: none; }
 </style>
 </head>
 <body>
 
+<div class="langbar">
+  <button type="button" data-set="ko">한국어</button>
+  <button type="button" data-set="en">English</button>
+</div>
+
+<!-- ══════════════ 한국어 ══════════════ -->
+<div class="ko">
 <h1>감정카드(Emotion Cards) 개인정보처리방침</h1>
 <p class="meta">시행일: 2026년 7월 17일 · 최종 수정일: 2026년 7월 17일</p>
 
@@ -59,7 +74,7 @@
   <tr><td>모은 감정 카드</td><td>어떤 감정 카드를 보유하고 있는지</td></tr>
   <tr><td>포인트·업적</td><td>놀이 보상으로 쌓인 점수와 달성 기록</td></tr>
   <tr><td>앱 설정</td><td>언어, 소리 등 사용자가 고른 설정값</td></tr>
-  <tr><td>광고 제거 구독 여부</td><td>구독 중인지 아닌지에 대한 표시(결제 정보는 저장하지 않음)</td></tr>
+  <tr><td>광고 제거 구매 여부</td><td>구매(구독/평생) 중인지 아닌지에 대한 표시(결제 정보는 저장하지 않음)</td></tr>
 </table>
 <p>
   이 정보는 <strong>앱 전용 저장 영역</strong>에 보관되며, 다른 앱이 읽을 수 없습니다.
@@ -127,12 +142,8 @@
 <p>개발자는 이용자의 정보를 판매하거나 제3자에게 제공하지 않습니다. 다만 아래 서비스가 각자의 방침에 따라 데이터를 처리합니다.</p>
 <table>
   <tr><th>제공받는 자</th><th>목적</th><th>항목</th></tr>
-  <tr>
-    <td>Google AdMob</td><td>광고 게재 및 성과 측정</td><td>광고 ID(AAID), 기기·네트워크 정보</td>
-  </tr>
-  <tr>
-    <td>Google Play · App Store</td><td>결제 및 구매 상태 확인</td><td>스토어 계정 및 결제 정보(스토어가 직접 처리)</td>
-  </tr>
+  <tr><td>Google AdMob</td><td>광고 게재 및 성과 측정</td><td>광고 ID(AAID), 기기·네트워크 정보</td></tr>
+  <tr><td>Google Play · App Store</td><td>결제 및 구매 상태 확인</td><td>스토어 계정 및 결제 정보(스토어가 직접 처리)</td></tr>
 </table>
 
 <h2>9. 보관 및 파기</h2>
@@ -146,7 +157,7 @@
 <p>
   이 앱은 개인정보를 수집하지 않으므로 열람·정정·삭제를 요청할 대상이 없습니다.
   다만 광고와 관련해서는 기기 설정에서 <strong>광고 ID를 재설정하거나 맞춤 광고를 끌 수</strong> 있으며,
-  구독은 Google Play에서 언제든 해지할 수 있습니다.
+  구독은 Google Play 또는 App Store에서 언제든 해지할 수 있습니다.
 </p>
 
 <h2>11. 방침 변경</h2>
@@ -161,10 +172,175 @@
   개발자: Hephaestosian<br>
   이메일: <a href="mailto:retyper@naver.com">retyper@naver.com</a>
 </p>
+</div>
 
-<footer>
-  © 2026 Hephaestosian · 감정카드(Emotion Cards)
-</footer>
+<!-- ══════════════ English ══════════════ -->
+<div class="en">
+<h1>Emotion Cards — Privacy Policy</h1>
+<p class="meta">Effective: July 17, 2026 · Last updated: July 17, 2026</p>
 
+<div class="box">
+  <strong>In one line — this App has no server.</strong><br>
+  There is no sign-up, and anything you create in the App (collected cards, points, settings) is
+  <strong>stored only on your device</strong>. We (the Developer) cannot see it. The only information
+  that leaves your device is what Google processes for <strong>showing ads</strong> and
+  <strong>handling payments</strong>.
+</div>
+
+<h2>1. Scope</h2>
+<p>
+  This policy applies to the mobile application <strong>Emotion Cards</strong> provided by
+  Hephaestosian (the "Developer").
+</p>
+
+<h2>2. What this App does not collect</h2>
+<p>Emotion Cards has no account system and does <strong>not collect</strong> the following:</p>
+<ul>
+  <li>Identifying information such as name, date of birth, email address, or phone number.</li>
+  <li>Location, contacts, call logs, or text messages.</li>
+  <li>Photos or audio recorded with the microphone.</li>
+</ul>
+<p>
+  Because there is no sign-up or login, the Developer cannot identify a particular user or know what
+  that user did in the App.
+</p>
+
+<h2>3. Information stored only on your device</h2>
+<p>
+  As you use the App, the following is saved as <strong>files in your device's internal storage</strong>.
+  It is not transmitted anywhere and is not shared with anyone, including the Developer.
+</p>
+<table>
+  <tr><th>Item</th><th>Description</th></tr>
+  <tr><td>Collected emotion cards</td><td>Which emotion cards you hold</td></tr>
+  <tr><td>Points &amp; achievements</td><td>Scores and milestones earned through play</td></tr>
+  <tr><td>App settings</td><td>Settings you choose, such as language and sound</td></tr>
+  <tr><td>Remove-ads purchase status</td><td>Whether a purchase (subscription/lifetime) is active (no payment details are stored)</td></tr>
+</table>
+<p>
+  This information is kept in the <strong>app's private storage</strong> and cannot be read by other apps.
+  <strong>If you delete the App, this information is deleted from the device as well.</strong>
+</p>
+
+<h2>4. Advertising (Google AdMob)</h2>
+<p>
+  The App is free and shows ads through <strong>Google AdMob</strong>. For this, Google may collect and
+  use an <strong>advertising ID (Android Advertising ID, AAID)</strong> to serve ads and measure their
+  performance.
+</p>
+<ul>
+  <li>The advertising ID is a <strong>resettable identifier assigned to the device</strong> and is not
+      tied to identifying information such as your name.</li>
+  <li>You can <strong>reset or delete the advertising ID</strong> in your device settings
+      (Android: Settings &gt; Privacy &gt; Ads).</li>
+  <li>Ad content is provided by Google and is not controlled by the Developer.</li>
+</ul>
+<p>
+  For how Google processes data, see
+  <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">
+  Google's policy on how it uses data from partner sites and apps</a>.
+</p>
+<p class="box">
+  <strong>If you purchase Remove Ads, the advertising ID is not collected.</strong>
+  When ads are removed, the App <em>does not initialize the ad SDK</em>, so not only are ads not shown —
+  the advertising ID is never accessed at all.
+</p>
+
+<h2>5. Payments (Google Play · App Store)</h2>
+<p>
+  "Remove Ads" is offered as a <strong>monthly subscription</strong> or a <strong>lifetime (one-time)</strong>
+  purchase, and payment is handled by <strong>Google Play or the App Store</strong>.
+</p>
+<ul>
+  <li>The Developer <strong>neither receives nor stores payment details such as card numbers.</strong></li>
+  <li>The App only checks with the store <strong>whether a Remove-Ads purchase is valid</strong> and stores that result on the device.</li>
+  <li>Payment and refunds follow the policies of each store (Google Play · App Store).</li>
+</ul>
+
+<h2>6. Permissions the App uses</h2>
+<div class="box">
+  <strong>This App requests no permissions from you.</strong><br>
+  It uses <strong>no permissions that require separate consent</strong> — storage, notifications,
+  microphone, camera, location, etc. App data is kept in the <strong>app's private storage</strong>,
+  which needs no permission.
+</div>
+<p>
+  To show ads it uses an internet connection and the advertising ID (section 4), which are not
+  permissions requiring separate consent. You can reset the advertising ID or turn off personalized
+  ads in your device settings at any time.
+</p>
+
+<h2>7. Age</h2>
+<p>
+  <strong>Emotion Cards is intended for users aged 13 and older.</strong>
+  It is a tool designed for adults (parents or teachers) to use together with a child while talking
+  about emotion vocabulary, and installation, purchases, and settings are meant to be done by an adult.
+</p>
+<p>
+  The Developer <strong>does not knowingly collect personal information from children under 13.</strong>
+  As noted above, the App has no accounts and collects no personally identifying information, so
+  structurally no child's personal information reaches the Developer.
+</p>
+
+<h2>8. Third parties</h2>
+<p>The Developer does not sell or provide your information to third parties. However, the services below process data under their own policies.</p>
+<table>
+  <tr><th>Recipient</th><th>Purpose</th><th>Items</th></tr>
+  <tr><td>Google AdMob</td><td>Serving ads and measuring performance</td><td>Advertising ID (AAID), device/network information</td></tr>
+  <tr><td>Google Play · App Store</td><td>Payment and purchase-status checks</td><td>Store account and payment info (handled directly by the store)</td></tr>
+</table>
+
+<h2>9. Retention and deletion</h2>
+<p>
+  The Developer <strong>does not retain</strong> your personal information (there is nothing to retain
+  because none is collected). Information stored on the device is <strong>deleted when you delete the
+  App</strong>, and you can also delete or reset data within the App.
+</p>
+
+<h2>10. Your rights</h2>
+<p>
+  Because this App collects no personal information, there is nothing to request access to, correction
+  of, or deletion of. For advertising, you can <strong>reset the advertising ID or turn off personalized
+  ads</strong> in your device settings, and you can cancel a subscription anytime in Google Play or the App Store.
+</p>
+
+<h2>11. Changes to this policy</h2>
+<p>
+  If this policy changes, the updated content and effective date will be posted on this page.
+  For significant changes, we will notify you through an app update.
+</p>
+
+<h2>12. Contact</h2>
+<p>
+  For questions about how personal information is handled, please contact us.<br>
+  Developer: Hephaestosian<br>
+  Email: <a href="mailto:retyper@naver.com">retyper@naver.com</a>
+</p>
+</div>
+
+<footer>© 2026 Hephaestosian · 감정카드(Emotion Cards)</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var param = new URLSearchParams(location.search).get('lang');
+    var def = (param === 'en' || param === 'ko')
+      ? param
+      : ((navigator.language || '').toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en');
+    function set(l) {
+      root.setAttribute('data-lang', l);
+      root.setAttribute('lang', l);
+      var btns = document.querySelectorAll('.langbar button');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.toggle('on', btns[i].getAttribute('data-set') === l);
+      }
+    }
+    set(def);
+    var btns = document.querySelectorAll('.langbar button');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function () { set(this.getAttribute('data-set')); });
+    }
+  })();
+</script>
 </body>
 </html>
