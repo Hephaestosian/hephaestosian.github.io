@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peera | Forged by Hephaestosian</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/peera.png">
+    <link rel="apple-touch-icon" href="/assets/icons/peera.png">
+    <link rel="shortcut icon" href="/assets/icons/peera.png">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        /* 표제 Jua · 손글씨 Gaegu — 피어라 본품과 같은 서체로 브랜드를 잇는다 */
+        @import url('https://fonts.googleapis.com/css2?family=Jua&family=Gaegu:wght@400;700&display=swap');
+
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        #langBtn { transition: all 0.3s ease; }
+        #langBtn:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(225, 117, 31, 0.5); color: #E1751F; }
+
+        /* ══════════════════════════════════════════════════════════════
+           ★ 이 페이지는 생성물이다 — 손으로 고치지 말 것.
+             tools/port-laity-demo.js 가 peera-landing의 데모 CSS를 읽어
+             기계 변환한다(스코프 .laity-demo, 키프레임 ld- 접두사,
+             자산 경로 /assets/peera/). 여기서 고치면 다음 실행 때 덮어써진다.
+
+             데모를 고치려면  → peera-landing/index.html 을 고치고
+                                 cd tools && node port-laity-demo.js
+             문구를 고치려면  → tools/peera-shell.html
+             자세한 내용      → tools/README.md
+           ══════════════════════════════════════════════════════════════ */
+        .laity-demo {
+            --paper: #FFFDF8; --paper-warm: #FAF1E2; --ink: #3D2B1F; --ink-soft: #85715C;
+            --line: #EBDCC6; --outline: #B07050;
+            --laity: #E1751F; --laity-deep: #C1580E; --laity-tail: #CE5F10; --cream-face: #FFE9C9;
+            --purple: #7C3AED; --purple-dark: #5B21C0; --purple-soft: #F1EAFE;
+            --green: #43A047; --bloom: #EF8A9B;
+            --night-1: #10202B; --night-2: #1D3A34;
+        }
+/*__DEMO_CSS__*/
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="p-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="/" class="text-sm font-bold tracking-tighter hover:text-gray-400 transition" data-i18n="backToStudio">← BACK TO STUDIO</a>
+            <div class="flex items-center gap-6">
+                <div class="hidden sm:block text-xs tracking-widest text-gray-500 uppercase font-mono">Product ID: PR-01</div>
+                <button onclick="toggleLang()" id="langBtn" class="text-[10px] font-bold border border-white/20 px-3 py-1 rounded-full uppercase font-mono tracking-widest">
+                    KO
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 md:py-20">
+        <div class="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
+
+            <!-- ─── 좌: 소개 ─── -->
+            <div class="flex-1 space-y-8 text-center lg:text-left">
+                <div class="flex justify-center lg:justify-start">
+                    <img src="/assets/icons/peera.png" alt="Peera Icon" class="w-24 h-24 rounded-[1.5rem] shadow-2xl border border-white/10 mb-2">
+                </div>
+
+                <div class="inline-block px-4 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border border-amber-500/40 text-amber-500 rounded-full bg-amber-500/5" data-i18n="statusTag">
+                    In Development
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
+                    Peera
+                    <span class="block text-2xl md:text-3xl text-gray-500 mt-2 font-light italic" data-i18n="heroSub">Speaking becomes writing</span>
+                </h1>
+
+                <!-- ★ HTML이 든 문구는 data-i18n을 쓰지 않는다 — applyLanguage가 innerText로
+                     넣기 때문에 태그가 글자로 보인다. id 기반 innerHTML 경로로 처리한다. -->
+                <p class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 text-balance" id="main-desc"></p>
+
+                <div class="glass rounded-2xl p-5 text-left max-w-xl mx-auto lg:mx-0">
+                    <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-amber-600 mb-3" data-i18n="loopTitle">The Loop</p>
+                    <ol class="space-y-2 text-sm text-gray-400">
+                        <li><span class="text-amber-500 font-bold mr-2">01</span><span data-i18n="loop1">Laity sends a message — "Let's talk about your day!"</span></li>
+                        <li><span class="text-amber-500 font-bold mr-2">02</span><span data-i18n="loop2">The child calls, and chatters about what happened.</span></li>
+                        <li><span class="text-amber-500 font-bold mr-2">03</span><span data-i18n="loop3">That feeling is written out by hand, and gently corrected.</span></li>
+                    </ol>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                    <a href="https://retyper.github.io/peera-landing/?utm_source=hephaestosian&utm_medium=site&utm_campaign=product_page"
+                       class="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-amber-500 transition-all duration-300 text-center"
+                       data-i18n="btnWaitlist">Join the Waitlist</a>
+                    <a href="/legal/privacy-peera.html"
+                       class="px-8 py-4 rounded-full font-bold border border-white/10 hover:bg-white/5 transition text-center text-gray-400"
+                       data-i18n="btnPrivacy">Privacy Policy</a>
+                </div>
+            </div>
+
+            <!-- ─── 우: 라이브 라이티 통화 데모 (마크업은 랜딩 원본 구조 그대로) ─── -->
+            <div class="flex-1 laity-demo">
+                <div class="demo-col">
+                    <div class="phone" id="phoneDemo" role="img"
+                         aria-label="Peera app preview: Laity the squirrel sends a message, the child calls back, and the conversation becomes a handwritten diary">
+                        <div class="screen">
+                            <canvas class="rive" id="riveCanvas" aria-hidden="true"></canvas>
+                            <div class="shade top" aria-hidden="true"></div>
+                            <div class="shade bot" aria-hidden="true"></div>
+                            <div class="notch" aria-hidden="true"></div>
+                            <div class="call-top" aria-hidden="true">
+                                <span class="call-id">
+                                    <span class="call-name">라이티 🌰</span>
+                                    <span class="call-sub"><i class="rec"></i><span data-i18n="onCall">On call</span> <span id="callTime">00:04</span></span>
+                                </span>
+                                <span class="batt"><span data-i18n="laityPhone">Laity's phone</span> <i class="case"><i class="fill" id="battFill"></i></i></span>
+                            </div>
+                            <div class="chat" id="chat" aria-hidden="true"></div>
+                            <div class="call-hint" id="callHint" aria-hidden="true">
+                                <span class="mic">🎙️</span><br><span data-i18n="callHint">No buttons — Laity listens when the child speaks</span>
+                            </div>
+
+                            <!-- 1막: 라이티가 보낸 문자 -->
+                            <div class="notif" id="notif" aria-hidden="true">
+                                <img src="/assets/peera/laity-avatar.png" alt="">
+                                <div class="n-body">
+                                    <div class="n-head"><b>라이티</b><span data-i18n="now">now</span></div>
+                                    <div class="n-text" id="notifText"></div>
+                                </div>
+                            </div>
+
+                            <!-- 2막: 아이가 전화를 건다 -->
+                            <div class="calling" id="calling" aria-hidden="true">
+                                <img src="/assets/peera/laity-avatar.png" alt="">
+                                <b>라이티</b>
+                                <span data-i18n="calling">Calling<i>.</i><i>.</i><i>.</i></span>
+                            </div>
+                        </div>
+
+                        <!-- 3막: 손글씨 일기 (.phone의 overflow:hidden이 숨김 상태를 잘라 준다) -->
+                        <div class="diary" id="diary" aria-hidden="true">
+                            <span class="d-label" data-i18n="diaryLabel">TODAY'S DIARY</span>
+                            <div class="d-text" id="diaryText"></div>
+                            <img class="d-stamp" id="diaryStamp" src="/assets/peera/stamp-good.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── 특징 ─── -->
+        <section class="mt-32">
+            <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-10" data-i18n="featuresTitle">What Makes It Different</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass rounded-[2rem] p-8">
+                    <div class="text-3xl mb-4">📞</div>
+                    <h4 class="text-lg font-bold mb-2" data-i18n="f1Title">The child calls first</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed" data-i18n="f1Desc">Laity texts; the child chooses to call. Speaking starts from curiosity, not from a task.</p>
+                </div>
+                <div class="glass rounded-[2rem] p-8">
+                    <div class="text-3xl mb-4">✍️</div>
+                    <h4 class="text-lg font-bold mb-2" data-i18n="f2Title">Spoken words become handwriting</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed" data-i18n="f2Desc">What was said out loud is written by hand, in Korean and English, and gently corrected.</p>
+                </div>
+                <div class="glass rounded-[2rem] p-8">
+                    <div class="text-3xl mb-4">🔒</div>
+                    <h4 class="text-lg font-bold mb-2" data-i18n="f3Title">Handwriting stays on device</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed" data-i18n="f3Desc">Handwriting recognition and Laity's voice run entirely on the device — those never leave it.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="mt-24 text-center">
+            <p class="text-xs text-gray-600 font-mono uppercase tracking-widest" data-i18n="devNote">Currently in development · Pre-registration open</p>
+        </div>
+    </main>
+
+    <footer class="py-16 border-t border-white/5 px-6 mt-20 text-center">
+        <p class="text-[10px] text-gray-600 uppercase tracking-widest">© 2026 Hephaestosian · Peera</p>
+    </footer>
+
+    <script src="/assets/peera/rive.js"></script>
+    <script>
+        /* ══════════ 다국어 — 사이트 전체와 같은 방식(localStorage 공유) ══════════ */
+        const translations = {
+            en: {
+                backToStudio: "← BACK TO STUDIO", statusTag: "In Development",
+                heroSub: "Speaking becomes writing",
+                mainDesc: 'Once a day, a forest squirrel named Laity sends a text message. Curious, the child calls back — and talks about their day out loud. What they said then becomes a <span class="text-white font-medium">handwritten diary</span>, in Korean and English.',
+                loopTitle: "The Loop",
+                loop1: "Laity sends a message — \"Let's talk about your day!\"",
+                loop2: "The child calls, and chatters about what happened.",
+                loop3: "That feeling is written out by hand, and gently corrected.",
+                btnWaitlist: "Join the Waitlist", btnPrivacy: "Privacy Policy",
+                onCall: "On call", laityPhone: "Laity's phone", now: "now",
+                callHint: "No buttons — Laity listens when the child speaks",
+                calling: "Calling<i>.</i><i>.</i><i>.</i>", diaryLabel: "TODAY'S DIARY · from the call",
+                featuresTitle: "What Makes It Different",
+                f1Title: "The child calls first",
+                f1Desc: "Laity texts; the child chooses to call. Speaking starts from curiosity, not from a task.",
+                f2Title: "Spoken words become handwriting",
+                f2Desc: "What was said out loud is written by hand, in Korean and English, and gently corrected.",
+                f3Title: "Handwriting stays on device",
+                f3Desc: "Handwriting recognition and Laity's voice run entirely on the device — those never leave it.",
+                devNote: "Currently in development · Pre-registration open",
+                lang: "KO"
+            },
+            ko: {
+                backToStudio: "← 스튜디오로", statusTag: "개발 중",
+                heroSub: "말이 글이 되는 자리",
+                mainDesc: '하루 한 번, 숲속 다람쥐 라이티가 문자를 보내요. 궁금해진 아이가 먼저 전화를 걸어 오늘 하루를 조잘조잘 이야기합니다. 그렇게 꺼낸 마음이 한글·영어 <span class="text-white font-medium">손글씨 일기</span>가 됩니다.',
+                loopTitle: "하루의 흐름",
+                loop1: "라이티가 문자를 보내요 — \"오늘 있었던 일 통화하자!\"",
+                loop2: "아이가 전화를 걸어 오늘 하루를 이야기해요.",
+                loop3: "그 마음을 손으로 쓰고, 빨간펜으로 다정하게 고쳐요.",
+                btnWaitlist: "사전예약 하기", btnPrivacy: "개인정보처리방침",
+                onCall: "통화 중", laityPhone: "라이티 폰", now: "지금",
+                callHint: "버튼 없이, 아이가 말하면 라이티가 들어요",
+                calling: "전화 거는 중<i>.</i><i>.</i><i>.</i>", diaryLabel: "오늘의 일기 · 통화에서 꺼낸 마음",
+                featuresTitle: "무엇이 다른가",
+                f1Title: "아이가 먼저 전화를 겁니다",
+                f1Desc: "라이티가 문자를 보내면 아이가 스스로 전화를 걸어요. 말하기가 숙제가 아니라 궁금함에서 시작합니다.",
+                f2Title: "말한 것이 손글씨가 됩니다",
+                f2Desc: "소리 내어 말한 이야기를 한글·영어 손글씨로 직접 쓰고, 빨간펜으로 다정하게 고칩니다.",
+                f3Title: "손글씨는 기기 밖으로 나가지 않습니다",
+                f3Desc: "손글씨를 읽어내는 처리와 라이티의 목소리는 모두 기기 안에서만 이뤄집니다.",
+                devNote: "개발 진행 중 · 사전예약 받는 중",
+                lang: "EN"
+            }
+        };
+
+        let currentLang = localStorage.getItem('preferredLang') || 'en';
+
+        function applyLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
+            document.documentElement.lang = lang;
+            const btn = document.getElementById('langBtn');
+            if (btn) btn.textContent = t.lang;
+
+            document.querySelectorAll('[data-i18n]').forEach((el) => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) el.innerHTML = t[key];
+            });
+
+            // HTML이 든 문구는 id 기반으로
+            const md = document.getElementById('main-desc');
+            if (md && t.mainDesc) md.innerHTML = t.mainDesc;
+        }
+
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'ko' : 'en';
+            localStorage.setItem('preferredLang', currentLang);
+            applyLanguage(currentLang);
+            restartDemoForLang();
+        }
+
+        applyLanguage(currentLang);
+
+/*__DEMO_JS__*/
+    </script>
+</body>
+</html>

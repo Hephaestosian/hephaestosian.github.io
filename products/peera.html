@@ -21,11 +21,15 @@
         #langBtn:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(225, 117, 31, 0.5); color: #E1751F; }
 
         /* ══════════════════════════════════════════════════════════════
-           라이티 통화 데모 — 아래 블록은 peera-landing의 CSS를 port.js가
-           기계 변환한 결과다. 손으로 고치지 말 것(원본과 어긋난다).
-           고칠 일이 있으면 랜딩 쪽을 고치고 port.js를 다시 돌린다.
-           변환 내용: 셀렉터에 .laity-demo 스코프, 키프레임에 ld- 접두사,
-                     자산 경로를 /assets/peera/ 로.
+           ★ 이 페이지는 생성물이다 — 손으로 고치지 말 것.
+             tools/port-laity-demo.js 가 peera-landing의 데모 CSS를 읽어
+             기계 변환한다(스코프 .laity-demo, 키프레임 ld- 접두사,
+             자산 경로 /assets/peera/). 여기서 고치면 다음 실행 때 덮어써진다.
+
+             데모를 고치려면  → peera-landing/index.html 을 고치고
+                                 cd tools && node port-laity-demo.js
+             문구를 고치려면  → tools/peera-shell.html
+             자세한 내용      → tools/README.md
            ══════════════════════════════════════════════════════════════ */
         .laity-demo {
             --paper: #FFFDF8; --paper-warm: #FAF1E2; --ink: #3D2B1F; --ink-soft: #85715C;
