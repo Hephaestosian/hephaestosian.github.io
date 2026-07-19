@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peera | Forged by Hephaestosian</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/peera.png">
+    <link rel="apple-touch-icon" href="/assets/icons/peera.png">
+    <link rel="shortcut icon" href="/assets/icons/peera.png">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        /* 표제 Jua · 손글씨 Gaegu — 피어라 본품과 같은 서체로 브랜드를 잇는다 */
+        @import url('https://fonts.googleapis.com/css2?family=Jua&family=Gaegu:wght@400;700&display=swap');
+
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .amber-shadow { box-shadow: 0 0 50px rgba(225, 117, 31, 0.12); }
+        #langBtn { transition: all 0.3s ease; }
+        #langBtn:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(225, 117, 31, 0.5); color: #E1751F; }
+
+        /* ══════════════════════════════════════════════════════════════
+           라이티 통화 데모 — 피어라 랜딩(peera-landing)의 히어로 데모를 그대로 이식.
+           본품 dearmydiary의 writy.riv가 여기서도 실제로 구동된다.
+           스코프: .laity-demo 안에서만 적용해 사이트 다크 테마와 충돌하지 않게 한다.
+           ══════════════════════════════════════════════════════════════ */
+        .laity-demo {
+            --paper: #FFFDF8; --paper-warm: #FAF1E2; --ink: #3D2B1F; --ink-soft: #85715C;
+            --line: #EBDCC6; --outline: #B07050;
+            --laity: #E1751F; --laity-deep: #C1580E; --cream-face: #FFE9C9;
+            --night-1: #10202B; --night-2: #1D3A34;
+        }
+        .laity-demo .phone {
+            position: relative; width: min(340px, 88vw); border-radius: 44px;
+            background: #2A2019; padding: 12px;
+            box-shadow: 0 24px 60px rgba(0,0,0,.55), inset 0 0 0 2px #4A3A2C;
+            transform: rotate(1.6deg);
+        }
+        .laity-demo .screen {
+            position: relative; border-radius: 34px; overflow: hidden;
+            aspect-ratio: 9 / 17.5;
+            background: linear-gradient(170deg, var(--night-1), var(--night-2));
+        }
+        .laity-demo .screen canvas.rive {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            opacity: 0; transition: opacity .5s ease;
+        }
+        .laity-demo .screen canvas.rive.on { opacity: 1; }
+        .laity-demo .screen::before {
+            content: ""; position: absolute; inset: 0; z-index: 0;
+            background: url('/assets/peera/writy-still.png') center/cover no-repeat;
+        }
+        .laity-demo .shade { position: absolute; left: 0; right: 0; height: 34%; z-index: 1; pointer-events: none; }
+        .laity-demo .shade.top { top: 0; background: linear-gradient(to bottom, rgba(8,20,26,.85), transparent); }
+        .laity-demo .shade.bot { bottom: 0; background: linear-gradient(to top, rgba(8,20,26,.9), transparent); }
+        .laity-demo .notch {
+            position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+            width: 92px; height: 22px; background: #10181C; border-radius: 999px; z-index: 3;
+        }
+        .laity-demo .call-top {
+            position: absolute; top: 38px; left: 16px; right: 16px; z-index: 3;
+            display: flex; justify-content: space-between; align-items: flex-start; color: #FFF6E6;
+        }
+        .laity-demo .call-id { display: flex; flex-direction: column; line-height: 1.35; }
+        .laity-demo .call-name { font-family: "Jua", sans-serif; font-size: 1.06rem; }
+        .laity-demo .call-sub { font-size: .68rem; color: #A8C3AE; display: inline-flex; align-items: center; gap: 5px; }
+        .laity-demo .call-sub .rec { width: 6px; height: 6px; border-radius: 50%; background: #7BD68B; animation: ld-pulse 1.6s infinite; }
+        .laity-demo .batt { display: inline-flex; align-items: center; gap: 6px; font-size: .68rem; color: #CFE3D2; }
+        .laity-demo .batt .case {
+            position: relative; display: inline-block; width: 22px; height: 11px;
+            border: 1.5px solid #CFE3D2; border-radius: 3px; padding: 1px;
+        }
+        .laity-demo .batt .case::after {
+            content: ""; position: absolute; right: -4px; top: 3px; width: 2.5px; height: 5px;
+            background: #CFE3D2; border-radius: 1px;
+        }
+        .laity-demo .batt .fill { display: block; height: 100%; width: 86%; background: #7BD68B; border-radius: 2px; transition: width .8s ease, background .8s ease; }
+        .laity-demo .chat {
+            position: absolute; left: 14px; right: 14px; bottom: 68px; z-index: 3;
+            display: flex; flex-direction: column; gap: 8px;
+        }
+        .laity-demo .bubble {
+            max-width: 84%; padding: 9px 13px; border-radius: 16px; font-size: .84rem; line-height: 1.5;
+            word-break: keep-all; animation: ld-pop .35s ease both;
+        }
+        .laity-demo .bubble.laity {
+            align-self: flex-start; background: rgba(255,246,230,.94); color: var(--ink);
+            border-bottom-left-radius: 5px;
+        }
+        .laity-demo .bubble.kid {
+            align-self: flex-end; background: var(--laity); color: #fff;
+            border-bottom-right-radius: 5px;
+        }
+        .laity-demo .bubble.kid .listen { display: inline-flex; gap: 3px; align-items: center; height: 1em; }
+        .laity-demo .bubble.kid .listen i {
+            display: block; width: 3px; border-radius: 2px; background: rgba(255,255,255,.9);
+            animation: ld-eq .9s ease-in-out infinite;
+        }
+        .laity-demo .bubble.kid .listen i:nth-child(1) { height: 6px; }
+        .laity-demo .bubble.kid .listen i:nth-child(2) { height: 12px; animation-delay: .12s; }
+        .laity-demo .bubble.kid .listen i:nth-child(3) { height: 8px;  animation-delay: .24s; }
+        .laity-demo .bubble.kid .listen i:nth-child(4) { height: 11px; animation-delay: .36s; }
+        .laity-demo .call-hint {
+            position: absolute; left: 0; right: 0; bottom: 22px; z-index: 3; text-align: center;
+            font-size: .68rem; color: #A8C3AE; line-height: 1.6; opacity: 0; transition: opacity .5s ease;
+        }
+        .laity-demo .call-hint.show { opacity: 1; }
+        .laity-demo .call-hint .mic { font-size: 1.1rem; }
+        .laity-demo .notif {
+            position: absolute; top: 70px; left: 12px; right: 12px; z-index: 4;
+            display: flex; gap: 10px; align-items: flex-start;
+            background: rgba(255,253,248,.96); border-radius: 18px; padding: 10px 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.35);
+            transform: translateY(-140%); opacity: 0; transition: transform .5s cubic-bezier(.2,.9,.3,1.2), opacity .4s;
+        }
+        .laity-demo .notif.show { transform: translateY(0); opacity: 1; }
+        .laity-demo .notif img { width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0; }
+        .laity-demo .notif .n-body { min-width: 0; }
+        .laity-demo .notif .n-head { display: flex; gap: 6px; align-items: baseline; }
+        .laity-demo .notif .n-head b { font-family: "Jua", sans-serif; font-size: .82rem; color: var(--ink); }
+        .laity-demo .notif .n-head span { font-size: .62rem; color: #A08D74; }
+        .laity-demo .notif .n-text { font-size: .78rem; line-height: 1.45; color: #4A3423; margin-top: 1px; word-break: keep-all; }
+        .laity-demo .calling {
+            position: absolute; inset: 0; z-index: 5;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+            background: linear-gradient(170deg, rgba(16,32,43,.96), rgba(29,58,52,.96));
+            opacity: 0; visibility: hidden; transition: opacity .45s ease, visibility .45s;
+        }
+        .laity-demo .calling.show { opacity: 1; visibility: visible; }
+        .laity-demo .calling img {
+            width: 96px; height: 96px; border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(255,246,230,.5); animation: ld-ring 1.5s ease-out infinite;
+        }
+        .laity-demo .calling b { font-family: "Jua", sans-serif; color: #FFF6E6; font-size: 1.15rem; }
+        .laity-demo .calling span { color: #A8C3AE; font-size: .74rem; letter-spacing: .04em; }
+        .laity-demo .calling span i { display: inline-block; animation: ld-dots 1.4s infinite; font-style: normal; }
+        .laity-demo .calling span i:nth-child(2) { animation-delay: .2s; }
+        .laity-demo .calling span i:nth-child(3) { animation-delay: .4s; }
+        .laity-demo .diary {
+            position: absolute; left: 50%; bottom: -26px; transform: translate(-50%, 130%);
+            width: 84%; background: var(--paper); border: 1.5px solid var(--line); border-radius: 18px;
+            padding: 14px 16px 16px; box-shadow: 0 16px 40px rgba(0,0,0,.45);
+            transition: transform .6s cubic-bezier(.2,.9,.3,1.15); z-index: 6;
+        }
+        .laity-demo .diary.show { transform: translate(-50%, 0); }
+        .laity-demo .diary .d-label { font-size: .68rem; font-weight: 700; color: var(--outline); letter-spacing: .06em; }
+        .laity-demo .diary .d-text {
+            font-family: "Gaegu", cursive; font-size: 1.18rem; line-height: 1.65; color: var(--ink);
+            margin-top: 4px; min-height: 3.3em; word-break: keep-all;
+        }
+        .laity-demo .diary .d-stamp {
+            position: absolute; right: 10px; bottom: 8px; width: 60px;
+            transform: rotate(-10deg) scale(0); transition: transform .5s cubic-bezier(.2,.9,.3,1.5);
+        }
+        .laity-demo .diary .d-stamp.show { transform: rotate(-10deg) scale(1); }
+        .laity-demo .caret {
+            display: inline-block; width: 2px; height: 1em; background: var(--laity);
+            vertical-align: -2px; animation: ld-blink 1s step-end infinite;
+        }
+
+        @keyframes ld-pulse { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+        @keyframes ld-pop   { from { opacity: 0; transform: translateY(6px) scale(.96); } to { opacity: 1; transform: none; } }
+        @keyframes ld-eq    { 0%,100% { transform: scaleY(.5); } 50% { transform: scaleY(1.25); } }
+        @keyframes ld-ring  { 0% { box-shadow: 0 0 0 0 rgba(255,246,230,.45); } 100% { box-shadow: 0 0 0 26px rgba(255,246,230,0); } }
+        @keyframes ld-dots  { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+        @keyframes ld-blink { 50% { opacity: 0; } }
+
+        /* 모션 최소화 설정을 켠 사용자에겐 라이브 Rive 대신 정지 프레임만 */
+        @media (prefers-reduced-motion: reduce) {
+            .laity-demo .screen canvas.rive { display: none; }
+            .laity-demo .call-sub .rec, .laity-demo .bubble, .laity-demo .caret { animation: none !important; }
+            .laity-demo .diary, .laity-demo .diary .d-stamp, .laity-demo .notif { transition: none; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="p-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="/" class="text-sm font-bold tracking-tighter hover:text-gray-400 transition" data-i18n="backToStudio">← BACK TO STUDIO</a>
+            <div class="flex items-center gap-6">
+                <div class="hidden sm:block text-xs tracking-widest text-gray-500 uppercase font-mono">Product ID: PR-01</div>
+                <button onclick="toggleLang()" id="langBtn" class="text-[10px] font-bold border border-white/20 px-3 py-1 rounded-full uppercase font-mono tracking-widest">
+                    KO
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 md:py-20">
+        <div class="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
+
+            <!-- ─── 좌: 소개 ─── -->
+            <div class="flex-1 space-y-8 text-center lg:text-left">
+                <div class="flex justify-center lg:justify-start">
+                    <img src="/assets/icons/peera.png" alt="Peera Icon" class="w-24 h-24 rounded-[1.5rem] shadow-2xl border border-white/10 mb-2">
+                </div>
+
+                <div class="inline-block px-4 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border border-amber-500/40 text-amber-500 rounded-full bg-amber-500/5" data-i18n="statusTag">
+                    In Development
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
+                    Peera
+                    <span class="block text-2xl md:text-3xl text-gray-500 mt-2 font-light italic" data-i18n="heroSub">Speaking becomes writing</span>
+                </h1>
+
+                <p class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 text-balance" data-i18n="heroDesc">
+                    Once a day, a forest squirrel named Laity sends a text message. Curious, the child calls back — and talks about their day out loud. What they said then becomes a handwritten diary, in Korean and English.
+                </p>
+
+                <div class="glass rounded-2xl p-5 text-left max-w-xl mx-auto lg:mx-0">
+                    <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-amber-600 mb-3" data-i18n="loopTitle">The Loop</p>
+                    <ol class="space-y-2 text-sm text-gray-400">
+                        <li><span class="text-amber-500 font-bold mr-2">01</span><span data-i18n="loop1">Laity sends a message — "Let's talk about your day!"</span></li>
+                        <li><span class="text-amber-500 font-bold mr-2">02</span><span data-i18n="loop2">The child calls, and chatters about what happened.</span></li>
+                        <li><span class="text-amber-500 font-bold mr-2">03</span><span data-i18n="loop3">That feeling is written out by hand, and gently corrected.</span></li>
+                    </ol>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                    <a href="https://retyper.github.io/peera-landing/?utm_source=hephaestosian&utm_medium=site&utm_campaign=product_page"
+                       class="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-amber-500 transition-all duration-300 text-center"
+                       data-i18n="btnWaitlist">Join the Waitlist</a>
+                    <a href="/legal/privacy-peera.html"
+                       class="px-8 py-4 rounded-full font-bold border border-white/10 hover:bg-white/5 transition text-center text-gray-400"
+                       data-i18n="btnPrivacy">Privacy Policy</a>
+                </div>
+            </div>
+
+            <!-- ─── 우: 라이브 라이티 통화 데모 ─── -->
+            <div class="flex-1 flex justify-center laity-demo">
+                <div class="phone" id="phoneDemo" role="img"
+                     aria-label="Peera app preview: Laity the squirrel sends a message, the child calls back, and the conversation becomes a handwritten diary">
+                    <div class="screen">
+                        <canvas class="rive" id="riveCanvas" aria-hidden="true"></canvas>
+                        <div class="shade top" aria-hidden="true"></div>
+                        <div class="shade bot" aria-hidden="true"></div>
+                        <div class="notch" aria-hidden="true"></div>
+                        <div class="call-top" aria-hidden="true">
+                            <span class="call-id">
+                                <span class="call-name">라이티 🌰</span>
+                                <span class="call-sub"><i class="rec"></i><span data-i18n="onCall">On call</span> <span id="callTime">00:04</span></span>
+                            </span>
+                            <span class="batt"><span data-i18n="laityPhone">Laity's phone</span> <i class="case"><i class="fill" id="battFill"></i></i></span>
+                        </div>
+                        <div class="chat" id="chat" aria-hidden="true"></div>
+                        <div class="call-hint" id="callHint" aria-hidden="true">
+                            <span class="mic">🎙️</span><br><span data-i18n="callHint">No buttons — Laity listens when the child speaks</span>
+                        </div>
+
+                        <!-- 1막: 라이티가 보낸 문자 -->
+                        <div class="notif" id="notif" aria-hidden="true">
+                            <img src="/assets/peera/laity-avatar.png" alt="">
+                            <div class="n-body">
+                                <div class="n-head"><b>라이티</b><span data-i18n="now">now</span></div>
+                                <div class="n-text" id="notifText"></div>
+                            </div>
+                        </div>
+
+                        <!-- 2막: 아이가 전화를 건다 -->
+                        <div class="calling" id="calling" aria-hidden="true">
+                            <img src="/assets/peera/laity-avatar.png" alt="">
+                            <b>라이티</b>
+                            <span data-i18n="calling">Calling<i>.</i><i>.</i><i>.</i></span>
+                        </div>
+                    </div>
+
+                    <!-- 3막: 손글씨 일기 -->
+                    <div class="diary" id="diary" aria-hidden="true">
+                        <span class="d-label" data-i18n="diaryLabel">TODAY'S DIARY</span>
+                        <div class="d-text" id="diaryText"></div>
+                        <img class="d-stamp" id="diaryStamp" src="/assets/peera/stamp-good.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── 특징 ─── -->
+        <section class="mt-32">
+            <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-10" data-i18n="featuresTitle">What Makes It Different</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass rounded-[2rem] p-8">
+                    <div class="text-3xl mb-4">📞</div>
+                    <h4 class="text-lg font-bold mb-2" data-i18n="f1Title">The child calls first</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed" data-i18n="f1Desc">Laity texts; the child chooses to call. Speaking starts from curiosity, not from a task.</p>
+                </div>
+                <div class="glass rounded-[2rem] p-8">
+                    <div class="text-3xl mb-4">✍️</div>
+                    <h4 class="text-lg font-bold mb-2" data-i18n="f2Title">Spoken words become handwriting</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed" data-i18n="f2Desc">What was said out loud is written by hand, in Korean and English, and gently corrected.</p>
+                </div>
+                <div class="glass rounded-[2rem] p-8">
+                    <div class="text-3xl mb-4">🔒</div>
+                    <h4 class="text-lg font-bold mb-2" data-i18n="f3Title">Handwriting stays on device</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed" data-i18n="f3Desc">Handwriting recognition and Laity's voice run entirely on the device — those never leave it.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="mt-24 text-center">
+            <p class="text-xs text-gray-600 font-mono uppercase tracking-widest" data-i18n="devNote">Currently in development · Pre-registration open</p>
+        </div>
+    </main>
+
+    <footer class="py-16 border-t border-white/5 px-6 mt-20 text-center">
+        <p class="text-[10px] text-gray-600 uppercase tracking-widest">© 2026 Hephaestosian · Peera</p>
+    </footer>
+
+    <script src="/assets/peera/rive.js"></script>
+    <script>
+        /* ══════════ 다국어 — 사이트 전체와 같은 방식(localStorage 공유) ══════════ */
+        const translations = {
+            en: {
+                backToStudio: "← BACK TO STUDIO", statusTag: "In Development",
+                heroSub: "Speaking becomes writing",
+                heroDesc: "Once a day, a forest squirrel named Laity sends a text message. Curious, the child calls back — and talks about their day out loud. What they said then becomes a handwritten diary, in Korean and English.",
+                loopTitle: "The Loop",
+                loop1: "Laity sends a message — \"Let's talk about your day!\"",
+                loop2: "The child calls, and chatters about what happened.",
+                loop3: "That feeling is written out by hand, and gently corrected.",
+                btnWaitlist: "Join the Waitlist", btnPrivacy: "Privacy Policy",
+                onCall: "On call", laityPhone: "Laity's phone", now: "now",
+                callHint: "No buttons — Laity listens when the child speaks",
+                calling: "Calling<i>.</i><i>.</i><i>.</i>", diaryLabel: "TODAY'S DIARY",
+                featuresTitle: "What Makes It Different",
+                f1Title: "The child calls first",
+                f1Desc: "Laity texts; the child chooses to call. Speaking starts from curiosity, not from a task.",
+                f2Title: "Spoken words become handwriting",
+                f2Desc: "What was said out loud is written by hand, in Korean and English, and gently corrected.",
+                f3Title: "Handwriting stays on device",
+                f3Desc: "Handwriting recognition and Laity's voice run entirely on the device — those never leave it.",
+                devNote: "Currently in development · Pre-registration open",
+                lang: "KO"
+            },
+            ko: {
+                backToStudio: "← 스튜디오로", statusTag: "개발 중",
+                heroSub: "말이 글이 되는 자리",
+                heroDesc: "하루 한 번, 숲속 다람쥐 라이티가 문자를 보내요. 궁금해진 아이가 먼저 전화를 걸어 오늘 하루를 조잘조잘 이야기합니다. 그렇게 꺼낸 마음이 한글·영어 손글씨 일기가 됩니다.",
+                loopTitle: "하루의 흐름",
+                loop1: "라이티가 문자를 보내요 — \"오늘 있었던 일 통화하자!\"",
+                loop2: "아이가 전화를 걸어 오늘 하루를 이야기해요.",
+                loop3: "그 마음을 손으로 쓰고, 빨간펜으로 다정하게 고쳐요.",
+                btnWaitlist: "사전예약 하기", btnPrivacy: "개인정보처리방침",
+                onCall: "통화 중", laityPhone: "라이티 폰", now: "지금",
+                callHint: "버튼 없이, 아이가 말하면 라이티가 들어요",
+                calling: "전화 거는 중<i>.</i><i>.</i><i>.</i>", diaryLabel: "오늘의 일기 · 통화에서 꺼낸 마음",
+                featuresTitle: "무엇이 다른가",
+                f1Title: "아이가 먼저 전화를 겁니다",
+                f1Desc: "라이티가 문자를 보내면 아이가 스스로 전화를 걸어요. 말하기가 숙제가 아니라 궁금함에서 시작합니다.",
+                f2Title: "말한 것이 손글씨가 됩니다",
+                f2Desc: "소리 내어 말한 이야기를 한글·영어 손글씨로 직접 쓰고, 빨간펜으로 다정하게 고칩니다.",
+                f3Title: "손글씨는 기기 밖으로 나가지 않습니다",
+                f3Desc: "손글씨를 읽어내는 처리와 라이티의 목소리는 모두 기기 안에서만 이뤄집니다.",
+                devNote: "개발 진행 중 · 사전예약 받는 중",
+                lang: "EN"
+            }
+        };
+
+        let currentLang = localStorage.getItem('preferredLang') || 'en';
+
+        function applyLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach((el) => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) el.innerHTML = t[key];
+            });
+            const btn = document.getElementById('langBtn');
+            if (btn) btn.textContent = t.lang;
+            // 데모 대사도 언어에 맞춰 다시 재생한다
+            demoGen++;
+            if (demoVisible) runDemo();
+        }
+
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'ko' : 'en';
+            localStorage.setItem('preferredLang', currentLang);
+            applyLanguage(currentLang);
+        }
+
+        /* ══════════ 라이브 라이티 ══════════
+           본품 dearmydiary의 writy.riv를 그대로 구동한다.
+           실패하면 .screen::before의 정지 프레임 포스터가 그대로 보인다. */
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const riveCanvas = document.getElementById('riveCanvas');
+        let laityVmi = null;
+        let riveInst = null;   // 화면 밖에선 멈춰 둔다(모바일 배터리·CPU)
+
+        function setLaity(name, v) {
+            try { const b = laityVmi && laityVmi.boolean && laityVmi.boolean(name); if (b) b.value = v; } catch (_) {}
+        }
+
+        function initLaityRive() {
+            if (prefersReduced || !window.rive || !riveCanvas || riveCanvas.dataset.init) return;
+            riveCanvas.dataset.init = '1';
+            try {
+                rive.RuntimeLoader.setWasmUrl('/assets/peera/rive.wasm');
+                const r = new rive.Rive({
+                    src: '/assets/peera/writy.riv',
+                    canvas: riveCanvas,
+                    artboard: 'Artboard',
+                    stateMachines: 'squirrel_state',
+                    autoplay: true,
+                    autoBind: true,
+                    layout: new rive.Layout({ fit: rive.Fit.Cover, alignment: rive.Alignment.Center }),
+                    onLoad: () => {
+                        r.resizeDrawingSurfaceToCanvas();
+                        riveInst = r;
+                        laityVmi = r.viewModelInstance || null;
+                        setLaity('isTalking', false);
+                        setLaity('isListening', false);
+                        setLaity('isThinkingComplex', false);
+                        try { const m = laityVmi && laityVmi.number && laityVmi.number('mouthOpen'); if (m) m.value = -1; } catch (_) {}
+                        riveCanvas.classList.add('on');
+                    },
+                });
+                addEventListener('resize', () => { try { r.resizeDrawingSurfaceToCanvas(); } catch (_) {} });
+            } catch (_) { /* 포스터 폴백 */ }
+        }
+
+        /* ══════════ 3막 데모 루프 ══════════
+           1막 라이티의 문자 → 2막 아이가 전화 → 3막 손글씨 일기 */
+        const phone     = document.getElementById('phoneDemo');
+        const chat      = document.getElementById('chat');
+        const notif     = document.getElementById('notif');
+        const notifText = document.getElementById('notifText');
+        const calling   = document.getElementById('calling');
+        const callHint  = document.getElementById('callHint');
+        const diary     = document.getElementById('diary');
+        const diaryText = document.getElementById('diaryText');
+        const diaryStamp= document.getElementById('diaryStamp');
+        const callTime  = document.getElementById('callTime');
+        const battFill  = document.getElementById('battFill');
+
+        const SCRIPT = {
+            ko: {
+                sms: '오늘 있었던 일 통화하자! 🌰',
+                turns: [
+                    { who: 'laity', text: '오늘 뭐 했어? 재밌는 일 있었어?' },
+                    { who: 'kid' },
+                    { who: 'laity', text: '우와, 그때 기분이 어땠는데?' },
+                    { who: 'kid' },
+                    { who: 'laity', text: '그 마음, 일기로 남겨볼까?' },
+                ],
+                diary: '오늘 놀이터에서 그네를 탔다.\n하늘까지 올라가는 것 같아서\n가슴이 콩닥콩닥 뛰었다.',
+            },
+            en: {
+                sms: "Let's talk about your day! 🌰",
+                turns: [
+                    { who: 'laity', text: 'What did you do today? Anything fun?' },
+                    { who: 'kid' },
+                    { who: 'laity', text: 'Wow — how did that feel?' },
+                    { who: 'kid' },
+                    { who: 'laity', text: 'Shall we keep that feeling in your diary?' },
+                ],
+                diary: 'I rode the swings at the playground.\nIt felt like going all the way up to the sky,\nand my heart went thump thump.',
+            },
+        };
+
+        let demoGen = 0;        // 세대 토큰 — 이전 루프를 무효화한다
+        let demoVisible = false;
+        const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+        function resetDemo() {
+            chat.innerHTML = '';
+            notif.classList.remove('show');
+            calling.classList.remove('show');
+            callHint.classList.remove('show');
+            diary.classList.remove('show');
+            diaryStamp.classList.remove('show');
+            diaryText.textContent = '';
+            notifText.textContent = '';
+            setLaity('isTalking', false);
+            setLaity('isListening', false);
+        }
+
+        function bubble(kind, text) {
+            const el = document.createElement('div');
+            el.className = 'bubble ' + kind;
+            if (kind === 'kid') {
+                el.innerHTML = '<span class="listen"><i></i><i></i><i></i><i></i></span>';
+            } else {
+                el.textContent = text;
+            }
+            chat.appendChild(el);
+            while (chat.children.length > 3) chat.removeChild(chat.firstChild);
+        }
+
+        async function typeInto(el, text, gen, speed) {
+            el.textContent = '';
+            const caret = document.createElement('span');
+            caret.className = 'caret';
+            el.appendChild(caret);
+            for (let i = 0; i < text.length; i++) {
+                if (gen !== demoGen) return;
+                caret.insertAdjacentText('beforebegin', text[i]);
+                await sleep(text[i] === '\n' ? speed * 3 : speed);
+            }
+            if (gen === demoGen) caret.remove();
+        }
+
+        async function runDemo() {
+            const gen = ++demoGen;
+            const S = SCRIPT[currentLang] || SCRIPT.en;
+            resetDemo();
+            await sleep(600);
+            if (gen !== demoGen) return;
+
+            // 1막 — 라이티의 문자
+            notif.classList.add('show');
+            await typeInto(notifText, S.sms, gen, 55);
+            if (gen !== demoGen) return;
+            await sleep(1600);
+            if (gen !== demoGen) return;
+            notif.classList.remove('show');
+            await sleep(500);
+            if (gen !== demoGen) return;
+
+            // 2막 — 아이가 전화를 건다
+            calling.classList.add('show');
+            await sleep(2000);
+            if (gen !== demoGen) return;
+            calling.classList.remove('show');
+            await sleep(400);
+            if (gen !== demoGen) return;
+
+            callHint.classList.add('show');
+            let sec = 4;
+            for (const turn of S.turns) {
+                if (gen !== demoGen) return;
+                if (turn.who === 'laity') {
+                    setLaity('isListening', false);
+                    setLaity('isTalking', true);
+                    bubble('laity', turn.text);
+                    await sleep(1900);
+                } else {
+                    setLaity('isTalking', false);
+                    setLaity('isListening', true);
+                    bubble('kid');
+                    await sleep(1700);
+                }
+                sec += 2;
+                callTime.textContent = '00:' + String(sec).padStart(2, '0');
+                battFill.style.width = Math.max(40, 86 - sec) + '%';
+            }
+            setLaity('isTalking', false);
+            setLaity('isListening', false);
+            if (gen !== demoGen) return;
+
+            callHint.classList.remove('show');
+            await sleep(600);
+            if (gen !== demoGen) return;
+
+            // 3막 — 손글씨 일기
+            diary.classList.add('show');
+            await sleep(500);
+            await typeInto(diaryText, S.diary, gen, 48);
+            if (gen !== demoGen) return;
+            await sleep(500);
+            diaryStamp.classList.add('show');
+            await sleep(3400);
+            if (gen !== demoGen) return;
+
+            if (demoVisible) runDemo();   // 루프
+        }
+
+        /* 화면 밖·백그라운드 탭에서는 멈춘다 — 모바일 배터리·CPU 절약 */
+        if ('IntersectionObserver' in window && phone) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((e) => {
+                    if (e.isIntersecting) {
+                        if (!demoVisible) {
+                            demoVisible = true;
+                            initLaityRive();
+                            try { riveInst && riveInst.play(); } catch (_) {}
+                            runDemo();
+                        }
+                    } else {
+                        demoVisible = false;
+                        demoGen++;
+                        try { riveInst && riveInst.pause(); } catch (_) {}
+                    }
+                });
+            }, { threshold: .25 });
+            io.observe(phone);
+
+            document.addEventListener('visibilitychange', () => {
+                try {
+                    if (document.hidden) { demoGen++; riveInst && riveInst.pause(); }
+                    else if (demoVisible) { riveInst && riveInst.play(); runDemo(); }
+                } catch (_) {}
+            });
+        } else {
+            demoVisible = true;
+            initLaityRive();
+            runDemo();
+        }
+
+        applyLanguage(currentLang);
+    </script>
+</body>
+</html>
