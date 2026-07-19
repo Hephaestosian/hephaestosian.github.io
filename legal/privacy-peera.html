@@ -38,13 +38,13 @@
 <!-- ══════════════ 한국어 ══════════════ -->
 <div class="ko">
 <h1>피어라(Peera) 개인정보처리방침</h1>
-<p class="meta">시행일: 2026년 7월 19일 · 최종 수정일: 2026년 7월 19일</p>
+<p class="meta">시행일: 2026년 7월 19일 · 최종 수정일: 2026년 7월 19일(개정)</p>
 
 <div class="box">
-  <strong>한 줄 요약 — 이 앱은 아이가 쓴 글을 AI에 보냅니다.</strong><br>
-  피어라는 아이가 쓴 일기를 다듬어 주고 라이티와 대화하기 위해, 그 내용을
-  <strong>외부 AI 회사의 서버로 전송</strong>합니다. 손글씨를 읽어내는 처리와 라이티의 목소리는
-  기기 안에서만 이뤄져 전송되지 않습니다. 어떤 정보가 어디로 가는지
+  <strong>한 줄 요약 — 이 앱은 아이가 쓰고 말한 것을 외부 서비스로 보냅니다.</strong><br>
+  피어라는 일기를 다듬어 주고 라이티와 대화하기 위해, 아이가 쓴 글·손글씨·음성을
+  <strong>외부 서비스의 서버로 전송</strong>합니다. 라이티의 목소리만은 기기 안에서 만들어
+  나가지 않습니다. 어떤 정보가 어디로 가는지
   <a href="#transfer">4번 항목</a>에 빠짐없이 적었습니다.
 </div>
 
@@ -58,14 +58,17 @@
 <table>
   <tr><th>항목</th><th>내용</th><th>수집 시점</th></tr>
   <tr><td>아이 별칭</td><td>라이티가 아이를 부르고 학습 기록을 구분하기 위한 이름</td><td>최초 설정 시</td></tr>
-  <tr><td>일기 내용</td><td>아이가 쓴 글(텍스트)과 손글씨·그림 이미지</td><td>일기 작성 시</td></tr>
-  <tr><td>음성 대화 내용</td><td>라이티와 대화할 때 음성이 변환된 <strong>텍스트</strong></td><td>음성 대화 이용 시</td></tr>
+  <tr><td>일기 내용</td><td>아이가 쓴 글(텍스트), 손글씨의 <strong>획 좌표</strong>와 <strong>손글씨 이미지</strong></td><td>일기 작성 시</td></tr>
+  <tr><td>음성 대화 내용</td><td>아이의 <strong>음성</strong>과 그 음성이 변환된 <strong>텍스트</strong></td><td>음성 대화 이용 시</td></tr>
   <tr><td>학습 기록</td><td>어휘 학습, 출석·연속학습, 주간 리포트 등 활동 데이터</td><td>앱 이용 중</td></tr>
   <tr><td>기기 식별자</td><td>기기 간 동기화·백업을 위한 익명 식별자, (로그인 시) 계정 식별자</td><td>앱 이용 중</td></tr>
 </table>
 <p>
-  <strong>음성 녹음 파일 자체는 저장하거나 전송하지 않습니다.</strong> 아이의 말은 기기에서
-  텍스트로 변환된 뒤 그 텍스트만 처리됩니다.
+  <strong>서비스는 아이의 음성 녹음 파일을 자체적으로 저장하지 않습니다.</strong> 다만 음성을
+  글자로 바꾸는 일은 브라우저(웹뷰)에 내장된 음성 인식 기능이 담당하며,
+  <strong>이 과정에서 음성이 브라우저 제공사(안드로이드·크롬은 Google, iOS는 Apple)의 서버로
+  전송되어 처리될 수 있습니다.</strong> 이는 브라우저·운영체제의 표준 기능이며 자세한 내용은
+  아래 4번 항목에 적었습니다.
 </p>
 
 <h2>3. 수집·이용 목적</h2>
@@ -87,8 +90,8 @@
   <tr><th>수탁사</th><th>이전 항목</th><th>이용 목적</th><th>소재 국가</th><th>보유 기간</th></tr>
   <tr>
     <td>Anthropic, PBC<br>(Claude API)</td>
-    <td>아이가 쓴 일기 텍스트</td>
-    <td>일기 첨삭·쓰기 도움 생성</td>
+    <td>아이가 쓴 일기 텍스트, <strong>손글씨 이미지</strong><br>(앞선 인식 단계가 모두 실패했을 때)</td>
+    <td>일기 첨삭·쓰기 도움 생성, 손글씨 읽기</td>
     <td>미국</td>
     <td>처리 목적 달성 즉시(별도 보관하지 않음)</td>
   </tr>
@@ -97,7 +100,21 @@
     <td>음성 대화 텍스트, 일기 텍스트</td>
     <td>라이티의 대화 응답·읽기 도움 생성</td>
     <td>미국</td>
-    <td>아래 <strong>5번 항목</strong> 참조</td>
+    <td>처리 목적 달성 즉시(아래 <strong>5번 항목</strong> 참조)</td>
+  </tr>
+  <tr>
+    <td>Google LLC<br>(Input Tools 손글씨 인식)</td>
+    <td>아이가 쓴 <strong>손글씨의 획 좌표</strong></td>
+    <td>손글씨를 글자로 인식</td>
+    <td>미국</td>
+    <td>제공사 정책에 따름</td>
+  </tr>
+  <tr>
+    <td>Google LLC 또는 Apple Inc.<br>(브라우저 내장 음성 인식)</td>
+    <td>아이의 <strong>음성</strong></td>
+    <td>음성을 글자로 변환(STT)</td>
+    <td>미국</td>
+    <td>제공사 정책에 따름</td>
   </tr>
   <tr>
     <td>Supabase, Inc.</td>
@@ -111,37 +128,50 @@
   이전 일시·방법: 해당 기능을 이용하는 시점에 정보통신망을 통해 암호화(HTTPS) 전송됩니다.
 </p>
 
-<h2>5. AI 서비스의 데이터 이용에 관한 고지 <span style="color:#B26B00">(중요)</span></h2>
+<h2>5. AI 서비스의 데이터 이용에 관한 고지</h2>
 
-<div class="warn">
-  <strong>현재 Google Gemini API를 무료 등급으로 이용하고 있습니다.</strong><br>
-  Google의 정책에 따라, <strong>무료 등급에서는 전송된 내용과 생성된 응답이 Google의
-  제품·서비스 및 머신러닝 기술 개발에 사용될 수 있으며, 품질 개선을 위해 Google의
-  검토 인력이 그 내용을 읽고 처리할 수 있습니다.</strong><br><br>
-  즉 <strong>아이가 라이티와 나눈 대화와 일기 내용이 Google의 AI 학습에 이용될 수 있습니다.</strong>
-  이는 개발자가 별도로 통제할 수 없는 Google의 무료 등급 정책입니다.<br><br>
-  개발자는 이 처리를 중단하기 위해 <strong>유료 등급으로의 전환을 준비하고 있으며</strong>,
-  전환이 완료되면 전송된 내용은 Google의 제품 개선에 사용되지 않습니다.
-  전환 시 본 방침을 즉시 개정하고 앱 내에 공지하겠습니다.
+<div class="box">
+  <strong>아이가 보낸 내용은 AI 모델 학습에 사용되지 않습니다.</strong><br>
+  서비스가 이용하는 두 AI(Google Gemini · Anthropic Claude)는 모두
+  <strong>유료 등급</strong>으로 운영합니다. 두 회사의 유료 약관은 전송된 내용을
+  제품 개선이나 AI 모델 학습에 사용하지 않도록 정하고 있습니다.
 </div>
 
+<ul>
+  <li><strong>Google(Gemini API) — 유료 등급.</strong> Google은 유료 등급에서 전송된
+      프롬프트와 응답을 제품 개선에 사용하지 않습니다.
+      (무료 등급은 이와 달라 학습에 사용될 수 있으나, 서비스는 무료 등급을 쓰지 않습니다.)</li>
+  <li><strong>Anthropic(Claude API) — 유료 상용 약관.</strong> 해당 약관상 전송된 내용은
+      AI 모델 학습에 사용되지 않습니다.</li>
+</ul>
+
 <p>
-  <strong>Anthropic(Claude API)</strong>은 유료 상용 약관으로 이용하고 있으며, 해당 약관상
-  전송된 내용은 <strong>AI 모델 학습에 사용되지 않습니다.</strong>
+  다만 <strong>손글씨 인식(Google Input Tools)과 브라우저 내장 음성 인식</strong>은
+  위 두 AI와 다른 별개의 서비스이며, 그 데이터 취급은 각 제공사(Google·Apple)의
+  정책을 따릅니다. 이 부분은 개발자가 개별적으로 통제하지 않습니다.
 </p>
 <p style="font-size:.92rem;color:#555">
   참고: <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API 추가 서비스 약관</a> ·
   <a href="https://privacy.anthropic.com/en/articles/7996868-i-want-to-opt-out-of-my-prompts-and-results-being-used-for-training-models" target="_blank" rel="noopener">Anthropic 학습 데이터 이용 안내</a>
 </p>
 
-<h2>6. 기기 안에서만 처리되는 것</h2>
-<p>아래 기능은 외부로 아무것도 전송하지 않고 기기 안에서 처리됩니다.</p>
+<h2>6. 기기 안에서 처리되는 것</h2>
 <table>
   <tr><th>기능</th><th>처리 방식</th></tr>
-  <tr><td>손글씨 읽어내기(OCR)</td><td>기기 안에서 도는 무료·오픈소스 엔진만 사용 — 손글씨 이미지는 외부로 전송되지 않습니다</td></tr>
-  <tr><td>라이티의 목소리(TTS)</td><td>기기·브라우저에 내장된 음성 합성 기능 사용 — 외부 음성 서비스를 쓰지 않습니다</td></tr>
-  <tr><td>음성 인식(STT)</td><td>기기에서 텍스트로 변환 — 녹음 파일은 저장·전송되지 않습니다</td></tr>
+  <tr>
+    <td><strong>라이티의 목소리(TTS)</strong></td>
+    <td><strong>전송 없음.</strong> 기기 안에서 음성 합성 모델(Supertonic)을 직접 돌립니다.
+        라이티가 할 말이 외부 음성 서비스로 나가지 않습니다.</td>
+  </tr>
+  <tr>
+    <td>손글씨 읽어내기 — 2단계</td>
+    <td>1단계(Google Input Tools)가 읽지 못하면, <strong>기기 안에서 도는
+        오픈소스 엔진(PaddleOCR)</strong>으로 처리합니다. 이 단계는 전송이 없습니다.</td>
+  </tr>
 </table>
+<p style="font-size:.92rem;color:#555">
+  ※ 손글씨 인식의 1단계와 음성 인식은 기기 밖에서 이뤄집니다. 위 4번 표를 참고해 주세요.
+</p>
 
 <h2>7. 만 14세 미만 아동의 개인정보 및 보호자 동의</h2>
 <p>
@@ -178,7 +208,7 @@
 <ul>
   <li>외부로 전송되는 모든 데이터는 HTTPS로 암호화됩니다.</li>
   <li>백업 데이터는 이용자별로 분리 저장되며, 접근 권한이 제한됩니다.</li>
-  <li>손글씨 이미지와 음성은 기기 안에서 처리해 전송 자체를 없앴습니다.</li>
+  <li>라이티의 목소리는 기기 안에서 합성해, 그 부분은 전송 자체를 없앴습니다.</li>
   <li>목적을 달성한 정보는 복구 불가능한 방식으로 삭제합니다.</li>
 </ul>
 
@@ -199,13 +229,13 @@
 <!-- ══════════════ English ══════════════ -->
 <div class="en">
 <h1>Peera — Privacy Policy</h1>
-<p class="meta">Effective: July 19, 2026 · Last updated: July 19, 2026</p>
+<p class="meta">Effective: July 19, 2026 · Last updated: July 19, 2026 (revised)</p>
 
 <div class="box">
-  <strong>In one line — this App sends what your child writes to AI services.</strong><br>
+  <strong>In one line — this App sends what your child writes and says to external services.</strong><br>
   To help polish diary entries and to let your child talk with Laity, Peera
-  <strong>transmits that content to external AI providers</strong>. Handwriting recognition and
-  Laity's voice are processed entirely on your device and are never transmitted.
+  <strong>transmits your child's writing, handwriting and speech to external services</strong>.
+  Only Laity's voice is generated on the device and never leaves it.
   Exactly what goes where is listed in <a href="#transfer-en">Section 4</a>.
 </div>
 
@@ -219,14 +249,17 @@
 <table>
   <tr><th>Item</th><th>Details</th><th>When</th></tr>
   <tr><td>Child's nickname</td><td>Used so Laity can address the child and to separate learning records</td><td>Initial setup</td></tr>
-  <tr><td>Diary content</td><td>Text written by the child, and handwriting/drawing images</td><td>When writing a diary</td></tr>
-  <tr><td>Voice conversation</td><td><strong>Text</strong> transcribed from speech during conversations with Laity</td><td>When using voice chat</td></tr>
+  <tr><td>Diary content</td><td>Text written by the child, <strong>handwriting stroke coordinates</strong> and <strong>handwriting images</strong></td><td>When writing a diary</td></tr>
+  <tr><td>Voice conversation</td><td>The child's <strong>speech</strong> and the <strong>text</strong> transcribed from it</td><td>When using voice chat</td></tr>
   <tr><td>Learning records</td><td>Vocabulary study, attendance/streaks, weekly reports</td><td>During use</td></tr>
   <tr><td>Device identifier</td><td>Anonymous identifier for sync/backup; account identifier if signed in</td><td>During use</td></tr>
 </table>
 <p>
-  <strong>Audio recordings themselves are never stored or transmitted.</strong> Speech is converted to
-  text on the device, and only that text is processed.
+  <strong>The Service itself does not store your child's audio recordings.</strong> However,
+  converting speech to text is handled by the speech recognition built into the browser (web view),
+  and <strong>in that process the audio may be transmitted to and processed by the browser vendor's
+  servers (Google on Android/Chrome, Apple on iOS).</strong> This is a standard browser/OS feature;
+  see Section 4 below for details.
 </p>
 
 <h2>3. Purpose of Use</h2>
@@ -248,8 +281,8 @@
   <tr><th>Processor</th><th>Data transferred</th><th>Purpose</th><th>Location</th><th>Retention</th></tr>
   <tr>
     <td>Anthropic, PBC<br>(Claude API)</td>
-    <td>Diary text written by the child</td>
-    <td>Diary correction and writing assistance</td>
+    <td>Diary text written by the child, <strong>handwriting images</strong><br>(when all earlier recognition steps fail)</td>
+    <td>Diary correction, writing assistance, reading handwriting</td>
     <td>United States</td>
     <td>Discarded upon completion of processing (not separately retained)</td>
   </tr>
@@ -258,7 +291,21 @@
     <td>Voice conversation text, diary text</td>
     <td>Generating Laity's responses and reading assistance</td>
     <td>United States</td>
-    <td>See <strong>Section 5</strong> below</td>
+    <td>Discarded upon completion of processing (see <strong>Section 5</strong>)</td>
+  </tr>
+  <tr>
+    <td>Google LLC<br>(Input Tools handwriting recognition)</td>
+    <td>The child's <strong>handwriting stroke coordinates</strong></td>
+    <td>Recognizing handwriting as text</td>
+    <td>United States</td>
+    <td>Per the provider's policy</td>
+  </tr>
+  <tr>
+    <td>Google LLC or Apple Inc.<br>(browser speech recognition)</td>
+    <td>The child's <strong>speech</strong></td>
+    <td>Converting speech to text (STT)</td>
+    <td>United States</td>
+    <td>Per the provider's policy</td>
   </tr>
   <tr>
     <td>Supabase, Inc.</td>
@@ -273,39 +320,53 @@
   relevant feature is used.
 </p>
 
-<h2>5. Notice Regarding AI Providers' Use of Data <span style="color:#B26B00">(Important)</span></h2>
+<h2>5. Notice Regarding AI Providers' Use of Data</h2>
 
-<div class="warn">
-  <strong>We currently use the Google Gemini API on its free tier.</strong><br>
-  Under Google's terms, <strong>on the free tier the content submitted and the responses generated
-  may be used to provide, improve, and develop Google's products, services, and machine learning
-  technologies, and human reviewers may read, annotate, and process that content</strong> for quality
-  purposes.<br><br>
-  In other words, <strong>conversations between your child and Laity, and diary content, may be used
-  to train Google's AI.</strong> This is Google's free-tier policy and is not something the Developer
-  can separately control.<br><br>
-  The Developer <strong>is preparing to move to the paid tier</strong> to end this processing. Once the
-  transition is complete, submitted content will not be used to improve Google's products. We will
-  revise this policy immediately and announce the change in the app.
+<div class="box">
+  <strong>What your child submits is not used to train AI models.</strong><br>
+  Both AI services the App uses (Google Gemini and Anthropic Claude) are operated on their
+  <strong>paid tiers</strong>. Both companies' paid terms provide that submitted content is not
+  used to improve their products or train their AI models.
 </div>
 
+<ul>
+  <li><strong>Google (Gemini API) — paid tier.</strong> Google does not use prompts or responses
+      submitted on the paid tier to improve its products. (The free tier differs and may use
+      content for training, but the App does not use the free tier.)</li>
+  <li><strong>Anthropic (Claude API) — paid commercial terms.</strong> Under those terms, submitted
+      content is not used to train AI models.</li>
+</ul>
+
 <p>
-  <strong>Anthropic (Claude API)</strong> is used under paid commercial terms, under which submitted
-  content <strong>is not used to train AI models.</strong>
+  Note that <strong>handwriting recognition (Google Input Tools) and the browser's built-in speech
+  recognition</strong> are separate services from the two AI providers above, and their handling of
+  data follows each provider's own policy (Google, Apple). The Developer does not control those
+  individually.
 </p>
 <p style="font-size:.92rem;color:#555">
   References: <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API Additional Terms of Service</a> ·
   <a href="https://privacy.anthropic.com/en/articles/7996868-i-want-to-opt-out-of-my-prompts-and-results-being-used-for-training-models" target="_blank" rel="noopener">Anthropic — Is my data used for model training?</a>
 </p>
 
-<h2>6. Processed Only on Your Device</h2>
-<p>The following features transmit nothing externally.</p>
+<h2>6. Processed On Your Device</h2>
 <table>
   <tr><th>Feature</th><th>How it works</th></tr>
-  <tr><td>Handwriting recognition (OCR)</td><td>Uses only free/open-source engines running on the device — handwriting images are never transmitted</td></tr>
-  <tr><td>Laity's voice (TTS)</td><td>Uses speech synthesis built into the device/browser — no external voice service</td></tr>
-  <tr><td>Speech recognition (STT)</td><td>Converted to text on the device — recordings are neither stored nor transmitted</td></tr>
+  <tr>
+    <td><strong>Laity's voice (TTS)</strong></td>
+    <td><strong>No transmission.</strong> A speech synthesis model (Supertonic) runs directly on the
+        device, so what Laity says never goes out to an external voice service.</td>
+  </tr>
+  <tr>
+    <td>Handwriting recognition — step 2</td>
+    <td>If step 1 (Google Input Tools) cannot read the writing, an
+        <strong>open-source engine running on the device (PaddleOCR)</strong> handles it.
+        This step transmits nothing.</td>
+  </tr>
 </table>
+<p style="font-size:.92rem;color:#555">
+  Note: step 1 of handwriting recognition and speech recognition happen off the device.
+  See the table in Section 4.
+</p>
 
 <h2>7. Children Under 14 and Guardian Consent</h2>
 <p>
@@ -342,7 +403,7 @@
 <ul>
   <li>All externally transmitted data is encrypted with HTTPS.</li>
   <li>Backup data is stored separately per user with restricted access.</li>
-  <li>Handwriting images and audio are processed on-device, eliminating transmission entirely.</li>
+  <li>Laity's voice is synthesized on the device, eliminating transmission for that part entirely.</li>
   <li>Information that has served its purpose is deleted irrecoverably.</li>
 </ul>
 
