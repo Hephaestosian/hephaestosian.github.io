@@ -53,21 +53,32 @@
                 </div>
 
                 <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
-                    Emotion Cards <span class="block text-2xl md:text-3xl text-gray-500 mt-2 font-light italic" data-i18n="heroSub">Feelings, one word at a time</span>
+                    Emotion Cards <span class="block text-2xl md:text-3xl text-gray-500 mt-2 font-light italic" data-i18n="heroSub">Learning to name what you feel</span>
                 </h1>
 
                 <!-- ★ data-i18n을 쓰지 않는다 — applyLanguage가 innerText로 넣기 때문에
                      안의 <span> 태그가 글자로 보인다. HTML이 든 문구는 id 기반 innerHTML 경로로. -->
                 <p class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 text-balance" id="main-desc">
-                    A child who can name a feeling can handle it. <span class="text-white font-medium">Emotion Cards</span> turns emotional vocabulary into something to collect and play with — cards to gather, six games to play, and a diary to keep.
+                    A child who can name a feeling can handle it. <span class="text-white font-medium">Emotion Cards</span> makes that naming into something to collect and play with — 47 cards to gather, and five ways to play with them.
                 </p>
+
+                <div class="glass rounded-2xl p-5 text-left max-w-xl mx-auto lg:mx-0">
+                    <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-purple-500 mb-3" data-i18n="playsTitle">Five Ways to Play</p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><span class="mr-2">🧭</span><strong class="text-gray-300" data-i18n="p1_t">I just felt this</strong> <span data-i18n="p1_d">— find your mood in four colored quadrants</span></li>
+                        <li><span class="mr-2">🐰</span><strong class="text-gray-300" data-i18n="p2_t">Say it with your body</strong> <span data-i18n="p2_d">— act it out, someone guesses</span></li>
+                        <li><span class="mr-2">📖</span><strong class="text-gray-300" data-i18n="p3_t">Feelings in a story</strong> <span data-i18n="p3_d">— read a scene, pick the feeling</span></li>
+                        <li><span class="mr-2">🔄</span><strong class="text-gray-300" data-i18n="p4_t">Find the pair</strong> <span data-i18n="p4_d">— match a feeling to its opposite</span></li>
+                        <li><span class="mr-2">🐻</span><strong class="text-gray-300" data-i18n="p5_t">Mind detective</strong> <span data-i18n="p5_d">— ask questions, work out how someone else felt</span></li>
+                    </ul>
+                </div>
 
                 <div class="space-y-4 pt-4">
                     <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500" data-i18n="featuresTitle">What's Inside</h3>
                     <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-gray-400 text-sm text-left">
-                        <li class="flex items-start gap-2">● <span><strong data-i18n="f1_t">Collect the cards:</strong> <span data-i18n="f1_d">Every emotion with its own word, opposite and example.</span></span></li>
-                        <li class="flex items-start gap-2">● <span><strong data-i18n="f2_t">Six games:</strong> <span data-i18n="f2_d">Charades, matching, opposites, mind detective and more.</span></span></li>
-                        <li class="flex items-start gap-2">● <span><strong data-i18n="f3_t">Diary &amp; weekly report:</strong> <span data-i18n="f3_d">See which feelings filled the week.</span></span></li>
+                        <li class="flex items-start gap-2">● <span><strong data-i18n="f1_t">47 emotion cards:</strong> <span data-i18n="f1_d">Not bare words — whole phrases like "I feel proud" or "I want to share."</span></span></li>
+                        <li class="flex items-start gap-2">● <span><strong data-i18n="f2_t">Five ways to play:</strong> <span data-i18n="f2_d">Name your mood, act it out, read it in a story, match opposites, and guess someone else's.</span></span></li>
+                        <li class="flex items-start gap-2">● <span><strong data-i18n="f3_t">Alone or together:</strong> <span data-i18n="f3_d">Each game shows how many players it wants — some are for two.</span></span></li>
                         <li class="flex items-start gap-2">● <span><strong data-i18n="f4_t">No server, no account:</strong> <span data-i18n="f4_d">Everything stays on the device.</span></span></li>
                     </ul>
                 </div>
@@ -91,21 +102,60 @@
             <div class="flex-shrink-0 mx-auto lg:mx-0">
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-purple-600/20 rounded-[2.5rem] blur-xl opacity-50"></div>
-                    <div class="relative w-[280px] h-[500px] md:w-[320px] md:h-[570px] glass rounded-[2.5rem] p-3 purple-shadow">
-                        <div class="w-full h-full rounded-[2rem] overflow-hidden bg-black flex flex-col items-center justify-center border border-white/5 space-y-8 px-8">
-                            <img src="/assets/icons/emotioncards.png" alt="Emotion Cards"
-                                 class="w-32 h-32 rounded-[1.75rem] shadow-2xl border border-white/10 floating">
-                            <div class="text-center space-y-2">
-                                <p class="text-lg font-bold" data-i18n="mockTitle">Emotion Cards</p>
-                                <p class="text-xs text-gray-500 leading-relaxed" data-i18n="mockDesc">Gather the words for what you feel</p>
-                            </div>
-                            <p class="text-[10px] font-mono text-purple-500 uppercase tracking-widest" data-i18n="mockPlatform">Android · Google Play</p>
-                        </div>
+                    <!-- 실제 앱 화면(놀이 허브). shots/01_hub.png을 웹용으로 줄인 것. -->
+                    <div class="relative w-[280px] md:w-[320px] glass rounded-[2.5rem] p-3 purple-shadow">
+                        <img src="/assets/emotioncards/01_hub.webp"
+                             alt="감정카드 놀이 허브 — 감정 카드 도감과 다섯 가지 놀이"
+                             width="1080" height="2160" loading="eager"
+                             class="w-full rounded-[2rem] border border-white/5 block">
                     </div>
                 </div>
             </div>
 
         </div>
+
+        <!-- ─── 실제 화면 ─── -->
+        <section class="mt-28">
+            <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-10" data-i18n="shotsTitle">Inside the App</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+                <figure class="space-y-3">
+                    <img src="/assets/emotioncards/02_dex.webp" alt="감정 카드 도감 — 모은 카드 10/47"
+                         width="1080" height="2160" loading="lazy"
+                         class="w-full rounded-2xl border border-white/10 shadow-2xl">
+                    <figcaption class="text-[11px] text-gray-500 leading-snug" data-i18n="s1">Card dex — 47 to collect</figcaption>
+                </figure>
+                <figure class="space-y-3">
+                    <img src="/assets/emotioncards/03_mood.webp" alt="나 방금 이런 마음 들었어 — 기분과 기운을 네 칸에서 짚기"
+                         width="1080" height="2160" loading="lazy"
+                         class="w-full rounded-2xl border border-white/10 shadow-2xl">
+                    <figcaption class="text-[11px] text-gray-500 leading-snug" data-i18n="s2">I just felt this</figcaption>
+                </figure>
+                <figure class="space-y-3">
+                    <img src="/assets/emotioncards/04_charades.webp" alt="몸으로 말해요 — 몸짓으로 감정 맞히기"
+                         width="1080" height="2160" loading="lazy"
+                         class="w-full rounded-2xl border border-white/10 shadow-2xl">
+                    <figcaption class="text-[11px] text-gray-500 leading-snug" data-i18n="s3">Say it with your body</figcaption>
+                </figure>
+                <figure class="space-y-3">
+                    <img src="/assets/emotioncards/05_story.webp" alt="이야기 속 감정 맞히기 — 읽고 어떤 감정인지 고르기"
+                         width="1080" height="2160" loading="lazy"
+                         class="w-full rounded-2xl border border-white/10 shadow-2xl">
+                    <figcaption class="text-[11px] text-gray-500 leading-snug" data-i18n="s4">Feelings in a story</figcaption>
+                </figure>
+                <figure class="space-y-3">
+                    <img src="/assets/emotioncards/06_pairs.webp" alt="짝꿍 감정 찾기 — 반대 감정 짝 맞히기"
+                         width="1080" height="2160" loading="lazy"
+                         class="w-full rounded-2xl border border-white/10 shadow-2xl">
+                    <figcaption class="text-[11px] text-gray-500 leading-snug" data-i18n="s5">Find the pair</figcaption>
+                </figure>
+                <figure class="space-y-3">
+                    <img src="/assets/emotioncards/07_detective.webp" alt="마음 탐정 — 질문으로 다른 사람의 마음 알아맞히기"
+                         width="1080" height="2160" loading="lazy"
+                         class="w-full rounded-2xl border border-white/10 shadow-2xl">
+                    <figcaption class="text-[11px] text-gray-500 leading-snug" data-i18n="s6">Mind detective</figcaption>
+                </figure>
+            </div>
+        </section>
     </main>
 
     <footer class="py-20 border-t border-white/5 px-6 mt-20">
@@ -123,18 +173,26 @@
             en: {
                 backToStudio: "← BACK TO STUDIO",
                 mindfulnessTag: "For Children",
-                heroSub: "Feelings, one word at a time",
-                mainDesc: 'A child who can name a feeling can handle it. <span class="text-white font-medium">Emotion Cards</span> turns emotional vocabulary into something to collect and play with — cards to gather, six games to play, and a diary to keep.',
+                heroSub: "Learning to name what you feel",
+                mainDesc: 'A child who can name a feeling can handle it. <span class="text-white font-medium">Emotion Cards</span> makes that naming into something to collect and play with — 47 cards to gather, and five ways to play with them.',
+                playsTitle: "Five Ways to Play",
+                p1_t: "I just felt this", p1_d: "— find your mood in four colored quadrants",
+                p2_t: "Say it with your body", p2_d: "— act it out, someone guesses",
+                p3_t: "Feelings in a story", p3_d: "— read a scene, pick the feeling",
+                p4_t: "Find the pair", p4_d: "— match a feeling to its opposite",
+                p5_t: "Mind detective", p5_d: "— ask questions, work out how someone else felt",
                 featuresTitle: "What's Inside",
-                f1_t: "Collect the cards:", f1_d: "Every emotion with its own word, opposite and example.",
-                f2_t: "Six games:", f2_d: "Charades, matching, opposites, mind detective and more.",
-                f3_t: "Diary & weekly report:", f3_d: "See which feelings filled the week.",
+                f1_t: "47 emotion cards:", f1_d: "Not bare words — whole phrases like \"I feel proud\" or \"I want to share.\"",
+                f2_t: "Five ways to play:", f2_d: "Name your mood, act it out, read it in a story, match opposites, and guess someone else's.",
+                f3_t: "Alone or together:", f3_d: "Each game shows how many players it wants — some are for two.",
                 f4_t: "No server, no account:", f4_d: "Everything stays on the device.",
                 safetyTitle: "Emotional Safety",
                 safetyDesc: "Hard feelings are never wrapped up in a cheerful tone. Sadness, fear and conflict are acknowledged carefully first — and when something serious comes up, the app gently points the child toward a trusted grown-up.",
+                shotsTitle: "Inside the App",
+                s1: "Card dex — 47 to collect", s2: "I just felt this", s3: "Say it with your body",
+                s4: "Feelings in a story", s5: "Find the pair", s6: "Mind detective",
                 statusBadge: "IN OPEN TESTING",
                 statusNote: "Currently in open testing on Google Play. iOS is on the way.",
-                mockTitle: "Emotion Cards", mockDesc: "Gather the words for what you feel", mockPlatform: "Android · Google Play",
                 footerTag: "Precision Digital Craftsmanship",
                 lang: "KO"
             },
@@ -142,17 +200,25 @@
                 backToStudio: "← 스튜디오로 돌아가기",
                 mindfulnessTag: "어린이를 위한",
                 heroSub: "감정에 이름을 붙이는 연습",
-                mainDesc: '자기 감정에 이름을 붙일 줄 아는 아이는 그 감정을 다룰 수 있습니다. <span class="text-white font-medium">감정카드(Emotion Cards)</span>는 감정 어휘를 모으고 노는 것으로 만듭니다 — 모으는 카드, 여섯 가지 놀이, 그리고 일기.',
+                mainDesc: '자기 감정에 이름을 붙일 줄 아는 아이는 그 감정을 다룰 수 있습니다. <span class="text-white font-medium">감정카드(Emotion Cards)</span>는 그 이름 붙이기를 모으고 노는 것으로 만듭니다 — 47장의 카드, 그리고 다섯 가지 놀이.',
+                playsTitle: "감정 놀이 다섯 가지",
+                p1_t: "나 방금 이런 마음 들었어", p1_d: "— 기분과 기운을 네 칸에서 짚어요",
+                p2_t: "몸으로 말해요", p2_d: "— 몸짓으로 표현하고 맞혀요",
+                p3_t: "이야기 속 감정 맞히기", p3_d: "— 읽고 어떤 감정인지 골라요",
+                p4_t: "짝꿍 감정 찾기", p4_d: "— 반대되는 감정의 짝을 찾아요",
+                p5_t: "마음 탐정", p5_d: "— 질문으로 다른 사람의 마음을 알아맞혀요",
                 featuresTitle: "무엇이 들어 있나",
-                f1_t: "카드 모으기:", f1_d: "감정마다 고유한 낱말·반대말·예시가 담겨 있어요.",
-                f2_t: "여섯 가지 놀이:", f2_d: "몸으로 말해요, 짝꿍 감정 찾기, 반대말, 마음 탐정 등.",
-                f3_t: "일기와 주간 리포트:", f3_d: "이번 주를 채운 감정이 무엇이었는지 한눈에.",
+                f1_t: "감정 카드 47장:", f1_d: "낱말이 아니라 \"뿌듯해요\", \"나눠주고 싶어요\" 같은 표현으로 배워요.",
+                f2_t: "놀이 다섯 가지:", f2_d: "마음 짚기, 몸으로 말하기, 이야기 속 감정, 짝꿍 찾기, 마음 탐정.",
+                f3_t: "혼자도, 같이도:", f3_d: "놀이마다 몇 명이 필요한지 표시돼 있어요. 둘이 하는 놀이도 있어요.",
                 f4_t: "서버도 계정도 없음:", f4_d: "모든 기록은 아이의 기기 안에만 남습니다.",
                 safetyTitle: "정서 안전",
                 safetyDesc: "힘든 감정을 들뜬 톤으로 마무리하지 않습니다. 슬픔·두려움·다툼은 먼저 진지하게 알아주고, 무거운 이야기가 나오면 믿는 어른에게도 얘기해보자고 부드럽게 이어줍니다.",
+                shotsTitle: "앱 속 화면",
+                s1: "감정 카드 도감 — 47장 모으기", s2: "나 방금 이런 마음 들었어", s3: "몸으로 말해요",
+                s4: "이야기 속 감정 맞히기", s5: "짝꿍 감정 찾기", s6: "마음 탐정",
                 statusBadge: "공개 테스트 중",
                 statusNote: "구글 플레이에서 공개 테스트를 진행하고 있습니다. iOS도 준비 중입니다.",
-                mockTitle: "감정카드", mockDesc: "내 마음을 부를 낱말을 모아요", mockPlatform: "Android · Google Play",
                 footerTag: "정교한 디지털 장인정신",
                 lang: "EN"
             }
