@@ -17,162 +17,174 @@
 
         body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; scroll-behavior: smooth; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .amber-shadow { box-shadow: 0 0 50px rgba(225, 117, 31, 0.12); }
         #langBtn { transition: all 0.3s ease; }
         #langBtn:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(225, 117, 31, 0.5); color: #E1751F; }
 
         /* ══════════════════════════════════════════════════════════════
-           라이티 통화 데모 — 피어라 랜딩(peera-landing)의 히어로 데모를 그대로 이식.
-           본품 dearmydiary의 writy.riv가 여기서도 실제로 구동된다.
-           스코프: .laity-demo 안에서만 적용해 사이트 다크 테마와 충돌하지 않게 한다.
+           라이티 통화 데모 — 아래 블록은 peera-landing의 CSS를 port.js가
+           기계 변환한 결과다. 손으로 고치지 말 것(원본과 어긋난다).
+           고칠 일이 있으면 랜딩 쪽을 고치고 port.js를 다시 돌린다.
+           변환 내용: 셀렉터에 .laity-demo 스코프, 키프레임에 ld- 접두사,
+                     자산 경로를 /assets/peera/ 로.
            ══════════════════════════════════════════════════════════════ */
         .laity-demo {
             --paper: #FFFDF8; --paper-warm: #FAF1E2; --ink: #3D2B1F; --ink-soft: #85715C;
             --line: #EBDCC6; --outline: #B07050;
-            --laity: #E1751F; --laity-deep: #C1580E; --cream-face: #FFE9C9;
+            --laity: #E1751F; --laity-deep: #C1580E; --laity-tail: #CE5F10; --cream-face: #FFE9C9;
+            --purple: #7C3AED; --purple-dark: #5B21C0; --purple-soft: #F1EAFE;
+            --green: #43A047; --bloom: #EF8A9B;
             --night-1: #10202B; --night-2: #1D3A34;
         }
+        .laity-demo { display: flex; justify-content: center; }
         .laity-demo .phone {
-            position: relative; width: min(340px, 88vw); border-radius: 44px;
-            background: #2A2019; padding: 12px;
-            box-shadow: 0 24px 60px rgba(0,0,0,.55), inset 0 0 0 2px #4A3A2C;
-            transform: rotate(1.6deg);
+          position: relative;
+          width: min(340px, 88vw);
+          border-radius: 44px;
+          background: #2A2019;
+          padding: 12px;
+          box-shadow: 0 24px 60px rgba(61,43,31,.28), inset 0 0 0 2px #4A3A2C;
+          transform: rotate(1.6deg);
+          overflow: hidden; /* 일기 카드의 숨김 상태가 폰 밖으로 비치지 않게 */
         }
         .laity-demo .screen {
-            position: relative; border-radius: 34px; overflow: hidden;
-            aspect-ratio: 9 / 17.5;
-            background: linear-gradient(170deg, var(--night-1), var(--night-2));
+          position: relative; overflow: hidden;
+          border-radius: 34px;
+          /* 실제 writy.riv 아트보드의 정지 프레임을 포스터로 깔고, 그 위에 라이브 Rive 캔버스를 얹는다 */
+          background: url('/assets/peera/writy-still.png') center / cover no-repeat,
+                      linear-gradient(178deg, var(--night-1) 4%, var(--night-2) 58%, #27503F 100%);
+          aspect-ratio: 9 / 18.6;
+          display: flex; flex-direction: column;
         }
         .laity-demo .screen canvas.rive {
-            position: absolute; inset: 0; width: 100%; height: 100%;
-            opacity: 0; transition: opacity .5s ease;
+          position: absolute; inset: 0; width: 100%; height: 100%;
+          opacity: 0; transition: opacity .5s ease;
         }
         .laity-demo .screen canvas.rive.on { opacity: 1; }
-        .laity-demo .screen::before {
-            content: ""; position: absolute; inset: 0; z-index: 0;
-            background: url('/assets/peera/writy-still.png') center/cover no-repeat;
-        }
-        .laity-demo .shade { position: absolute; left: 0; right: 0; height: 34%; z-index: 1; pointer-events: none; }
-        .laity-demo .shade.top { top: 0; background: linear-gradient(to bottom, rgba(8,20,26,.85), transparent); }
-        .laity-demo .shade.bot { bottom: 0; background: linear-gradient(to top, rgba(8,20,26,.9), transparent); }
+        /* 상/하단 자막·상태바 가독성 그늘 (실제 영상통화 UI 문법) */
+        .laity-demo .shade { position: absolute; left: 0; right: 0; z-index: 2; pointer-events: none; }
+        .laity-demo .shade.top { top: 0; height: 118px; background: linear-gradient(180deg, rgba(10,24,18,.62), transparent); }
+        .laity-demo .shade.bot { bottom: 0; height: 200px; background: linear-gradient(0deg, rgba(10,24,18,.68), transparent); }
         .laity-demo .notch {
-            position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
-            width: 92px; height: 22px; background: #10181C; border-radius: 999px; z-index: 3;
+          position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+          width: 88px; height: 22px; border-radius: 999px; background: #14100C; z-index: 6;
         }
         .laity-demo .call-top {
-            position: absolute; top: 38px; left: 16px; right: 16px; z-index: 3;
-            display: flex; justify-content: space-between; align-items: flex-start; color: #FFF6E6;
+          display: flex; align-items: center; justify-content: space-between;
+          padding: 44px 18px 6px; color: #EFEAE2; z-index: 5;
+          opacity: 0; transition: opacity .4s ease;  /* 통화가 연결된 뒤에만 보인다 */
         }
         .laity-demo .call-id { display: flex; flex-direction: column; line-height: 1.35; }
         .laity-demo .call-name { font-family: "Jua", sans-serif; font-size: 1.06rem; }
         .laity-demo .call-sub { font-size: .68rem; color: #A8C3AE; display: inline-flex; align-items: center; gap: 5px; }
         .laity-demo .call-sub .rec { width: 6px; height: 6px; border-radius: 50%; background: #7BD68B; animation: ld-pulse 1.6s infinite; }
+        @keyframes ld-pulse { 50% { opacity: .25; } }
         .laity-demo .batt { display: inline-flex; align-items: center; gap: 6px; font-size: .68rem; color: #CFE3D2; }
         .laity-demo .batt .case {
-            position: relative; display: inline-block; width: 22px; height: 11px;
-            border: 1.5px solid #CFE3D2; border-radius: 3px; padding: 1px;
+          width: 26px; height: 12px; border: 1.5px solid #CFE3D2; border-radius: 4px;
+          padding: 1.5px; position: relative;
         }
-        .laity-demo .batt .case::after {
-            content: ""; position: absolute; right: -4px; top: 3px; width: 2.5px; height: 5px;
-            background: #CFE3D2; border-radius: 1px;
-        }
+        .laity-demo .batt .case::after { content:""; position: absolute; right: -4px; top: 3px; width: 2.5px; height: 5px; background: #CFE3D2; border-radius: 1px; }
         .laity-demo .batt .fill { display: block; height: 100%; width: 86%; background: #7BD68B; border-radius: 2px; transition: width .8s ease, background .8s ease; }
+
+        /* 자막(대화) 영역 */
         .laity-demo .chat {
-            position: absolute; left: 14px; right: 14px; bottom: 68px; z-index: 3;
-            display: flex; flex-direction: column; gap: 8px;
+          flex: 1; display: flex; flex-direction: column; justify-content: flex-end;
+          gap: 8px; padding: 8px 14px 12px; overflow: hidden; z-index: 4; min-height: 0;
         }
         .laity-demo .bubble {
-            max-width: 84%; padding: 9px 13px; border-radius: 16px; font-size: .84rem; line-height: 1.5;
-            word-break: keep-all; animation: ld-pop .35s ease both;
+          max-width: 88%; padding: 9px 13px; border-radius: 16px;
+          font-size: .84rem; line-height: 1.55; word-break: keep-all;
+          animation: ld-bubIn .35s cubic-bezier(.2,.8,.3,1.1) both;
         }
+        @keyframes ld-bubIn { from { opacity: 0; transform: translateY(10px) scale(.96); } }
         .laity-demo .bubble.laity {
-            align-self: flex-start; background: rgba(255,246,230,.94); color: var(--ink);
-            border-bottom-left-radius: 5px;
+          align-self: flex-start; background: #FFF6E6; color: #3D2B1F;
+          border-bottom-left-radius: 5px;
         }
         .laity-demo .bubble.kid {
-            align-self: flex-end; background: var(--laity); color: #fff;
-            border-bottom-right-radius: 5px;
+          align-self: flex-end; background: var(--purple); color: #fff;
+          border-bottom-right-radius: 5px;
         }
         .laity-demo .bubble.kid .listen { display: inline-flex; gap: 3px; align-items: center; height: 1em; }
         .laity-demo .bubble.kid .listen i {
-            display: block; width: 3px; border-radius: 2px; background: rgba(255,255,255,.9);
-            animation: ld-eq .9s ease-in-out infinite;
+          width: 3px; border-radius: 2px; background: #E4D6FF; display: block;
+          animation: ld-eq .9s ease-in-out infinite;
         }
         .laity-demo .bubble.kid .listen i:nth-child(1) { height: 6px; }
         .laity-demo .bubble.kid .listen i:nth-child(2) { height: 12px; animation-delay: .12s; }
         .laity-demo .bubble.kid .listen i:nth-child(3) { height: 8px;  animation-delay: .24s; }
         .laity-demo .bubble.kid .listen i:nth-child(4) { height: 11px; animation-delay: .36s; }
-        .laity-demo .call-hint {
-            position: absolute; left: 0; right: 0; bottom: 22px; z-index: 3; text-align: center;
-            font-size: .68rem; color: #A8C3AE; line-height: 1.6; opacity: 0; transition: opacity .5s ease;
-        }
-        .laity-demo .call-hint.show { opacity: 1; }
-        .laity-demo .call-hint .mic { font-size: 1.1rem; }
+        @keyframes ld-eq { 50% { transform: scaleY(.4); } }
+        .laity-demo .caret { display: inline-block; width: 2px; height: .95em; background: #C1580E; vertical-align: -0.12em; margin-left: 1px; animation: ld-caret 0.8s step-end infinite; }
+        @keyframes ld-caret { 50% { opacity: 0; } }
+
+        /* ── 1막: 라이티의 문자 알림(잠금화면 배너) ── */
         .laity-demo .notif {
-            position: absolute; top: 70px; left: 12px; right: 12px; z-index: 4;
-            display: flex; gap: 10px; align-items: flex-start;
-            background: rgba(255,253,248,.96); border-radius: 18px; padding: 10px 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,.35);
-            transform: translateY(-140%); opacity: 0; transition: transform .5s cubic-bezier(.2,.9,.3,1.2), opacity .4s;
+          position: absolute; top: 44px; left: 12px; right: 12px; z-index: 8;
+          background: rgba(255,253,246,.94); backdrop-filter: blur(8px);
+          border-radius: 18px; padding: 10px 12px; display: flex; gap: 10px; align-items: flex-start;
+          box-shadow: 0 12px 30px rgba(10,24,18,.45);
+          transform: translateY(-140%); opacity: 0;
+          transition: transform .5s cubic-bezier(.2,.9,.3,1.2), opacity .35s ease;
         }
         .laity-demo .notif.show { transform: translateY(0); opacity: 1; }
         .laity-demo .notif img { width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0; }
         .laity-demo .notif .n-body { min-width: 0; }
         .laity-demo .notif .n-head { display: flex; gap: 6px; align-items: baseline; }
-        .laity-demo .notif .n-head b { font-family: "Jua", sans-serif; font-size: .82rem; color: var(--ink); }
+        .laity-demo .notif .n-head b { font-family: "Jua", sans-serif; font-size: .82rem; }
         .laity-demo .notif .n-head span { font-size: .62rem; color: #A08D74; }
         .laity-demo .notif .n-text { font-size: .78rem; line-height: 1.45; color: #4A3423; margin-top: 1px; word-break: keep-all; }
+
+        /* ── 2막: 전화 거는 중 ── */
         .laity-demo .calling {
-            position: absolute; inset: 0; z-index: 5;
-            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
-            background: linear-gradient(170deg, rgba(16,32,43,.96), rgba(29,58,52,.96));
-            opacity: 0; visibility: hidden; transition: opacity .45s ease, visibility .45s;
+          position: absolute; inset: 0; z-index: 7; display: grid; place-items: center; align-content: center;
+          gap: 10px; background: rgba(11,26,20,.72); backdrop-filter: blur(3px);
+          opacity: 0; visibility: hidden; transition: opacity .4s ease, visibility .4s;
         }
         .laity-demo .calling.show { opacity: 1; visibility: visible; }
-        .laity-demo .calling img {
-            width: 96px; height: 96px; border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(255,246,230,.5); animation: ld-ring 1.5s ease-out infinite;
-        }
+        .laity-demo .calling img { width: 96px; height: 96px; border-radius: 50%; box-shadow: 0 0 0 0 rgba(255,246,230,.5); animation: ld-ring 1.5s ease-out infinite; }
+        @keyframes ld-ring { to { box-shadow: 0 0 0 26px rgba(255,246,230,0); } }
         .laity-demo .calling b { font-family: "Jua", sans-serif; color: #FFF6E6; font-size: 1.15rem; }
         .laity-demo .calling span { color: #A8C3AE; font-size: .74rem; letter-spacing: .04em; }
         .laity-demo .calling span i { display: inline-block; animation: ld-dots 1.4s infinite; font-style: normal; }
         .laity-demo .calling span i:nth-child(2) { animation-delay: .2s; }
         .laity-demo .calling span i:nth-child(3) { animation-delay: .4s; }
-        .laity-demo .diary {
-            position: absolute; left: 50%; bottom: -26px; transform: translate(-50%, 130%);
-            width: 84%; background: var(--paper); border: 1.5px solid var(--line); border-radius: 18px;
-            padding: 14px 16px 16px; box-shadow: 0 16px 40px rgba(0,0,0,.45);
-            transition: transform .6s cubic-bezier(.2,.9,.3,1.15); z-index: 6;
+        @keyframes ld-dots { 0%, 60%, 100% { opacity: .25; } 30% { opacity: 1; } }
+
+        .laity-demo .call-hint {
+          text-align: center; color: #9FB8A6; font-size: .68rem; padding: 0 0 14px; z-index: 4;
+          opacity: 0; transition: opacity .4s ease;
         }
-        .laity-demo .diary.show { transform: translate(-50%, 0); }
+        .laity-demo .call-hint.show { opacity: 1; }
+        .laity-demo .call-hint .mic {
+          display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+          background: #FFF6E6; margin-bottom: 5px; box-shadow: 0 0 0 6px rgba(255,246,230,.12);
+        }
+
+        /* 통화 뒤 일기 카드(말 → 글 전환 연출) */
+        .laity-demo .diary {
+          position: absolute; left: 10px; right: 10px; bottom: 22px; z-index: 7;
+          background: #FFFDF6; border-radius: 20px; padding: 15px 17px 16px;
+          box-shadow: 0 -10px 34px rgba(16,32,43,.45);
+          transform: translateY(calc(100% + 24px));
+          transition: transform .6s cubic-bezier(.2,.8,.25,1);
+        }
+        .laity-demo .diary.show { transform: translateY(0); }
         .laity-demo .diary .d-label { font-size: .68rem; font-weight: 700; color: var(--outline); letter-spacing: .06em; }
         .laity-demo .diary .d-text {
-            font-family: "Gaegu", cursive; font-size: 1.18rem; line-height: 1.65; color: var(--ink);
-            margin-top: 4px; min-height: 3.3em; word-break: keep-all;
+          font-family: "Gaegu", cursive; font-size: 1.22rem; line-height: 1.5; color: #4A3423;
+          min-height: 3em; margin-top: 3px; padding-right: 4px;
+          background: repeating-linear-gradient(to bottom, transparent 0 calc(1.5em - 1px), #F0E2CC calc(1.5em - 1px) 1.5em);
         }
         .laity-demo .diary .d-stamp {
-            position: absolute; right: 10px; bottom: 8px; width: 60px;
-            transform: rotate(-10deg) scale(0); transition: transform .5s cubic-bezier(.2,.9,.3,1.5);
+          /* 본품의 실제 '참 잘했어요' 도장 — 종이 오른쪽 아래 모서리에 걸쳐 찍힌다 */
+          position: absolute; right: -8px; bottom: -12px; width: 66px; height: auto;
+          transform: rotate(-10deg) scale(0); transition: transform .35s cubic-bezier(.2,.9,.3,1.4);
+          filter: drop-shadow(0 2px 5px rgba(61,43,31,.22));
         }
         .laity-demo .diary .d-stamp.show { transform: rotate(-10deg) scale(1); }
-        .laity-demo .caret {
-            display: inline-block; width: 2px; height: 1em; background: var(--laity);
-            vertical-align: -2px; animation: ld-blink 1s step-end infinite;
-        }
 
-        @keyframes ld-pulse { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
-        @keyframes ld-pop   { from { opacity: 0; transform: translateY(6px) scale(.96); } to { opacity: 1; transform: none; } }
-        @keyframes ld-eq    { 0%,100% { transform: scaleY(.5); } 50% { transform: scaleY(1.25); } }
-        @keyframes ld-ring  { 0% { box-shadow: 0 0 0 0 rgba(255,246,230,.45); } 100% { box-shadow: 0 0 0 26px rgba(255,246,230,0); } }
-        @keyframes ld-dots  { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
-        @keyframes ld-blink { 50% { opacity: 0; } }
-
-        /* 모션 최소화 설정을 켠 사용자에겐 라이브 Rive 대신 정지 프레임만 */
-        @media (prefers-reduced-motion: reduce) {
-            .laity-demo .screen canvas.rive { display: none; }
-            .laity-demo .call-sub .rec, .laity-demo .bubble, .laity-demo .caret { animation: none !important; }
-            .laity-demo .diary, .laity-demo .diary .d-stamp, .laity-demo .notif { transition: none; }
-        }
+        .laity-demo { position: relative; }
     </style>
 </head>
 <body class="antialiased">
@@ -207,9 +219,9 @@
                     <span class="block text-2xl md:text-3xl text-gray-500 mt-2 font-light italic" data-i18n="heroSub">Speaking becomes writing</span>
                 </h1>
 
-                <p class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 text-balance" data-i18n="heroDesc">
-                    Once a day, a forest squirrel named Laity sends a text message. Curious, the child calls back — and talks about their day out loud. What they said then becomes a handwritten diary, in Korean and English.
-                </p>
+                <!-- ★ HTML이 든 문구는 data-i18n을 쓰지 않는다 — applyLanguage가 innerText로
+                     넣기 때문에 태그가 글자로 보인다. id 기반 innerHTML 경로로 처리한다. -->
+                <p class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 text-balance" id="main-desc"></p>
 
                 <div class="glass rounded-2xl p-5 text-left max-w-xl mx-auto lg:mx-0">
                     <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-amber-600 mb-3" data-i18n="loopTitle">The Loop</p>
@@ -230,49 +242,51 @@
                 </div>
             </div>
 
-            <!-- ─── 우: 라이브 라이티 통화 데모 ─── -->
-            <div class="flex-1 flex justify-center laity-demo">
-                <div class="phone" id="phoneDemo" role="img"
-                     aria-label="Peera app preview: Laity the squirrel sends a message, the child calls back, and the conversation becomes a handwritten diary">
-                    <div class="screen">
-                        <canvas class="rive" id="riveCanvas" aria-hidden="true"></canvas>
-                        <div class="shade top" aria-hidden="true"></div>
-                        <div class="shade bot" aria-hidden="true"></div>
-                        <div class="notch" aria-hidden="true"></div>
-                        <div class="call-top" aria-hidden="true">
-                            <span class="call-id">
-                                <span class="call-name">라이티 🌰</span>
-                                <span class="call-sub"><i class="rec"></i><span data-i18n="onCall">On call</span> <span id="callTime">00:04</span></span>
-                            </span>
-                            <span class="batt"><span data-i18n="laityPhone">Laity's phone</span> <i class="case"><i class="fill" id="battFill"></i></i></span>
-                        </div>
-                        <div class="chat" id="chat" aria-hidden="true"></div>
-                        <div class="call-hint" id="callHint" aria-hidden="true">
-                            <span class="mic">🎙️</span><br><span data-i18n="callHint">No buttons — Laity listens when the child speaks</span>
-                        </div>
+            <!-- ─── 우: 라이브 라이티 통화 데모 (마크업은 랜딩 원본 구조 그대로) ─── -->
+            <div class="flex-1 laity-demo">
+                <div class="demo-col">
+                    <div class="phone" id="phoneDemo" role="img"
+                         aria-label="Peera app preview: Laity the squirrel sends a message, the child calls back, and the conversation becomes a handwritten diary">
+                        <div class="screen">
+                            <canvas class="rive" id="riveCanvas" aria-hidden="true"></canvas>
+                            <div class="shade top" aria-hidden="true"></div>
+                            <div class="shade bot" aria-hidden="true"></div>
+                            <div class="notch" aria-hidden="true"></div>
+                            <div class="call-top" aria-hidden="true">
+                                <span class="call-id">
+                                    <span class="call-name">라이티 🌰</span>
+                                    <span class="call-sub"><i class="rec"></i><span data-i18n="onCall">On call</span> <span id="callTime">00:04</span></span>
+                                </span>
+                                <span class="batt"><span data-i18n="laityPhone">Laity's phone</span> <i class="case"><i class="fill" id="battFill"></i></i></span>
+                            </div>
+                            <div class="chat" id="chat" aria-hidden="true"></div>
+                            <div class="call-hint" id="callHint" aria-hidden="true">
+                                <span class="mic">🎙️</span><br><span data-i18n="callHint">No buttons — Laity listens when the child speaks</span>
+                            </div>
 
-                        <!-- 1막: 라이티가 보낸 문자 -->
-                        <div class="notif" id="notif" aria-hidden="true">
-                            <img src="/assets/peera/laity-avatar.png" alt="">
-                            <div class="n-body">
-                                <div class="n-head"><b>라이티</b><span data-i18n="now">now</span></div>
-                                <div class="n-text" id="notifText"></div>
+                            <!-- 1막: 라이티가 보낸 문자 -->
+                            <div class="notif" id="notif" aria-hidden="true">
+                                <img src="/assets/peera/laity-avatar.png" alt="">
+                                <div class="n-body">
+                                    <div class="n-head"><b>라이티</b><span data-i18n="now">now</span></div>
+                                    <div class="n-text" id="notifText"></div>
+                                </div>
+                            </div>
+
+                            <!-- 2막: 아이가 전화를 건다 -->
+                            <div class="calling" id="calling" aria-hidden="true">
+                                <img src="/assets/peera/laity-avatar.png" alt="">
+                                <b>라이티</b>
+                                <span data-i18n="calling">Calling<i>.</i><i>.</i><i>.</i></span>
                             </div>
                         </div>
 
-                        <!-- 2막: 아이가 전화를 건다 -->
-                        <div class="calling" id="calling" aria-hidden="true">
-                            <img src="/assets/peera/laity-avatar.png" alt="">
-                            <b>라이티</b>
-                            <span data-i18n="calling">Calling<i>.</i><i>.</i><i>.</i></span>
+                        <!-- 3막: 손글씨 일기 (.phone의 overflow:hidden이 숨김 상태를 잘라 준다) -->
+                        <div class="diary" id="diary" aria-hidden="true">
+                            <span class="d-label" data-i18n="diaryLabel">TODAY'S DIARY</span>
+                            <div class="d-text" id="diaryText"></div>
+                            <img class="d-stamp" id="diaryStamp" src="/assets/peera/stamp-good.png" alt="">
                         </div>
-                    </div>
-
-                    <!-- 3막: 손글씨 일기 -->
-                    <div class="diary" id="diary" aria-hidden="true">
-                        <span class="d-label" data-i18n="diaryLabel">TODAY'S DIARY</span>
-                        <div class="d-text" id="diaryText"></div>
-                        <img class="d-stamp" id="diaryStamp" src="/assets/peera/stamp-good.png" alt="">
                     </div>
                 </div>
             </div>
@@ -316,7 +330,7 @@
             en: {
                 backToStudio: "← BACK TO STUDIO", statusTag: "In Development",
                 heroSub: "Speaking becomes writing",
-                heroDesc: "Once a day, a forest squirrel named Laity sends a text message. Curious, the child calls back — and talks about their day out loud. What they said then becomes a handwritten diary, in Korean and English.",
+                mainDesc: 'Once a day, a forest squirrel named Laity sends a text message. Curious, the child calls back — and talks about their day out loud. What they said then becomes a <span class="text-white font-medium">handwritten diary</span>, in Korean and English.',
                 loopTitle: "The Loop",
                 loop1: "Laity sends a message — \"Let's talk about your day!\"",
                 loop2: "The child calls, and chatters about what happened.",
@@ -324,7 +338,7 @@
                 btnWaitlist: "Join the Waitlist", btnPrivacy: "Privacy Policy",
                 onCall: "On call", laityPhone: "Laity's phone", now: "now",
                 callHint: "No buttons — Laity listens when the child speaks",
-                calling: "Calling<i>.</i><i>.</i><i>.</i>", diaryLabel: "TODAY'S DIARY",
+                calling: "Calling<i>.</i><i>.</i><i>.</i>", diaryLabel: "TODAY'S DIARY · from the call",
                 featuresTitle: "What Makes It Different",
                 f1Title: "The child calls first",
                 f1Desc: "Laity texts; the child chooses to call. Speaking starts from curiosity, not from a task.",
@@ -338,7 +352,7 @@
             ko: {
                 backToStudio: "← 스튜디오로", statusTag: "개발 중",
                 heroSub: "말이 글이 되는 자리",
-                heroDesc: "하루 한 번, 숲속 다람쥐 라이티가 문자를 보내요. 궁금해진 아이가 먼저 전화를 걸어 오늘 하루를 조잘조잘 이야기합니다. 그렇게 꺼낸 마음이 한글·영어 손글씨 일기가 됩니다.",
+                mainDesc: '하루 한 번, 숲속 다람쥐 라이티가 문자를 보내요. 궁금해진 아이가 먼저 전화를 걸어 오늘 하루를 조잘조잘 이야기합니다. 그렇게 꺼낸 마음이 한글·영어 <span class="text-white font-medium">손글씨 일기</span>가 됩니다.',
                 loopTitle: "하루의 흐름",
                 loop1: "라이티가 문자를 보내요 — \"오늘 있었던 일 통화하자!\"",
                 loop2: "아이가 전화를 걸어 오늘 하루를 이야기해요.",
@@ -365,27 +379,39 @@
             const t = translations[lang];
             if (!t) return;
             document.documentElement.lang = lang;
+            const btn = document.getElementById('langBtn');
+            if (btn) btn.textContent = t.lang;
+
             document.querySelectorAll('[data-i18n]').forEach((el) => {
                 const key = el.getAttribute('data-i18n');
                 if (t[key]) el.innerHTML = t[key];
             });
-            const btn = document.getElementById('langBtn');
-            if (btn) btn.textContent = t.lang;
-            // 데모 대사도 언어에 맞춰 다시 재생한다
-            demoGen++;
-            if (demoVisible) runDemo();
+
+            // HTML이 든 문구는 id 기반으로
+            const md = document.getElementById('main-desc');
+            if (md && t.mainDesc) md.innerHTML = t.mainDesc;
         }
 
         function toggleLang() {
             currentLang = currentLang === 'en' ? 'ko' : 'en';
             localStorage.setItem('preferredLang', currentLang);
             applyLanguage(currentLang);
+            restartDemoForLang();
         }
 
-        /* ══════════ 라이브 라이티 ══════════
-           본품 dearmydiary의 writy.riv를 그대로 구동한다.
-           실패하면 .screen::before의 정지 프레임 포스터가 그대로 보인다. */
+        applyLanguage(currentLang);
+
+        /* ══════════════════════════════════════════════════════════════════
+           라이티 통화 데모 — 랜딩(peera-landing)의 히어로 데모를 그대로 옮긴 것.
+           본품 dearmydiary의 writy.riv가 여기서도 실제로 구동된다.
+           ★원본 로직을 재구현하지 말 것. 손대면 call-top·일기장처럼
+             '보일 때만 보이는' 연출이 조용히 깨진다.
+           달라진 점은 두 가지뿐: 자산 경로(/assets/peera/)와 대본의 ko/en 분기.
+           ══════════════════════════════════════════════════════════════════ */
+
         const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        /* ── 라이브 라이티 ── */
         const riveCanvas = document.getElementById('riveCanvas');
         let laityVmi = null;
         let riveInst = null;   // 화면 밖에선 멈춰 둔다(모바일 배터리·CPU)
@@ -398,7 +424,7 @@
             if (prefersReduced || !window.rive || !riveCanvas || riveCanvas.dataset.init) return;
             riveCanvas.dataset.init = '1';
             try {
-                rive.RuntimeLoader.setWasmUrl('/assets/peera/rive.wasm');
+                rive.RuntimeLoader.setWasmUrl(new URL('/assets/peera/rive.wasm', location.origin).href);
                 const r = new rive.Rive({
                     src: '/assets/peera/writy.riv',
                     canvas: riveCanvas,
@@ -421,186 +447,219 @@
                 addEventListener('resize', () => { try { r.resizeDrawingSurfaceToCanvas(); } catch (_) {} });
             } catch (_) { /* 포스터 폴백 */ }
         }
+        initLaityRive();
 
-        /* ══════════ 3막 데모 루프 ══════════
-           1막 라이티의 문자 → 2막 아이가 전화 → 3막 손글씨 일기 */
-        const phone     = document.getElementById('phoneDemo');
-        const chat      = document.getElementById('chat');
-        const notif     = document.getElementById('notif');
-        const notifText = document.getElementById('notifText');
-        const calling   = document.getElementById('calling');
-        const callHint  = document.getElementById('callHint');
-        const diary     = document.getElementById('diary');
-        const diaryText = document.getElementById('diaryText');
-        const diaryStamp= document.getElementById('diaryStamp');
-        const callTime  = document.getElementById('callTime');
-        const battFill  = document.getElementById('battFill');
-
-        const SCRIPT = {
+        /* ── 대본 ──
+           실제 앱의 하루: 라이티가 문자를 보내고 → 아이가 전화를 걸고 → 통화 → 일기.
+           ko는 랜딩 원본 그대로. en은 사이트 기본 언어가 영어라 함께 싣는다. */
+        const SCRIPTS = {
             ko: {
-                sms: '오늘 있었던 일 통화하자! 🌰',
+                notif: '나 오늘 진짜 커다란 도토리를 주웠어!',
                 turns: [
-                    { who: 'laity', text: '오늘 뭐 했어? 재밌는 일 있었어?' },
-                    { who: 'kid' },
-                    { who: 'laity', text: '우와, 그때 기분이 어땠는데?' },
-                    { who: 'kid' },
-                    { who: 'laity', text: '그 마음, 일기로 남겨볼까?' },
+                    { who: 'laity', text: '어? 지우야, 안녕! 오늘 하루 어땠어?' },
+                    { who: 'kid',   text: '라이티야! 아까 문자 봤어. 도토리 어디서 주웠어?' },
+                    { who: 'laity', text: '참나무 밑에서! 너무 커서 들고 오다 데굴데굴 굴렀지 뭐야. 너는 오늘 뭐 했어?' },
+                    { who: 'kid',   text: '유치원에서 종이접기 했어. 어려웠는데 끝까지 했어' },
+                    { who: 'laity', text: '끝까지 해냈구나, 멋지다! 그때 기분이 어땠어?' },
+                    { who: 'kid',   text: '뿌듯했어!' },
+                    { who: 'laity', text: '그 뿌듯한 마음, 우리 일기로 남겨볼까?' },
                 ],
-                diary: '오늘 놀이터에서 그네를 탔다.\n하늘까지 올라가는 것 같아서\n가슴이 콩닥콩닥 뛰었다.',
+                diary: '오늘 종이접기를 했다.\n어려웠는데 끝까지 해서 뿌듯했다.',
             },
             en: {
-                sms: "Let's talk about your day! 🌰",
+                notif: 'I found a REALLY big acorn today!',
                 turns: [
-                    { who: 'laity', text: 'What did you do today? Anything fun?' },
-                    { who: 'kid' },
-                    { who: 'laity', text: 'Wow — how did that feel?' },
-                    { who: 'kid' },
-                    { who: 'laity', text: 'Shall we keep that feeling in your diary?' },
+                    { who: 'laity', text: 'Oh, hi Jiwoo! How was your day?' },
+                    { who: 'kid',   text: 'Laity! I saw your message. Where did you find the acorn?' },
+                    { who: 'laity', text: 'Under the oak tree! It was so big I dropped it and it rolled away. What did you do today?' },
+                    { who: 'kid',   text: 'We did origami at kindergarten. It was hard but I finished it' },
+                    { who: 'laity', text: 'You saw it through — that’s wonderful! How did that feel?' },
+                    { who: 'kid',   text: 'I felt proud!' },
+                    { who: 'laity', text: 'Shall we keep that proud feeling in your diary?' },
                 ],
-                diary: 'I rode the swings at the playground.\nIt felt like going all the way up to the sky,\nand my heart went thump thump.',
+                diary: 'Today I did origami.\nIt was hard, but I finished it and felt proud.',
             },
         };
+        const script = () => SCRIPTS[currentLang] || SCRIPTS.en;
 
-        let demoGen = 0;        // 세대 토큰 — 이전 루프를 무효화한다
+        const phone      = document.getElementById('phoneDemo');
+        const chat       = document.getElementById('chat');
+        const diary      = document.getElementById('diary');
+        const diaryText  = document.getElementById('diaryText');
+        const diaryStamp = document.getElementById('diaryStamp');
+        const battFill   = document.getElementById('battFill');
+        const callTime   = document.getElementById('callTime');
+        const callTop    = document.querySelector('.call-top');
+        const callHint   = document.getElementById('callHint');
+        const notif      = document.getElementById('notif');
+        const notifText  = document.getElementById('notifText');
+        const calling    = document.getElementById('calling');
+
+        let demoGen = 0;          // 리셋 시 진행 중인 체인을 무효화
         let demoVisible = false;
-        const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+        let callRunning = false;  // 3막(통화) 중에만 통화시간이 흐른다
+        let secs = 0, timeTimer = null;
 
-        function resetDemo() {
-            chat.innerHTML = '';
-            notif.classList.remove('show');
-            calling.classList.remove('show');
-            callHint.classList.remove('show');
-            diary.classList.remove('show');
-            diaryStamp.classList.remove('show');
-            diaryText.textContent = '';
-            notifText.textContent = '';
-            setLaity('isTalking', false);
-            setLaity('isListening', false);
-        }
+        const wait = (ms, gen) => new Promise((r) => setTimeout(() => r(gen === demoGen), ms));
+        const fmt = (n) => String(Math.floor(n / 60)).padStart(2, '0') + ':' + String(n % 60).padStart(2, '0');
 
-        function bubble(kind, text) {
-            const el = document.createElement('div');
-            el.className = 'bubble ' + kind;
-            if (kind === 'kid') {
-                el.innerHTML = '<span class="listen"><i></i><i></i><i></i><i></i></span>';
-            } else {
-                el.textContent = text;
-            }
-            chat.appendChild(el);
+        function addBubble(who) {
+            const b = document.createElement('div');
+            b.className = 'bubble ' + who;
+            chat.appendChild(b);
+            // 오래된 말풍선은 3개까지만 유지
             while (chat.children.length > 3) chat.removeChild(chat.firstChild);
+            return b;
         }
 
-        async function typeInto(el, text, gen, speed) {
-            el.textContent = '';
+        async function typeInto(el, text, gen, cps = 38) {
             const caret = document.createElement('span');
             caret.className = 'caret';
-            el.appendChild(caret);
-            for (let i = 0; i < text.length; i++) {
-                if (gen !== demoGen) return;
-                caret.insertAdjacentText('beforebegin', text[i]);
-                await sleep(text[i] === '\n' ? speed * 3 : speed);
+            for (let i = 0; i <= text.length; i++) {
+                if (gen !== demoGen) return false;
+                el.textContent = text.slice(0, i);
+                el.appendChild(caret);
+                await new Promise((r) => setTimeout(r, 1000 / cps));
             }
-            if (gen === demoGen) caret.remove();
+            caret.remove();
+            el.textContent = text;
+            return true;
+        }
+
+        function setBattery(pct) {
+            battFill.style.width = pct + '%';
+            battFill.style.background = pct <= 18 ? '#F2A05C' : '#7BD68B';
+        }
+
+        function renderStatic() {
+            // 모션 최소화 환경: 통화 마지막 장면 + 완성된 일기를 그대로 보여준다.
+            const S = script();
+            chat.innerHTML = '';
+            S.turns.slice(-3).forEach((m) => { addBubble(m.who).textContent = m.text; });
+            setBattery(12);
+            callTop.style.opacity = '1';
+            callTime.textContent = fmt(184);
+            diary.classList.add('show');
+            diaryText.textContent = S.diary.replace('\n', ' ');
+            diaryStamp.classList.add('show');
         }
 
         async function runDemo() {
             const gen = ++demoGen;
-            const S = SCRIPT[currentLang] || SCRIPT.en;
-            resetDemo();
-            await sleep(600);
-            if (gen !== demoGen) return;
-
-            // 1막 — 라이티의 문자
-            notif.classList.add('show');
-            await typeInto(notifText, S.sms, gen, 55);
-            if (gen !== demoGen) return;
-            await sleep(1600);
-            if (gen !== demoGen) return;
+            const S = script();
+            chat.innerHTML = '';
+            diary.classList.remove('show');
+            diaryStamp.classList.remove('show');
+            diaryText.textContent = '';
             notif.classList.remove('show');
-            await sleep(500);
-            if (gen !== demoGen) return;
-
-            // 2막 — 아이가 전화를 건다
-            calling.classList.add('show');
-            await sleep(2000);
-            if (gen !== demoGen) return;
+            notifText.textContent = '';
             calling.classList.remove('show');
-            await sleep(400);
-            if (gen !== demoGen) return;
-
-            callHint.classList.add('show');
-            let sec = 4;
-            for (const turn of S.turns) {
-                if (gen !== demoGen) return;
-                if (turn.who === 'laity') {
-                    setLaity('isListening', false);
-                    setLaity('isTalking', true);
-                    bubble('laity', turn.text);
-                    await sleep(1900);
-                } else {
-                    setLaity('isTalking', false);
-                    setLaity('isListening', true);
-                    bubble('kid');
-                    await sleep(1700);
-                }
-                sec += 2;
-                callTime.textContent = '00:' + String(sec).padStart(2, '0');
-                battFill.style.width = Math.max(40, 86 - sec) + '%';
-            }
-            setLaity('isTalking', false);
-            setLaity('isListening', false);
-            if (gen !== demoGen) return;
-
             callHint.classList.remove('show');
-            await sleep(600);
-            if (gen !== demoGen) return;
+            callTop.style.opacity = '0';
+            setBattery(92);
+            secs = 0;
+            callTime.textContent = fmt(secs);
+            callRunning = false;
 
-            // 3막 — 손글씨 일기
+            // ── 1막 · 라이티가 문자를 보낸다 ──
+            if (!await wait(700, gen)) return;
+            notif.classList.add('show');
+            if (!await typeInto(notifText, S.notif, gen, 30)) return;
+            if (!await wait(1700, gen)) return;
+            notif.classList.remove('show');
+
+            // ── 2막 · 궁금해진 아이가 전화를 건다 ──
+            if (!await wait(500, gen)) return;
+            calling.classList.add('show');
+            if (!await wait(2100, gen)) return;
+            calling.classList.remove('show');
+
+            // ── 3막 · 통화 ──
+            callTop.style.opacity = '1';
+            callHint.classList.add('show');
+            callRunning = true;
+            if (!await wait(500, gen)) return;
+
+            for (let i = 0; i < S.turns.length; i++) {
+                if (gen !== demoGen) return;
+                const m = S.turns[i];
+                setBattery(92 - i * 11);
+
+                if (m.who === 'laity') {
+                    const b = addBubble('laity');
+                    setLaity('isTalking', true);       // Rive: 말하는 애니메이션
+                    const ok = await typeInto(b, m.text, gen, 46);
+                    setLaity('isTalking', false);
+                    if (!ok) return;
+                    if (!await wait(750, gen)) return;
+                } else {
+                    const b = addBubble('kid');
+                    b.innerHTML = '<span class="listen" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
+                    setLaity('isListening', true);     // Rive: 귀 기울이는 애니메이션
+                    if (!await wait(900, gen)) return;
+                    b.textContent = m.text;
+                    setLaity('isListening', false);
+                    if (!await wait(850, gen)) return;
+                }
+            }
+
+            // ── 4막 · 통화 끝, 말이 글로 ──
+            setBattery(8);
+            callRunning = false;
+            callHint.classList.remove('show');
+            if (!await wait(1200, gen)) return;
             diary.classList.add('show');
-            await sleep(500);
-            await typeInto(diaryText, S.diary, gen, 48);
-            if (gen !== demoGen) return;
-            await sleep(500);
+            if (!await wait(650, gen)) return;
+            const lines = S.diary.split('\n');
+            for (const [idx, line] of lines.entries()) {
+                const ok = await typeInto(diaryText, lines.slice(0, idx).join('\n') + (idx ? '\n' : '') + line, gen, 22);
+                if (!ok) return;
+            }
             diaryStamp.classList.add('show');
-            await sleep(3400);
-            if (gen !== demoGen) return;
-
+            if (!await wait(3600, gen)) return;
             if (demoVisible) runDemo();   // 루프
         }
 
-        /* 화면 밖·백그라운드 탭에서는 멈춘다 — 모바일 배터리·CPU 절약 */
-        if ('IntersectionObserver' in window && phone) {
-            const io = new IntersectionObserver((entries) => {
-                entries.forEach((e) => {
-                    if (e.isIntersecting) {
-                        if (!demoVisible) {
-                            demoVisible = true;
-                            initLaityRive();
-                            try { riveInst && riveInst.play(); } catch (_) {}
-                            runDemo();
-                        }
-                    } else {
-                        demoVisible = false;
-                        demoGen++;
-                        try { riveInst && riveInst.pause(); } catch (_) {}
+        // 언어를 바꾸면 진행 중인 대본을 끊고 새 언어로 다시 돌린다
+        function restartDemoForLang() {
+            if (prefersReduced) { renderStatic(); return; }
+            demoGen++;
+            if (demoVisible) runDemo();
+        }
+
+        if (prefersReduced) {
+            renderStatic();
+        } else {
+            // 통화 시간 카운터 — 실제 통화 중일 때만 흐른다
+            timeTimer = setInterval(() => {
+                if (demoVisible && callRunning) { secs++; callTime.textContent = fmt(secs); }
+            }, 1000);
+
+            const demoIO = new IntersectionObserver((ents) => {
+                ents.forEach((e) => {
+                    const was = demoVisible;
+                    demoVisible = e.isIntersecting;
+                    if (demoVisible && !was) {
+                        try { riveInst && riveInst.play(); } catch (_) {}
+                        runDemo();
+                    }
+                    if (!demoVisible) {
+                        demoGen++;                                          // 화면 밖: 대본 체인 중단
+                        try { riveInst && riveInst.pause(); } catch (_) {}  // Rive 렌더링도 정지
                     }
                 });
-            }, { threshold: .25 });
-            io.observe(phone);
+            }, { threshold: .2 });
+            demoIO.observe(phone);
 
+            // 탭이 백그라운드면 애니메이션을 멈춘다.
             document.addEventListener('visibilitychange', () => {
                 try {
                     if (document.hidden) { demoGen++; riveInst && riveInst.pause(); }
                     else if (demoVisible) { riveInst && riveInst.play(); runDemo(); }
                 } catch (_) {}
             });
-        } else {
-            demoVisible = true;
-            initLaityRive();
-            runDemo();
         }
 
-        applyLanguage(currentLang);
     </script>
 </body>
 </html>
