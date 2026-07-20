@@ -62,6 +62,7 @@
   <tr><td>음성 대화 내용</td><td>아이의 <strong>음성</strong>과 그 음성이 변환된 <strong>텍스트</strong></td><td>음성 대화 이용 시</td></tr>
   <tr><td>학습 기록</td><td>어휘 학습, 출석·연속학습, 주간 리포트 등 활동 데이터</td><td>앱 이용 중</td></tr>
   <tr><td>기기 식별자</td><td>기기 간 동기화·백업을 위한 익명 식별자, (로그인 시) 계정 식별자</td><td>앱 이용 중</td></tr>
+  <tr><td>공유한 글</td><td>아이가 직접 고르고 <strong>보호자가 승인한</strong> 일기 1편의 글과, 함께 표시되는 리그 별명·아바타</td><td>글 공유 기능 이용 시(선택)</td></tr>
 </table>
 <p>
   <strong>서비스는 아이의 음성 녹음 파일을 자체적으로 저장하지 않습니다.</strong> 다만 음성을
@@ -185,7 +186,35 @@
   아래 문의처로 요청하셔도 됩니다.
 </p>
 
-<h2>8. 보유 기간 및 파기</h2>
+<h2>8. 아이가 쓴 글의 공유(선택 기능)</h2>
+<p>
+  서비스는 아이가 쓴 글을 다른 이용자에게 보여 주는 <strong>선택 기능</strong>을 제공할 수 있습니다.
+  이 기능은 <strong>사용하지 않아도 서비스의 다른 기능을 모두 이용할 수 있으며</strong>,
+  이용을 위해서는 <strong>별도의 동의</strong>가 필요합니다.
+</p>
+<ul>
+  <li>① <strong>무엇이 공개되는가</strong> — 아이가 자기 일기 중 <strong>직접 고른 1편의 글</strong>과,
+      리그에서 쓰는 <strong>별명·아바타</strong>만 공개됩니다. 실명·나이·지역·학교·연락처는
+      <strong>어떤 경우에도 공개되지 않으며</strong>, 그림·사진도 공개하지 않습니다.
+      별명은 앱이 제시하는 낱말을 조합해 만들어지므로 실명이 될 수 없습니다.</li>
+  <li>② <strong>공개 전 확인</strong> — 아이가 공유를 요청하면 서비스가 글에 연락처·주소·학교 이름 등이
+      들어 있는지 자동으로 살펴 <strong>보호자에게 그 결과와 글 전문을 보여 드리고</strong>,
+      <strong>보호자가 승인해야만</strong> 공개됩니다. 자동 검사는 보조 수단이며 모든 정보를
+      가려내지 못할 수 있으므로 최종 판단은 보호자가 하시게 됩니다.</li>
+  <li>③ <strong>누가 보는가</strong> — 공개된 글은 같은 서비스를 쓰는 다른 이용자에게 표시될 수 있습니다.
+      검색엔진 색인 대상이 되거나 외부 사이트에 게시되지는 않습니다.</li>
+  <li>④ <strong>보관·삭제</strong> — 공유한 글은 데이터 백업과 동일한 저장소(4번 항목의 Supabase)에
+      보관되며, <strong>아이 또는 보호자가 언제든 내릴 수 있습니다.</strong> 내리면 지체 없이 삭제되고,
+      회원 탈퇴·데이터 초기화 시에도 함께 삭제됩니다.</li>
+  <li>⑤ <strong>동의 철회</strong> — 공유 기능에 대한 동의는 언제든 철회할 수 있으며, 철회하면 이미 공개된
+      글도 함께 내려갑니다. 철회는 앱 내 설정 또는 아래 문의처로 요청하실 수 있습니다.</li>
+</ul>
+<p>
+  ※ 다른 이용자의 글에서 부적절한 내용을 발견하시면 신고할 수 있으며, 접수된 글은 확인 전까지
+  비공개 처리됩니다.
+</p>
+
+<h2>9. 보유 기간 및 파기</h2>
 <p><strong>가. 보유 기간</strong></p>
 <ul>
   <li>일기·학습 기록: 서비스 이용 기간 동안(삭제 요청 시 파기)</li>
@@ -197,14 +226,15 @@
   전자적 파일은 복구 불가능한 방식으로 삭제합니다.
 </p>
 
-<h2>9. 이용자의 권리</h2>
+<h2>10. 이용자의 권리</h2>
 <p>
   이용자(법정대리인)는 개인정보의 <strong>열람·정정·삭제·처리정지</strong>를 요구할 수 있으며,
   동의를 철회할 수 있습니다. 요청은 아래 문의처로 접수해 주시면 지체 없이 처리하고
   결과를 알려드립니다.
+  공유 기능을 이용한 경우, 공개된 글을 내리는 것도 같은 방법으로 요청하실 수 있습니다.
 </p>
 
-<h2>10. 안전성 확보 조치</h2>
+<h2>11. 안전성 확보 조치</h2>
 <ul>
   <li>외부로 전송되는 모든 데이터는 HTTPS로 암호화됩니다.</li>
   <li>백업 데이터는 이용자별로 분리 저장되며, 접근 권한이 제한됩니다.</li>
@@ -212,13 +242,13 @@
   <li>목적을 달성한 정보는 복구 불가능한 방식으로 삭제합니다.</li>
 </ul>
 
-<h2>11. 방침의 변경</h2>
+<h2>12. 방침의 변경</h2>
 <p>
   본 방침이 변경되는 경우 변경 사항과 적용일자를 앱 내 공지 및 본 페이지를 통해 안내합니다.
   특히 위 5번 항목의 AI 데이터 이용에 변동이 생기면 즉시 개정하겠습니다.
 </p>
 
-<h2>12. 문의</h2>
+<h2>13. 문의</h2>
 <p>
   개인정보 처리에 관한 문의는 아래로 연락해 주시기 바랍니다.<br>
   개발자: 팀 Peer<br>
@@ -253,6 +283,7 @@
   <tr><td>Voice conversation</td><td>The child's <strong>speech</strong> and the <strong>text</strong> transcribed from it</td><td>When using voice chat</td></tr>
   <tr><td>Learning records</td><td>Vocabulary study, attendance/streaks, weekly reports</td><td>During use</td></tr>
   <tr><td>Device identifier</td><td>Anonymous identifier for sync/backup; account identifier if signed in</td><td>During use</td></tr>
+  <tr><td>Shared writing</td><td>One diary entry the child selects and <strong>a guardian approves</strong>, together with the league nickname and avatar shown beside it</td><td>When the optional sharing feature is used</td></tr>
 </table>
 <p>
   <strong>The Service itself does not store your child's audio recordings.</strong> However,
@@ -380,7 +411,38 @@
   or by contacting us below.
 </p>
 
-<h2>8. Retention and Destruction</h2>
+<h2>8. Sharing Your Child's Writing (Optional Feature)</h2>
+<p>
+  The Service may offer an <strong>optional feature</strong> that shows a child's writing to other users.
+  <strong>All other features remain fully available without it</strong>, and using it requires
+  <strong>separate consent</strong> as described below.
+</p>
+<ul>
+  <li>① <strong>What becomes visible</strong> — Only <strong>one diary entry the child chooses</strong>,
+      shown with the <strong>nickname and avatar</strong> used in the league. Real name, age, region,
+      school and contact details are <strong>never disclosed</strong>, and drawings and photos are not
+      shared. Nicknames are assembled from words the app offers, so they cannot be a real name.</li>
+  <li>② <strong>Review before publishing</strong> — When a child asks to share, the Service automatically
+      scans the text for things like contact details, addresses or school names, then
+      <strong>shows the guardian both that result and the full text</strong>. The entry is published
+      <strong>only after the guardian approves</strong>. The automatic scan is an aid and cannot catch
+      everything, so the final judgement rests with the guardian.</li>
+  <li>③ <strong>Who can see it</strong> — Published writing may be shown to other users of the Service.
+      It is not indexed by search engines and is not posted to outside sites.</li>
+  <li>④ <strong>Storage and deletion</strong> — Shared writing is stored in the same infrastructure used
+      for backups (Supabase, see section 4) and <strong>the child or guardian may remove it at any
+      time.</strong> Removal deletes it without delay, and it is also deleted when the account is closed
+      or the data is reset.</li>
+  <li>⑤ <strong>Withdrawing consent</strong> — Consent to sharing may be withdrawn at any time; anything
+      already published is taken down as well. You can withdraw in the app's settings or via the
+      contact below.</li>
+</ul>
+<p>
+  ※ You may report another user's writing if you find it inappropriate. Reported entries are hidden
+  until they have been reviewed.
+</p>
+
+<h2>9. Retention and Destruction</h2>
 <p><strong>a. Retention</strong></p>
 <ul>
   <li>Diaries and learning records: for the duration of use (destroyed upon deletion request)</li>
@@ -392,14 +454,14 @@
   Electronic files are deleted irrecoverably.
 </p>
 
-<h2>9. Your Rights</h2>
+<h2>10. Your Rights</h2>
 <p>
   Guardians may request <strong>access, correction, deletion, or suspension of processing</strong> of
   personal information, and may withdraw consent. Contact us below and we will act without delay and
   inform you of the result.
 </p>
 
-<h2>10. Security Measures</h2>
+<h2>11. Security Measures</h2>
 <ul>
   <li>All externally transmitted data is encrypted with HTTPS.</li>
   <li>Backup data is stored separately per user with restricted access.</li>
@@ -407,14 +469,14 @@
   <li>Information that has served its purpose is deleted irrecoverably.</li>
 </ul>
 
-<h2>11. Changes to This Policy</h2>
+<h2>12. Changes to This Policy</h2>
 <p>
   If this policy changes, we will announce the change and its effective date in the app and on this
   page. In particular, any change to the AI data usage described in Section 5 will be reflected
   immediately.
 </p>
 
-<h2>12. Contact</h2>
+<h2>13. Contact</h2>
 <p>
   For questions about the handling of personal information, please contact:<br>
   Developer: Peer<br>
