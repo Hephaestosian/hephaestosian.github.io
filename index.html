@@ -145,7 +145,32 @@
 
     <div class="section-divider"></div>
 
-    <section id="products" class="py-32 px-6 max-w-6xl mx-auto">
+    <!-- 학부모용 무료 자료 — 프로필 링크로 들어온 사람이 빈손으로 나가지 않게 제품보다 먼저 둔다(2026-09-11) -->
+    <section id="resources" class="pt-32 pb-8 px-6 max-w-6xl mx-auto">
+        <div class="mb-12">
+            <h2 class="text-4xl font-bold mb-4 italic tracking-tight" data-i18n="resTitle">Free Resources</h2>
+            <p class="text-gray-500" data-i18n="resDesc">Open materials for parents. No sign-up, no email.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a href="https://retyper.github.io/peera-landing/words.html?utm_source=studio&utm_medium=site&utm_campaign=peera_vocab" class="glass-card p-8 rounded-[2rem] block group">
+                <p class="text-[10px] font-bold text-emerald-500 mb-3 tracking-[0.2em] uppercase">01</p>
+                <h3 class="text-lg font-bold mb-2" data-i18n="res1Title">800 Essential English Words</h3>
+                <p class="text-gray-400 text-sm leading-relaxed" data-i18n="res1Desc">The full elementary-school word list, with PDFs.</p>
+            </a>
+            <a href="https://retyper.github.io/peera-landing/check.html?utm_source=studio&utm_medium=site&utm_campaign=peera_check" class="glass-card p-8 rounded-[2rem] block group">
+                <p class="text-[10px] font-bold text-emerald-500 mb-3 tracking-[0.2em] uppercase">02</p>
+                <h3 class="text-lg font-bold mb-2" data-i18n="res2Title">Which Words Does My Child Know?</h3>
+                <p class="text-gray-400 text-sm leading-relaxed" data-i18n="res2Desc">Tap the ones they know. What is left becomes the review list.</p>
+            </a>
+            <a href="https://retyper.github.io/peera-landing/prompts.html?utm_source=studio&utm_medium=site&utm_campaign=peera_prompts" class="glass-card p-8 rounded-[2rem] block group">
+                <p class="text-[10px] font-bold text-emerald-500 mb-3 tracking-[0.2em] uppercase">03</p>
+                <h3 class="text-lg font-bold mb-2" data-i18n="res3Title">34 Questions for a Blank Page</h3>
+                <p class="text-gray-400 text-sm leading-relaxed" data-i18n="res3Desc">Prompts for a child who says there is nothing to write about.</p>
+            </a>
+        </div>
+    </section>
+
+    <section id="products" class="pt-16 pb-32 px-6 max-w-6xl mx-auto">
         <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-4">
             <div>
                 <h2 class="text-4xl font-bold mb-4 italic tracking-tight" data-i18n="productTitle">Product Hub</h2>
@@ -198,8 +223,9 @@
                 <div class="flex items-center justify-between">
                     <a href="/products/emotioncards.html" class="text-sm font-bold border-b border-purple-500/30 pb-1 hover:border-purple-400 transition-all" data-i18n="viewProject">View Project</a>
                     <div class="flex gap-2 text-[9px] font-bold">
+                        <span class="border border-white/10 px-2 py-1 rounded bg-white/5">iOS</span>
                         <span class="border border-white/10 px-2 py-1 rounded bg-white/5">Android</span>
-                        <span class="border border-purple-500/20 px-2 py-1 rounded bg-purple-500/5 text-purple-500 text-center uppercase" data-i18n="openTesting">Open Testing</span>
+                        <span class="border border-purple-500/20 px-2 py-1 rounded bg-purple-500/5 text-purple-500 text-center uppercase" data-i18n="released">Released</span>
                     </div>
                 </div>
             </div>
@@ -211,11 +237,11 @@
                 </div>
                 <h3 class="text-2xl font-bold mb-1">Peera</h3>
                 <p class="text-[10px] font-bold text-amber-500 mb-4 tracking-[0.2em] uppercase" data-i18n="prSub">Speaking becomes writing</p>
-                <p class="text-gray-400 mb-10 h-12 text-sm leading-relaxed" data-i18n="prDesc">A squirrel named Laity texts once a day. The child calls back, talks about their day — and writes it down by hand.</p>
+                <p class="text-gray-400 mb-10 h-12 text-sm leading-relaxed" data-i18n="prDesc">A squirrel named Laity calls once a day. The child picks up, talks about their day — and writes it down by hand.</p>
                 <div class="flex items-center justify-between">
                     <a href="/products/peera.html" class="text-sm font-bold border-b border-amber-500/30 pb-1 hover:border-amber-400 transition-all" data-i18n="viewProject">View Project</a>
                     <div class="flex gap-2">
-                        <span class="text-[9px] font-bold border border-amber-500/20 px-2 py-1 rounded bg-amber-500/5 text-amber-500 text-center uppercase" data-i18n="inDevelopment">In Development</span>
+                        <span class="text-[9px] font-bold border border-amber-500/20 px-2 py-1 rounded bg-amber-500/5 text-amber-500 text-center uppercase" data-i18n="inAlpha">Alpha</span>
                     </div>
                 </div>
             </div>
@@ -278,8 +304,13 @@
                 zbSub: "Drift into sleep", zbDesc: "Authentic Korean temple bell resonance for deep restorative sleep and mindfulness.",
                 bsSub: "Decode your vitality", bsDesc: "Precision logging tool to monitor and understand your body's essential vital signals.",
                 ecSub: "Learning to name what you feel", ecDesc: "Children collect emotion cards, play six games, and keep a diary — learning the words for what they feel.",
-                prSub: "Speaking becomes writing", prDesc: "A squirrel named Laity texts once a day. The child calls back, talks about their day — and writes it down by hand.",
+                prSub: "Speaking becomes writing", prDesc: "A squirrel named Laity calls once a day. The child picks up, talks about their day — and writes it down by hand.",
                 inForge: "In Forge", openTesting: "Open Testing", inDevelopment: "In Development",
+                released: "Released", inAlpha: "Alpha",
+                resTitle: "Free Resources", resDesc: "Open materials for parents. No sign-up, no email.",
+                res1Title: "800 Essential English Words", res1Desc: "The full elementary-school word list, with PDFs.",
+                res2Title: "Which Words Does My Child Know?", res2Desc: "Tap the ones they know. What is left becomes the review list.",
+                res3Title: "34 Questions for a Blank Page", res3Desc: "Prompts for a child who says there is nothing to write about.",
                 archived: "Archived", tmTitle: "Today's Masterpiece",
                 tmDesc: "Service completed. Thank you for the journey we shared.",
                 footerAbout: "Forging digital value through minimalist design and robust engineering. Based in Seoul, serving the world.",
@@ -299,8 +330,13 @@
                 zbSub: "깊은 잠으로의 여정", zbDesc: "심신의 안정과 숙면을 위한 한국 전통 사찰 종소리의 울림을 전합니다.",
                 bsSub: "내 몸에 귀 기울이기", bsDesc: "신체의 핵심적인 통증 신호를 정밀하게 기록하고 모니터링하는 도구입니다.",
                 ecSub: "감정에 이름을 붙이는 연습", ecDesc: "아이가 감정 카드를 모으고 여섯 가지 놀이와 일기를 하며, 자기 마음을 부를 이름을 배웁니다.",
-                prSub: "말이 글이 되는 자리", prDesc: "다람쥐 라이티가 하루 한 번 문자를 보내요. 아이가 전화를 걸어 하루를 이야기하고, 그 마음을 손으로 씁니다.",
+                prSub: "말이 글이 되는 자리", prDesc: "다람쥐 라이티가 하루 한 번 먼저 전화를 걸어요. 아이가 받아 하루를 이야기하고, 그 이야기를 자기 손으로 씁니다.",
                 inForge: "제작 중", openTesting: "공개 테스트", inDevelopment: "개발 중",
+                released: "출시됨", inAlpha: "알파",
+                resTitle: "무료 자료", resDesc: "부모가 바로 쓰실 수 있게 열어 둔 자료입니다. 가입도, 이메일도 받지 않습니다.",
+                res1Title: "초등 필수 영단어 800개", res1Desc: "전체 목록과 PDF를 그대로 가져가실 수 있습니다.",
+                res2Title: "아이가 아는 낱말 확인하기", res2Desc: "아는 것만 누르면, 안 누른 낱말이 복습 목록이 됩니다.",
+                res3Title: "쓸 게 없다는 아이에게 던지는 질문 34개", res3Desc: "일기 앞에서 막힌 아이에게 건넬 질문들입니다.",
                 archived: "보관됨", tmTitle: "오늘의 걸작",
                 tmDesc: "서비스가 종료되었습니다. 함께해 주신 여정에 감사드립니다.",
                 footerAbout: "미니멀한 디자인과 견고한 엔지니어링을 통해 디지털 가치를 만듭니다. 서울에서 시작해 전 세계를 향합니다.",
@@ -311,7 +347,10 @@
 
         // 2. [핵심] 페이지 로드 시 저장된 언어 불러오기
 // localStorage에 저장된 값이 없으면 'en'을 기본값으로 사용합니다.
-let currentLang = localStorage.getItem('preferredLang') || 'en';
+// 저장된 선택이 우선. 없으면 브라우저 언어로 정한다 — 프로필 링크로 들어오는 학부모가
+// 영어 화면을 먼저 보고 나가는 누수를 막는다(2026-09-11). 해외 방문자는 그대로 영어.
+let currentLang = localStorage.getItem('preferredLang')
+    || ((navigator.language || navigator.userLanguage || '').toLowerCase().startsWith('ko') ? 'ko' : 'en');
 
 // 3. 언어를 화면에 적용하는 함수
 function applyLanguage(lang) {
