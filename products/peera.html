@@ -377,7 +377,7 @@
             }
         };
 
-        let currentLang = localStorage.getItem('preferredLang') || 'en';
+        let currentLang = localStorage.getItem('preferredLang') || ((navigator.language || navigator.userLanguage || '').toLowerCase().startsWith('ko') ? 'ko' : 'en');
 
         function applyLanguage(lang) {
             const t = translations[lang];

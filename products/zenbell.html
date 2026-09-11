@@ -179,7 +179,7 @@
         }
     };
 
-    let currentLang = localStorage.getItem('preferredLang') || 'en';
+    let currentLang = localStorage.getItem('preferredLang') || ((navigator.language || navigator.userLanguage || '').toLowerCase().startsWith('ko') ? 'ko' : 'en');
 
     function applyLanguage(lang) {
         const t = translations[lang];
@@ -221,7 +221,7 @@
         // 5. 페이지 로드 시 즉시 실행 (가장 확실한 방법)
     function init() {
         // 한 번 더 저장소에서 값을 확인
-        const savedLang = localStorage.getItem('preferredLang') || 'en';
+        const savedLang = localStorage.getItem('preferredLang') || ((navigator.language || navigator.userLanguage || '').toLowerCase().startsWith('ko') ? 'ko' : 'en');
         applyLanguage(savedLang);
     }
 

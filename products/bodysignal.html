@@ -130,24 +130,20 @@
                         </span>
                     </a>
 
-                    <div class="relative group cursor-not-allowed">
-                        <div class="bg-transparent border border-white/10 text-gray-500 px-6 py-3 rounded-xl font-bold flex items-center gap-3 opacity-60">
-                            <svg class="w-6 h-6" viewBox="0 0 384 512" fill="currentColor">
-                                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 21.8-88.5 21.8-11.4 0-51.1-20.8-83.6-21.3-43.1-.7-82.8 24.1-104.7 62.1-43.9 75.7-11.3 187.8 30.6 248.4 20.5 29.7 45 62.3 76.5 61.2 30.2-1.1 41.5-19.1 77.7-19.1 36.3 0 46.7 19.1 78.2 18.5 32.3-.7 53.3-29.7 73.1-58.6 22.9-33 32.3-65 32.6-66.6-.8-.3-63.7-24.3-63.9-96.9zM285.1 75.6c16.2-19.6 27.2-46.9 24.2-74.1-23.3 1-51.5 15.5-68.2 35.2-15 17.5-28.1 45.3-24.5 71.7 25.8 2 52.3-13.2 68.5-32.8z"/>
-                            </svg>
-                            <span class="text-left">
-                                <span class="text-[10px] block leading-none" data-i18n="asSub">Available soon on</span>
-                                <span class="text-lg font-bold">App Store</span>
-                            </span>
-                        </div>
-                        <div class="absolute -top-2 -right-2 bg-blue-600 text-[8px] px-2 py-0.5 rounded-full font-black text-white tracking-tighter shadow-lg">
-                            SOON
-                        </div>
-                    </div>
+                    <a href="https://apps.apple.com/app/id6758033651"
+                       class="bg-transparent border border-white/20 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/5 transition flex items-center gap-3">
+                        <svg class="w-6 h-6" viewBox="0 0 384 512" fill="currentColor">
+                            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 21.8-88.5 21.8-11.4 0-51.1-20.8-83.6-21.3-43.1-.7-82.8 24.1-104.7 62.1-43.9 75.7-11.3 187.8 30.6 248.4 20.5 29.7 45 62.3 76.5 61.2 30.2-1.1 41.5-19.1 77.7-19.1 36.3 0 46.7 19.1 78.2 18.5 32.3-.7 53.3-29.7 73.1-58.6 22.9-33 32.3-65 32.6-66.6-.8-.3-63.7-24.3-63.9-96.9zM285.1 75.6c16.2-19.6 27.2-46.9 24.2-74.1-23.3 1-51.5 15.5-68.2 35.2-15 17.5-28.1 45.3-24.5 71.7 25.8 2 52.3-13.2 68.5-32.8z"/>
+                        </svg>
+                        <span class="text-left">
+                            <span class="text-[10px] block leading-none" data-i18n="asSub">Download on the</span>
+                            <span class="text-lg font-bold">App Store</span>
+                        </span>
+                    </a>
                 </div>
 
                 <p class="text-[10px] text-gray-600 font-mono tracking-widest uppercase italic" data-i18n="statusNote">
-                    The iOS version is currently undergoing final verification.
+                    Out now on the App Store and Google Play.
                 </p>
             </div>
         </div>
@@ -217,8 +213,8 @@
             f6_t: "PDF Export:", f6_d: "Generate summaries for personal reference or clinic visits.",
             noticeTitle: "Important Notice",
             noticeDesc: "BodySignal does not provide medical diagnosis or treatment. It is designed for personal record-keeping and self-understanding, and does not replace professional medical care.",
-            gpSub: "Get it on", asSub: "Available soon on",
-            statusNote: "The iOS version is currently undergoing final verification.",
+            gpSub: "Get it on", asSub: "Download on the",
+            statusNote: "Out now on the App Store and Google Play.",
             footerTag: "Precision Digital Craftsmanship",
             privacy: "Privacy Policy", terms: "Terms of Service",
             lang: "KO",
@@ -238,8 +234,8 @@
             f6_t: "PDF 내보내기:", f6_d: "개인 소장이나 병원 진료 참고용 요약본을 생성합니다.",
             noticeTitle: "중요 고지 사항",
             noticeDesc: "바디시그널은 의료적 진단이나 치료를 제공하지 않습니다. 본 앱은 개인적인 기록과 자기 이해를 위해 설계되었으며, 전문적인 의료 서비스를 대체할 수 없습니다.",
-            gpSub: "다운로드", asSub: "출시 예정",
-            statusNote: "iOS 버전은 현재 최종 심사 절차를 진행 중입니다.",
+            gpSub: "다운로드", asSub: "다운로드",
+            statusNote: "App Store와 구글 플레이에 모두 나와 있습니다.",
             footerTag: "정교한 디지털 장인정신",
             privacy: "개인정보 처리방침", terms: "이용약관",
             lang: "EN",
@@ -248,7 +244,7 @@
     };
 
     // 현재 언어 상태 관리
-    let currentLang = localStorage.getItem('preferredLang') || 'en';
+    let currentLang = localStorage.getItem('preferredLang') || ((navigator.language || navigator.userLanguage || '').toLowerCase().startsWith('ko') ? 'ko' : 'en');
 
     function applyLanguage(lang) {
         const t = translations[lang];
@@ -283,7 +279,7 @@
 
     // [중요] 젠벨에서 성공했던 실행 보장 로직
     function init() {
-        const savedLang = localStorage.getItem('preferredLang') || 'en';
+        const savedLang = localStorage.getItem('preferredLang') || ((navigator.language || navigator.userLanguage || '').toLowerCase().startsWith('ko') ? 'ko' : 'en');
         applyLanguage(savedLang);
     }
 
