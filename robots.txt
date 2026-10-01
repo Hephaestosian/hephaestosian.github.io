@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hephaestosian.github.io/sitemap.xml
